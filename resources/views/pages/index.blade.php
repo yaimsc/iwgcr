@@ -1,4 +1,4 @@
-@extends('layout.home')
+@extends('layouts.home')
 
 @section('title', 'Regus Survey')
 
@@ -16,14 +16,14 @@
         <input type="number" class="form-control" name="number" equired/>
       </div>
       <div class="form-row">
-      <div class="form-group col-md-6">
-        <label class="bmd-label-floating">City</label>
-        <input type="text" class="form-control" name="city" required/>
-      </div>
-      <div class="form-group col-md-6">
-        <label class="bmd-label-floating">Country</label>
-        <input type="text" class="form-control" name="city" required/>
-      </div> 
+        <div class="form-group col-md-6">
+          <label class="bmd-label-floating">City</label>
+          <input type="text" class="form-control" name="city" required/>
+        </div>
+        <div class="form-group col-md-6">
+          <label class="bmd-label-floating">Country</label>
+          <input type="text" class="form-control" name="city" required/>
+        </div> 
       </div>
   
     </form>

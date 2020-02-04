@@ -24,3 +24,7 @@ Route::get('/download/{file}', function($file){
 	return response()->download($path);
 });
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

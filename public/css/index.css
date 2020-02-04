@@ -128,6 +128,7 @@ img::-moz-selection {
   text-transform: uppercase;
   color: #3c3c3b;
   font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+  width: 80%;
 }
 
 #mainNav .navbar-brand:focus, #mainNav .navbar-brand:hover {
