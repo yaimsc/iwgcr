@@ -16,13 +16,14 @@
 
     <header class="masthead text-center text-white d-flex">
       <div class="container my-auto">
-        <div class="row" id="content">
-          <!-- <div class="col-lg-5 mx-auto"> -->
-            <h1 id="welcome"><strong>Look up the Requirements PDF before doing the survey</strong></h1>
-          <!-- </div> -->
-          <div class="col-lg-2 mx-auto">
+        <div class="column" id="content">
+
+          <h1 id="welcome"><strong>Regus Site Survey</strong></h1>
+          
+          <!-- <div class="col-lg-2 mx-auto">
              <a href="/download/REGUS_Survey_Comms_Rooms.pdf"><img id="pdf" src="img/icon_pdf.png" alt="Regus Survey Requirements" ></a>
-          </div> 
+          </div>  -->
+          
           <!--
           <div class="col-lg-5 mx-auto"><hr>
             <h1 id="welcome"><strong>@lang('landing.title')</strong></h1>
@@ -32,5 +33,10 @@
           </div>  -->
           
         </div>
+        
+        
       </div>
+      <span class="icon">
+        <a href="#form"><i class="fas fa-chevron-down" ></i></a>
+      </span>
     </header>

@@ -1,0 +1,13 @@
+.icon{
+  font-size: 46pt;
+  display: flex; 
+  align-self: flex-end;
+  position: absolute;
+  margin-left: 48%;
+  padding-bottom: 20px;
+}
+
+.icon:hover{
+  color: #3c3c3b;
+  text-shadow: 0 0 3px #3c3c3b, 0 0 5px #3c3c3b;
+}
