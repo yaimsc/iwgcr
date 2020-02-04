@@ -358,3 +358,12 @@ header.masthead p {
   display: flex;
   justify-content: center;
 }
+
+#img-salto{
+  margin-top: 25px;
+  height: 300px; 
+  width: 250px;
+  transform: scale(1.15);
+  margin-left: 48%;
+  margin-bottom: 200px;
+}

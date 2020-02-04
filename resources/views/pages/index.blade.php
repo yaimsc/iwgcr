@@ -3,6 +3,7 @@
 @section('title', 'Regus Survey')
 
 @section('content')
+<img src="/img/salto.png" id="img-salto"/>
   <div id="form">
     <h5>Centre Information<h5>
     <form method="post">

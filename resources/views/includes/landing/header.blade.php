@@ -32,6 +32,10 @@
         <div class="column" id="content">
 
           <h1 id="welcome"><strong>Regus Site Survey</strong></h1>
+
+          <span class="icon">
+            <a href="#form"><i class="fas fa-chevron-down" ></i></a>
+          </span>
           
           <!-- <div class="col-lg-2 mx-auto">
              <a href="/download/REGUS_Survey_Comms_Rooms.pdf"><img id="pdf" src="img/icon_pdf.png" alt="Regus Survey Requirements" ></a>
@@ -49,7 +53,5 @@
         
         
       </div>
-      <span class="icon">
-        <a href="#form"><i class="fas fa-chevron-down" ></i></a>
-      </span>
+      
     </header>

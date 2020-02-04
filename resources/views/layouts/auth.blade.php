@@ -24,7 +24,9 @@
             <div class="container-fluid">
               {{-- <img src="img/SALTO_inspired_access_LOGO.png" alt="SALTO" id="icon" class="rounded float-left"> --}}
               <div class="collapse navbar-collapse" id="navbarResponsive">
-                <h1 class="navbar-brand js-scroll-trigger" href="#page-top">Regus Survey</h1>
+                <a class="navbar-brand" href="{{ url('/') }}">
+                    {{ config('app.name', 'Regus Survey') }}
+                </a>
                 @if (Route::has('login'))
                       <div class="top-right links">
                           @auth
