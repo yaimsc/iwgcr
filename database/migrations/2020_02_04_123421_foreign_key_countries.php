@@ -14,7 +14,7 @@ class ForeignKeyCountries extends Migration
     public function up()
     {
         Schema::table('countries', function (Blueprint $table) {
-            $table->unsignedInteger('continent_id'); 
+            $table->unsignedBigInteger('continent_id'); 
 
             $table->foreign('continent_id')->references('id')->on('continents'); 
         });
