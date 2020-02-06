@@ -16,7 +16,7 @@ class ContinentsTableSeeder extends Seeder
             'name' => 'Africa'
         ]); 
         DB::table('continents')->insert([
-            id => 2,
+            'id' => 2,
             'name' => 'Asia'
         ]);
         DB::table('continents')->insert([
@@ -24,7 +24,7 @@ class ContinentsTableSeeder extends Seeder
             'name' => 'Europe'
         ]); 
         DB::table('continents')->insert([
-            id => 4,
+            'id' => 4,
             'name' => 'North America'
         ]); 
         DB::table('continents')->insert([
