@@ -15,9 +15,11 @@
 //     return view('welcome');
 // });
 
-Route::get('/', function(){
-    return view('pages.index'); 
-});
+// Route::get('/', function(){
+//     return view('pages.index'); 
+// });
+
+Route::get('/', 'IndexController@index')->name('index'); 
 
 Route::get('/download/{file}', function($file){
 	$path = storage_path('app/public/files/'.$file);

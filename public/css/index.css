@@ -371,4 +371,31 @@ header.masthead p {
 #form-centre{
   margin-left: 5%;
   margin-right: 5%;
+  margin-bottom: 20px;
+}
+
+.form-control{
+  margin-top: -10px;
+}
+
+.bmd-label-floating{
+  transform: translateY(-120%);
+}
+select{
+  color: #ccc;
+}
+
+.input-group-addon {
+  /* padding: 6px 12px; */
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1;
+  color: #000;
+  text-align: center;
+  background-color: #eee;
+  border: 1px solid #ccc;
+  width: 1%;
+  white-space: nowrap;
+  vertical-align: middle;
+  display: table-cell;
 }
