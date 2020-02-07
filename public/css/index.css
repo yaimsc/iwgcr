@@ -46,6 +46,12 @@ h6 {
   font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
 }
 
+.title{
+  text-transform: uppercase;
+  font-weight: bold;
+  padding-top: 30px;
+}
+
 .bg-primary {
   background-color: #1ea4e9 !important;
 }
@@ -368,10 +374,16 @@ header.masthead p {
   margin-bottom: 200px;
 }
 
-#form-centre{
+/* .card{
+  background-color: #3c3c3b;
+} */
+
+
+#form-centre, #form-staff{
   margin-left: 5%;
   margin-right: 5%;
   margin-bottom: 20px;
+  padding: 20px;
 }
 
 .form-control{
@@ -398,4 +410,8 @@ select{
   white-space: nowrap;
   vertical-align: middle;
   display: table-cell;
+}
+
+#telephone{
+  margin-top: -1px;
 }
