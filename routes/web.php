@@ -30,3 +30,9 @@ Route::get('/download/{file}', function($file){
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+Route::resource('centre', 'CentreController'); 	//CRUD
+
+
+Route::resource('contactPerson', 'ContactPersonController');	//CRUD
