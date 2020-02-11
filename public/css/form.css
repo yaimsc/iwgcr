@@ -1,0 +1,48 @@
+body,
+html {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  font-family: 'Merriweather', 'Helvetica Neue', Arial, sans-serif;
+  background-color: rgba(34, 148, 203, 0.2);
+}
+
+#icon{
+  height: 80px; 
+  width: 110px; 
+  margin: -10px;
+  margin-left: 5px;
+  margin-right: 20px;
+}
+
+nav{
+  margin-top: -5px;
+  margin-bottom: -5px;
+}
+
+.navbar-brand{
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.card{
+  margin: 10%;
+  padding: 10px;
+}
+
+.form-group{
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+.title{
+  text-transform: uppercase;
+  color: #2294cb;
+  font-weight: bold;
+}
+
+.btn{
+  color: #2294cb;
+}

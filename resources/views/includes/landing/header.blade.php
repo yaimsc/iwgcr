@@ -3,7 +3,7 @@
       <div class="container-fluid">
         <img src="img/SALTO_inspired_access_LOGO.png" alt="SALTO" id="icon" class="rounded float-left">
         <div class="collapse navbar-collapse" id="navbarResponsive">
-          <h1 class="navbar-brand js-scroll-trigger" href="#from-centre">Regus Survey</h1>
+          <h1 class="navbar-brand js-scroll-trigger">Regus Survey</h1>
           @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
@@ -38,7 +38,7 @@
           </span> --}}
           <img src="/img/salto.png" id="img-salto"/>
           <div>
-            <button class="btn btn-info btn-xl js-scroll-trigger">Go to the Survey</button>
+            <a href={{route('centre.create')}}><button class="btn-primary">Go to the Survey</button></a>
           </div>
           
           
