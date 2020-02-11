@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Countries; 
 Use App\Centre; 
 
 class CentreController extends Controller
@@ -52,6 +53,7 @@ class CentreController extends Controller
         $data->save(); 
 
         return view('pages.contactPerson', [
+            'countries' => Countries::all(),
             'centres' => Centre::all()
         ]); 
 

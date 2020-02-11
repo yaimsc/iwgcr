@@ -5,7 +5,7 @@
 @section('content')
 
 <div class="index">
-<img src="/img/salto.png" id="img-salto"/>
+
   <div id="form-centre" class="card">
     <h5 class="title">Centre Information<h5>
     <form method="POST" action="{{route('centre.store')}}" enctype="multipart/form-data">

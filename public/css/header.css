@@ -11,3 +11,10 @@
   color: #3c3c3b;
   text-shadow: 0 0 3px #3c3c3b, 0 0 5px #3c3c3b;
 } 
+
+#img-salto{
+  margin-top: 100px;
+  height: 240px; 
+  width: 200px;
+  margin-bottom: 150px;
+}

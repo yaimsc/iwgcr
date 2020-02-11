@@ -3,7 +3,7 @@
       <div class="container-fluid">
         <img src="img/SALTO_inspired_access_LOGO.png" alt="SALTO" id="icon" class="rounded float-left">
         <div class="collapse navbar-collapse" id="navbarResponsive">
-          <h1 class="navbar-brand js-scroll-trigger" href="#page-top">Regus Survey</h1>
+          <h1 class="navbar-brand js-scroll-trigger" href="#from-centre">Regus Survey</h1>
           @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
@@ -33,9 +33,14 @@
 
           <h1 id="welcome"><strong>Regus Site Survey</strong></h1>
 
-          <span class="icon">
+          {{-- <span class="icon">
             <a href="#form"><i class="fas fa-chevron-down" ></i></a>
-          </span>
+          </span> --}}
+          <img src="/img/salto.png" id="img-salto"/>
+          <div>
+            <button class="btn btn-info btn-xl js-scroll-trigger">Go to the Survey</button>
+          </div>
+          
           
           <!-- <div class="col-lg-2 mx-auto">
              <a href="/download/REGUS_Survey_Comms_Rooms.pdf"><img id="pdf" src="img/icon_pdf.png" alt="Regus Survey Requirements" ></a>
