@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\ContactPerson;
 
 class ContactPersonController extends Controller
@@ -41,17 +42,23 @@ class ContactPersonController extends Controller
             'email' => 'email', 
         ]);
 
-        $data = new ContactPerson;
+        $contact=DB::table('contact_people')->where('name', $request->input('name'))->get(); 
 
-        $data->name=htmlentities($request->input('name'));
-        $data->telephonecode=$request->get('telephonecode');
-        $data->number=htmlentities($request->input('number'));
-        $data->centre=$request->get('centre');
-        $data->email=htmlentities($request->input('email'));
+        if($contact->count() != 0){
+            return view('pages.pdf');
+        }else{
+            $data = new ContactPerson;
 
-        $data->save(); 
+            $data->name=htmlentities($request->input('name'));
+            $data->telephonecode=$request->get('telephonecode');
+            $data->number=htmlentities($request->input('number'));
+            $data->email=htmlentities($request->input('email'));
+            $data->centre_name=$request->get('centre_name');
 
-        return view('pages.pdf');
+            $data->save(); 
+
+            return view('pages.pdf');
+        }
 
     }
 

@@ -4,7 +4,10 @@
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <a href="{{route('index')}}"><h1 class="navbar-brand js-scroll-trigger">Regus Survey</h1></a>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <a href="{{route('index')}}"><h1 class="navbar-brand js-scroll-trigger">Regus Survey</h1></a>
+    </div>
+    
     {{-- <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
         <li class="nav-item active">

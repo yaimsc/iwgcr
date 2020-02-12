@@ -40,12 +40,6 @@
           <div>
             <a href={{route('centre.create')}}><button class="btn-primary">Go to the Survey</button></a>
           </div>
-          
-          
-          <!-- <div class="col-lg-2 mx-auto">
-             <a href="/download/REGUS_Survey_Comms_Rooms.pdf"><img id="pdf" src="img/icon_pdf.png" alt="Regus Survey Requirements" ></a>
-          </div>  -->
-          
           <!--
           <div class="col-lg-5 mx-auto"><hr>
             <h1 id="welcome"><strong>@lang('landing.title')</strong></h1>

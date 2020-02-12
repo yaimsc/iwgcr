@@ -12,6 +12,10 @@ body {
   background-size: cover;
 }
 
+h3{
+  margin-top: 200px;
+}
+
 #icon{
   height: 80px; 
   width: 110px; 
