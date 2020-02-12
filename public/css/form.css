@@ -13,7 +13,11 @@ body {
 }
 
 h3{
-  margin-top: 200px;
+  margin-top: 10%;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-bottom: 20px;
 }
 
 #icon{
@@ -61,6 +65,11 @@ nav{
   background-color: #2294cb;
   border-radius: 20px;
   color: #fff;
+}
+
+#pdf{
+  display: flex;
+  justify-content: center;
 }
 
 .submit{
