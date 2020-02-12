@@ -7,6 +7,9 @@ html {
 body {
   font-family: 'Merriweather', 'Helvetica Neue', Arial, sans-serif;
   background-color: rgba(34, 148, 203, 0.2);
+  background-image: url("../img/back_from2.jpg");
+  background-position: center center;
+  background-size: cover;
 }
 
 #icon{
@@ -29,12 +32,15 @@ nav{
 
 .card{
   margin: 10%;
+  margin-left: 30%;
+  margin-right: 30%;
   padding: 10px;
-}
-
-.form-group{
   padding-left: 25px;
   padding-right: 25px;
+}
+
+.form-group.is-focused label{
+  color: #2294cb; 
 }
 
 .title{
@@ -43,6 +49,17 @@ nav{
   font-weight: bold;
 }
 
+#telephonecode{
+  margin-top: -8px;
+}
+
 .btn{
-  color: #2294cb;
+  background-color: #2294cb;
+  border-radius: 20px;
+  color: #fff;
+}
+
+.submit{
+  display: flex; 
+  justify-content: center;
 }

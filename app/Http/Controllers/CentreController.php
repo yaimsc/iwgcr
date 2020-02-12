@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Country; 
 Use App\Centre; 
 
@@ -44,21 +45,27 @@ class CentreController extends Controller
             'country' => 'string|required', 
             'city' => 'string|required|min:2'
         ]);
+        $centre=DB::table('centres')->where('name', $request->input('name'))->get(); 
+        if($centre->count() == 0){
+            return view('pages.contactPerson', [
+                'countries' => Country::all(),
+                'centres' => Centre::all()
+            ]); 
+        }else{
+            $data = new Centre; 
 
-        $data = new Centre; 
+            $data->name=htmlentities($request->input('name')); 
+            $data->number=htmlentities($request->input('number'));
+            $data->country=$request->get('country'); 
+            $data->city=htmlentities($request->input('city')); 
 
-        $data->name=htmlentities($request->input('name')); 
-        $data->number=htmlentities($request->input('number'));
-        $data->country=$request->get('country'); 
-        $data->city=htmlentities($request->input('city')); 
+            $data->save(); 
 
-        $data->save(); 
-
-        return view('pages.contactPerson', [
-            'countries' => Country::all(),
-            'centres' => Centre::all()
-        ]); 
-
+            return view('pages.contactPerson', [
+                'countries' => Country::all(),
+                'centres' => Centre::all()
+            ]); 
+        }
     }
 
     /**

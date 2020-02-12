@@ -7,7 +7,7 @@
     
   </head>
   <body>
-    @include('includes.home.nav')
+    @include('includes.navbars.navlight')
     @yield('content')
     @include('includes.scripts')
   </body>

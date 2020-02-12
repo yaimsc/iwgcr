@@ -1,11 +1,13 @@
-@extends('layouts.home')
+@extends('layouts.form')
 
 @section('title', 'Regus Survey')
 
 @section('content')
 
 <div id="form-staff" class="card">
-  <h5 class="title">Centre Staff Contact Person<h5>
+  <div class="card-header">
+    <h5 class="title">Centre Staff Contact Person<h5>
+  </div>
   <form method="post">
     @csrf
     <div class="form-group">
@@ -16,14 +18,14 @@
   
       <div class="form-group col-md-6">
         <select class="form-control" name="telephonecode" id="telephonecode">
-          <option value="" hidden disabled selected class="placeholder">+ 34</option>
+          <option value="" hidden disabled selected class="placeholder">Spain + 34</option>
             @foreach ($countries as $country)
               <option value="{{$country->telephonecode}}">{{$country->name}} {{$country->telephonecode}}</option>
             @endforeach
         </select>
       </div>
       <div class="form-group col-md-6">
-        <input type="tel" id="telephone" class="form-control" name="telephonenumber" placeholder="671 29 05 34" required/>
+        <input type="tel" id="telephone" class="form-control" name="number" placeholder="671 29 05 34" required/>
       </div>
       
     </div>
@@ -38,6 +40,11 @@
     <div class="form-group">
       <label class="bmd-label-floating">Email</label>
       <input type="email" class="form-control" name="email" required/>
+    </div>
+    <div class="submit">
+      <button type="submit" class="btn">
+        {{ __('SUBMIT') }}
+    </button>
     </div>
   </form>
 </div>

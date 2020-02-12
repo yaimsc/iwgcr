@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\ContactPerson;
 
 class ContactPersonController extends Controller
 {
@@ -34,7 +35,23 @@ class ContactPersonController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'string|required|min:2|max:255', 
+            'number' => 'numeric', 
+            'email' => 'email', 
+        ]);
+
+        $data = new ContactPerson;
+
+        $data->name=htmlentities($request->input('name'));
+        $data->telephonecode=$request->get('telephonecode');
+        $data->number=htmlentities($request->input('number'));
+        $data->email=htmlentities($request->input('email'));
+
+        $data->save(); 
+
+        return view('pages.pdf');
+
     }
 
     /**
