@@ -213,11 +213,6 @@ header.masthead {
   background-size: cover;
 } 
 
-#pdf{
-  width:150px;
-  margin-top: 20px;
-}
-
 header.masthead hr {
   margin-top: 30px;
   margin-bottom: 30px;
@@ -336,6 +331,7 @@ header.masthead p {
 #welcome{
   font-size: 50px;
   text-transform: uppercase;
+  margin-top: 100px;
 }
 
 .home-post{
