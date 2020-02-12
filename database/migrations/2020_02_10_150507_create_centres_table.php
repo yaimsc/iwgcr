@@ -16,7 +16,7 @@ class CreateCentresTable extends Migration
         Schema::create('centres', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name'); 
-            $table->int('number'); 
+            $table->integer('number'); 
             $table->string('country'); 
             $table->string('city');
             $table->timestamps();
