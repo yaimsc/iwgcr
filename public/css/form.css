@@ -6,7 +6,7 @@ html {
 
 body {
   font-family: 'Merriweather', 'Helvetica Neue', Arial, sans-serif;
-  background-color: rgba(34, 148, 203, 0.2);
+  background-color: rgb(10, 28, 76);
   background-image: url("../img/back_from2.jpg");
   background-position: center center;
   background-size: cover;

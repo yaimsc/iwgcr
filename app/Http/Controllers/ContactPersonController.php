@@ -46,6 +46,7 @@ class ContactPersonController extends Controller
         $data->name=htmlentities($request->input('name'));
         $data->telephonecode=$request->get('telephonecode');
         $data->number=htmlentities($request->input('number'));
+        $data->centre=$request->get('centre');
         $data->email=htmlentities($request->input('email'));
 
         $data->save(); 

@@ -46,7 +46,7 @@ class CentreController extends Controller
             'city' => 'string|required|min:2'
         ]);
         $centre=DB::table('centres')->where('name', $request->input('name'))->get(); 
-        if($centre->count() == 0){
+        if($centre->count() != 0){
             return view('pages.contactPerson', [
                 'countries' => Country::all(),
                 'centres' => Centre::all()

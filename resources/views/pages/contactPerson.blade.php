@@ -8,7 +8,7 @@
   <div class="card-header">
     <h5 class="title">Centre Staff Contact Person<h5>
   </div>
-  <form method="post">
+  <form method="POST" action="{{route('contactPerson.store')}}" enctype="multipart/form-data">
     @csrf
     <div class="form-group">
       <label class="bmd-label-floating">Name</label>
@@ -33,7 +33,7 @@
       <select class="form-control" name="centre" id="centre">
         <option value="" hidden disabled selected class="placeholder">Select Centre</option>
           @foreach ($centres as $centre)
-            <option value="{{$centre->id}}">{{$centre->name}}</option>
+            <option value="{{$centre->name}}">{{$centre->name}}</option>
           @endforeach
       </select>
     </div>  
