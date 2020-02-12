@@ -14,4 +14,12 @@ class IndexController extends Controller
             'countries' => Country::all()
         ]);
     }
+
+    public function pdf(){
+        return view('pages.pdf');
+    }
+
+    public function photos(){
+        return view('pages.photos'); 
+    }
 }

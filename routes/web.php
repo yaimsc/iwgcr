@@ -20,6 +20,8 @@
 // });
 
 Route::get('/', 'IndexController@index')->name('index'); 
+Route::get('/pdf', 'IndexController@pdf')->name('pdf');
+Route::get('/photos', 'IndexController@photos')->name('photos');
 
 Route::get('/download/{file}', function($file){
 	$path = storage_path('app/public/files/'.$file);
@@ -27,7 +29,7 @@ Route::get('/download/{file}', function($file){
 });
 
 
-Auth::routes();
+Auth::routes(); //AUTH
 
 Route::get('/home', 'HomeController@index')->name('home');
 
