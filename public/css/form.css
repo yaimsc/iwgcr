@@ -38,10 +38,17 @@ nav{
   font-weight: bold;
 }
 
-.card{
+.card-contact{
   margin: 10%;
   margin-left: 30%;
   margin-right: 30%;
+  padding: 10px;
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+.card{
+  margin: 20px;
   padding: 10px;
   padding-left: 25px;
   padding-right: 25px;
@@ -109,6 +116,15 @@ nav{
   max-height: 180px;
   min-width:130px;
   min-height: 130px;
+}
+
+.photos-content{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 15%;
 }
 
 .submit{

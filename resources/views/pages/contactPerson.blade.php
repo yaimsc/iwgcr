@@ -4,7 +4,7 @@
 
 @section('content')
 
-<div id="form-staff" class="card">
+<div id="form-staff" class="card-contact">
   <div class="card-header">
     <h5 class="title">Centre Staff Contact Person<h5>
   </div>
