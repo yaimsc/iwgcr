@@ -362,14 +362,6 @@ header.masthead p {
   background-color: #3c3c3b;
 } */
 
-
-#form-centre, #form-staff{
-  margin-left: 5%;
-  margin-right: 5%;
-  margin-bottom: 20px;
-  padding: 20px;
-}
-
 .form-control{
   margin-top: -10px;
 }
