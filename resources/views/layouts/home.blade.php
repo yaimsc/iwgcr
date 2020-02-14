@@ -8,7 +8,6 @@
   </head>
   <body>
     @include('includes.navbars.navdark')
-    @include('includes.drawer')
     @yield('content')
     @include('includes.scripts')
   </body>
