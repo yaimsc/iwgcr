@@ -14,8 +14,8 @@ class ForeignKeyUsers extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->unsignedBigInteger('rol_id'); 
-            $table->foreign('rol_id')->references('id')->on('roles');
+            $table->unsignedBigInteger('role_id')->default(2); 
+            $table->foreign('role_id')->references('id')->on('roles');
         });
     }
 
@@ -27,8 +27,8 @@ class ForeignKeyUsers extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropForeign('users_rol_id_foreign');
-            $table->dropColumn('rol_id');
+            $table->dropForeign('users_role_id_foreign');
+            $table->dropColumn('role_id');
         });
     }
 }

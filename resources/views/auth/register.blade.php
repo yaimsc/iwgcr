@@ -40,6 +40,26 @@
                         </div>
 
                         <div class="form-group row">
+                            <label for="country" class="col-md-4 col-form-label text-md-right">{{ __('Country') }}</label>
+
+                            <div class="col-md-6">
+                                <select class="form-control @error('country') is-invalid @enderror" name="country" id="country" >
+                                    <option value="" hidden disabled selected class="placeholder">Select Country</option>
+                                      @foreach ($countries as $country)
+                                        <option value="{{$country->name}}">{{$country->name}}</option>
+                                      @endforeach
+                                  </select>
+                                {{-- <input id="country" type="country" class="form-control @error('country') is-invalid @enderror" name="country" value="{{ old('country') }}" required autocomplete="country"> --}}
+
+                                @error('country')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
                             <div class="col-md-6">

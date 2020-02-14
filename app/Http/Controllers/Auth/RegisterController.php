@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\User;
+use App\Country;
+use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -42,6 +44,18 @@ class RegisterController extends Controller
     }
 
     /**
+     * Show the aplication registration form
+     * @return \Illuminate\Http\Response
+     *  
+    */ 
+    public function showRegistrationForm(){
+         
+        return view('auth.register', [
+            'countries' => Country::all()
+        ]);
+    }
+
+    /**
      * Get a validator for an incoming registration request.
      *
      * @param  array  $data
@@ -49,9 +63,10 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        return Validator::make($data, [
+        return Validator::make($data,[
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'country' => ['required'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
@@ -67,7 +82,17 @@ class RegisterController extends Controller
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
+            'country' => $data['country'],
             'password' => Hash::make($data['password']),
         ]);
     }
+
+    // protected function create(Request $request){
+    //     return User::create([
+    //         'name' => htmlentities($request->input('name')), 
+    //         'email' => htmlentities($request->input('email')), 
+    //         'country' => $request->get('country'), 
+    //         'password' => Hash::make(htmlentities($request->input('password')))
+    //     ]);
+    // }
 }
