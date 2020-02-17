@@ -39,21 +39,21 @@
       </div>
       <div class="form-group">
         <label class="bmd-label-floating">Cylinder Name</label>
-        <input class="form-control" name="name" />
+        <input class="form-control" name="name" required/>
       </div>
       <div class="form-row">
         <div class="form-group col-md-6">
           <label class="bmd-label-floating">Exterior Length</label>
-          <input class="form-control" name="name" placeholder="Exterior Length (mm)"/>
+          <input class="form-control" type="number" name="ext_length" placeholder="Exterior Length (mm)" required/>
         </div>
         <div class="form-group col-md-6">
           <label class="bmd-label-floating">Interior Length</label>
-          <input class="form-control" name="name" placeholder="Interior Length (mm)"/>
+          <input class="form-control" type="number" name="int_length" placeholder="Interior Length (mm)" required/>
         </div>
       </div>
       <div class="checkbox">
         <label>
-          <input type="checkbox">Distance from Knobs Centre to Frame OK
+          <input type="checkbox" name="check">Distance from Knobs Centre to Frame OK
         </label>
       </div>
     </div>

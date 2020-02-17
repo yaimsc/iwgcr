@@ -37,6 +37,13 @@ class PhotosController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'name' => 'required|string|min:2', 
+            'ext_length' => 'required|numeric', 
+            'int_length' => 'required|numeric', 
+            'check' => 'nullable'
+        ]); 
+
         
     }
 
