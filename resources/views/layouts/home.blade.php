@@ -4,11 +4,17 @@
     @include('includes.head')
     <link rel="stylesheet" href="/css/home.css">
     <title>@yield('title')</title>
-
   </head>
   <body>
     @include('includes.navbars.navdark')
-    @yield('content')
+    <div class="row">
+      <aside class="col-md-3">
+        @include('includes.drawer')
+      </aside>
+    <section class="col-md-9">
+      @yield('content')
+    </section>
+  </div>
     @include('includes.scripts')
   </body>
 </html>

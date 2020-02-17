@@ -44,6 +44,8 @@ Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm
 Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home/centres', 'HomeController@centre')->name('home.centres');
+Route::get('home/contacts', 'HomeController@contactPerson')->name('home.contacts'); 
 
 
 Route::resource('centre', 'CentreController'); 	//CRUD

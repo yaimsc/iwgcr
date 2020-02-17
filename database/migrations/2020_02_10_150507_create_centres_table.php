@@ -19,6 +19,7 @@ class CreateCentresTable extends Migration
             $table->integer('number'); 
             $table->string('country'); 
             $table->string('city');
+            $table->string('address'); 
             $table->timestamps();
         });
     }

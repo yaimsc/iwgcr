@@ -1,5 +1,5 @@
 <!doctype html>
-  <meta charset="utf-8">
+  <meta http-equiv="Content-type" content="text/html" charset="utf-8">
   <head>
     @include('includes.head')
     <link rel="stylesheet" href="/css/form.css">

@@ -43,7 +43,8 @@ class CentreController extends Controller
             'name' => 'string|required|min:2|max:255', 
             'number' => 'numeric|required', 
             'country' => 'string|required', 
-            'city' => 'string|required|min:2'
+            'city' => 'string|required|min:2',
+            'address' => 'string|required|min:2'
         ]);
         $centre=DB::table('centres')->where('name', $request->input('name'))->get(); 
         if($centre->count() != 0){
@@ -54,10 +55,11 @@ class CentreController extends Controller
         }else{
             $data = new Centre; 
 
-            $data->name=htmlentities($request->input('name')); 
-            $data->number=htmlentities($request->input('number'));
+            $data->name=$request->input('name'); 
+            $data->number=$request->input('number');
             $data->country=$request->get('country'); 
-            $data->city=htmlentities($request->input('city')); 
+            $data->city=$request->input('city'); 
+            $data->address=$request->input('address');
 
             $data->save(); 
 

@@ -30,10 +30,13 @@ p{
 
 .drawer{
   position: fixed;
-  width: 200px;
   height: 100%;
   background-color:#999999;
+  -webkit-box-shadow: 3px 3px 11px -2px rgba(60,60,59,0.64);
+  -moz-box-shadow: 3px 3px 11px -2px rgba(60,60,59,0.64);
+  box-shadow: 3px 3px 11px -2px rgba(60,60,59,0.64);
 }
+
 ul{
   margin: 0px; 
   padding: 0px;
@@ -41,13 +44,26 @@ ul{
 
 li{
   list-style-type:none; 
-  color: white;
   padding: 5px;
   padding-top: 20px;
+  padding-right: 20px; 
   padding-left: 30px;
   border-bottom: 1px solid rgba(100,100,100,0.4);
 }
 
+li a{
+  color: white;
+}
+
+li a:hover{
+  text-decoration: none;
+}
+
 li p{
   padding-left: 30px;
+}
+
+table{
+  width: 100%; 
+  margin-top: 50px;
 }

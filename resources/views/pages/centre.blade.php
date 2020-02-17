@@ -38,6 +38,10 @@
       <label class="bmd-label-floating">City</label>
       <input type="text" class="form-control" name="city" required/>
     </div>
+    <div class="form-group">
+      <label class="bmd-label-floating">Address</label>
+      <input type="text" class="form-control" name="address" required/>
+    </div>
     <div class="submit">
       <button type="submit" class="btn">
         {{ __('SUBMIT') }}
