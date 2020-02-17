@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Centre;
 
 class PhotosController extends Controller
 {
@@ -13,7 +14,9 @@ class PhotosController extends Controller
      */
     public function index()
     {
-        //
+        return view('pages.photos', [
+            'centres' => Centre::all()
+        ]);
     }
 
     /**
@@ -34,7 +37,7 @@ class PhotosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**

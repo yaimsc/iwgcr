@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\ContactPerson;
+use App\Country;
+use App\centre;
 
 class ContactPersonController extends Controller
 {
@@ -15,7 +17,10 @@ class ContactPersonController extends Controller
      */
     public function index()
     {
-        //
+        return view('pages.contactPerson', [
+            'countries' => Country::all(),
+            'centres' => Centre::all()
+        ]);
     }
 
     /**
@@ -49,10 +54,10 @@ class ContactPersonController extends Controller
         }else{
             $data = new ContactPerson;
 
-            $data->name=htmlentities($request->input('name'));
+            $data->name=$request->input('name');
             $data->telephonecode=$request->get('telephonecode');
-            $data->number=htmlentities($request->input('number'));
-            $data->email=htmlentities($request->input('email'));
+            $data->number=$request->input('number');
+            $data->email=$request->input('email');
             $data->centre_name=$request->get('centre_name');
 
             $data->save(); 

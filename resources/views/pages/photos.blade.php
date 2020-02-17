@@ -5,10 +5,21 @@
 @section('content')
 
 <div class="photos-content">
-  <form>
+  <form method="POST">
     @csrf
     <div class="form">
     <div id="photo">
+      <div class="card">
+        <label class="title">CENTRE NAME</label>
+        {{-- <div class="form-group"> --}}
+          <select class="form-control" name="centre_name" id="centre">
+            <option value="" hidden disabled selected class="placeholder">Select Centre</option>
+              @foreach ($centres as $centre)
+                <option value="{{$centre->name}}">{{$centre->name}}</option>
+              @endforeach
+          </select>
+        {{-- </div>  --}}
+      </div>
       <div class="card">
         <label class="title">Interior Photo</label>
         <input class="form-control"  type="file" name="interior"/>
@@ -28,7 +39,7 @@
       </div>
       <div class="form-group">
         <label class="bmd-label-floating">Cylinder Name</label>
-        <input class="form-control" name="name" placeholder="Cylinder Name"/>
+        <input class="form-control" name="name" />
       </div>
       <div class="form-row">
         <div class="form-group col-md-6">
@@ -39,6 +50,11 @@
           <label class="bmd-label-floating">Interior Length</label>
           <input class="form-control" name="name" placeholder="Interior Length (mm)"/>
         </div>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox">Distance from Knobs Centre to Frame OK
+        </label>
       </div>
     </div>
   </div>

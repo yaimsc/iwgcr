@@ -50,5 +50,8 @@
     </div>
   </form>
 </div>
+<div class="next">
+  <a href="{{route('contactPerson.index')}}">Next</a>
+</div>
 
 @endsection

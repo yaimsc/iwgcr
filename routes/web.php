@@ -21,7 +21,7 @@
 
 Route::get('/', 'IndexController@index')->name('index'); 
 Route::get('/pdf', 'IndexController@pdf')->name('pdf');
-Route::get('/photos', 'IndexController@photos')->name('photos');
+// Route::get('/photos', 'IndexController@photos')->name('photos');
 
 Route::get('/download/{file}', function($file){
 	$path = storage_path('app/public/files/'.$file);
@@ -52,3 +52,5 @@ Route::resource('centre', 'CentreController'); 	//CRUD
 
 
 Route::resource('contactPerson', 'ContactPersonController');	//CRUD
+
+Route::resource('photos', 'PhotosController'); //CRUD
