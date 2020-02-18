@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Session;
 use App\Country; 
-Use App\Centre; 
+use App\Centre; 
+
 
 class CentreController extends Controller
 {
@@ -47,14 +49,16 @@ class CentreController extends Controller
             'address' => 'string|required|min:2'
         ]);
         // $country=DB::table('centres')->where('country', $request->get('country'))->get(); 
+        // Session::put('country_key', DB::table('countries')->where('name', $request->get('country'))->get());
         $centre=DB::table('centres')->where('name', $request->input('name'))->get(); 
         if($centre->count() != 0){
             return view('pages.contactPerson', [
-                'countries' => Country::all(),
+                'countries' =>  DB::table('countries')->where('name', $request->get('country'))->get(),
                 'centres' => DB::table('centres')->where('country', $request->get('country'))->get()
             ]); 
         }else{
             $data = new Centre; 
+            
 
             $data->name=$request->input('name'); 
             $data->number=$request->input('number');
@@ -65,7 +69,7 @@ class CentreController extends Controller
             $data->save(); 
 
             return view('pages.contactPerson', [
-                'countries' => Country::all(),
+                'countries' =>  DB::table('countries')->where('name', $request->get('country'))->get(),
                 'centres' => DB::table('centres')->where('country', $request->get('country'))->get()
             ]); 
         }

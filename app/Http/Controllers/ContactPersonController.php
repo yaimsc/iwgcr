@@ -19,9 +19,10 @@ class ContactPersonController extends Controller
      */
     public function index()
     {
+        $country=Session::get('country_key');
         return view('pages.contactPerson', [
-            'countries' => Country::all(),
-            'centres' => Centre::all()
+            'countries' => $country,
+            'centres' => Centre::where('country', $country)
         ]);
     }
 
@@ -49,12 +50,12 @@ class ContactPersonController extends Controller
             'email' => 'email', 
         ]);
 
-        $centre=Session::put('key', DB::table('centres')->where('name', $request->get('centre_name'))->get());
+        Session::put('centre_key', DB::table('centres')->where('name', $request->get('centre_name'))->get());
 
         $contact=DB::table('contact_people')->where('name', $request->input('name'))->get(); 
 
         if($contact->count() != 0){
-            return view('pages.pdf');
+            return  redirect()->action('IndexController@pdf');
         }else{
             $data = new ContactPerson;
 
@@ -62,11 +63,12 @@ class ContactPersonController extends Controller
             $data->telephonecode=$request->get('telephonecode');
             $data->number=$request->input('number');
             $data->email=$request->input('email');
+            $data->country=$request->get('country');
             $data->centre_name=$request->get('centre_name');
 
             $data->save(); 
 
-            return view('pages.pdf');
+            return redirect()->action('IndexController@pdf');
         }
 
     }

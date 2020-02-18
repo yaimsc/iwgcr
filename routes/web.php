@@ -49,7 +49,8 @@ Route::get('home/contacts', 'HomeController@contactPerson')->name('home.contacts
 
 Route::resource('centre', 'CentreController'); 	//CRUD
 
-
 Route::resource('contactPerson', 'ContactPersonController');	//CRUD
 
-Route::resource('doors', 'DoorsController'); //CRUD
+Route::resource('door', 'DoorController'); //CRUD
+
+

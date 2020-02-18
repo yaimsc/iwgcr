@@ -5,9 +5,9 @@
 @section('content')
 
 <div class="doors-content">
-  <form method="POST">
+<form method="POST" action="{{route('door.store')}}" enctype="multipart/form-data">
     @csrf
-    <div class="form">
+    <div class="doors">
     <div id="photo">
       <div class="card">
         <label class="title">CENTRE NAME</label>
@@ -22,15 +22,15 @@
       </div>
       <div class="card">
         <label class="title">Interior Photo</label>
-        <input class="form-control"  type="file" name="interior"/>
+        <input class="form-control"  type="file" name="interior_photo"/>
       </div>
       <div class="card">
         <label class="title">Front Photo</label>
-        <input class="form-control" type="file" name="front"/>
+        <input class="form-control" type="file" name="front_photo"/>
       </div>
       <div class="card">
         <label class="title">Exterior Photo</label>
-        <input class="form-control" type="file" name="exterior"/>
+        <input class="form-control" type="file" name="exterior_photo"/>
       </div>
     </div>
     <div class="card">
@@ -39,16 +39,16 @@
       </div>
       <div class="form-group">
         <label class="bmd-label-floating">Cylinder Name</label>
-        <input class="form-control" name="name" required/>
+        <input class="form-control" name="cylinder_name" required/>
       </div>
       <div class="form-row">
         <div class="form-group col-md-6">
           <label class="bmd-label-floating">Exterior Length</label>
-          <input class="form-control" type="number" name="ext_length" placeholder="Exterior Length (mm)" required/>
+          <input class="form-control" type="number" name="exterior_length" placeholder="Exterior Length (mm)" required/>
         </div>
         <div class="form-group col-md-6">
           <label class="bmd-label-floating">Interior Length</label>
-          <input class="form-control" type="number" name="int_length" placeholder="Interior Length (mm)" required/>
+          <input class="form-control" type="number" name="interor_length" placeholder="Interior Length (mm)" required/>
         </div>
       </div>
       <div class="checkbox">
@@ -61,7 +61,7 @@
     <div class="submit">
       <button type="submit" class="btn-light">
         {{ __('SUBMIT') }}
-    </button>
+      </button>
     </div>
   </form>
 </div>

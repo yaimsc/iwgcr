@@ -16,7 +16,7 @@ class IndexController extends Controller
         ]);
     }
 
-    public function pdf(request $request){
+    public function pdf(Request $request){
         return view('pages.pdf');
     }
 }

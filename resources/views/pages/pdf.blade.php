@@ -12,7 +12,7 @@
     <a href="/download/REGUS_Survey_Comms_Rooms.pdf"><img id="pdf" src="img/icon_pdf.png" alt="Regus Survey Requirements"></a>
   </div>
   <div id="pdf-button">
-    <a href="{{route('doors.index')}}">
+    <a href="{{route('door.create')}}">
       <button class="btn-light">
         {{ __('NEXT') }}
       </button>

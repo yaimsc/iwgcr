@@ -17,9 +17,9 @@
     <div class="form-row">
       <div class="form-group col-md-6">
         <select class="form-control" name="telephonecode" id="telephonecode">
-          <option value="" hidden disabled selected class="placeholder">Select Code</option>
+          {{-- <option value="" hidden disabled selected class="placeholder">Select Code</option> --}}
             @foreach ($countries as $country)
-              <option value="{{$country->telephonecode}}">{{$country->name}} {{$country->telephonecode}}</option>
+              <option selected value="{{$country->telephonecode}}">{{$country->name}} {{$country->telephonecode}}</option>
             @endforeach
         </select>
       </div>
@@ -31,6 +31,14 @@
       <label class="bmd-label-floating">Email</label>
       <input type="email" class="form-control" name="email" required/>
     </div>
+    {{-- <div class="form-group"> --}}
+      <select class="form-control" name="country" id="country" hidden>
+        {{-- <option value="" hidden disabled selected class="placeholder">Select Centre</option> --}}
+          {{-- @foreach ($countries as $country) --}}
+            <option selected value="{{$country->name}}">{{$country->name}}</option>
+          {{-- @endforeach --}}
+      </select>
+    {{-- </div>  --}}
     <div class="form-group">
       <select class="form-control" name="centre_name" id="centre">
         <option value="" hidden disabled selected class="placeholder">Select Centre</option>
