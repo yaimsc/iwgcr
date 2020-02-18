@@ -19,11 +19,6 @@ class CentreController extends Controller
         //
     }
 
-
-    public function getCentresByCountry(){
-
-    }
-
     /**
      * Show the form for creating a new resource.
      *
