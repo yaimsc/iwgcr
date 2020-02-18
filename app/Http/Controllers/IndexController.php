@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Continent;
 use App\Country; 
 
@@ -15,11 +16,7 @@ class IndexController extends Controller
         ]);
     }
 
-    public function pdf(){
+    public function pdf(request $request){
         return view('pages.pdf');
-    }
-
-    public function doors(){
-        return view('pages.doors'); 
     }
 }

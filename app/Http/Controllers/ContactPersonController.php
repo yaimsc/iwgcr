@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Session;
 use App\ContactPerson;
 use App\Country;
-use App\centre;
+use App\Centre;
+
 
 class ContactPersonController extends Controller
 {
@@ -47,10 +49,12 @@ class ContactPersonController extends Controller
             'email' => 'email', 
         ]);
 
+        $centre=Session::put('key', DB::table('centres')->where('name', $request->get('centre_name'))->get());
+
         $contact=DB::table('contact_people')->where('name', $request->input('name'))->get(); 
 
         if($contact->count() != 0){
-            return redirect()->action('IndexController@pdf');
+            return view('pages.pdf');
         }else{
             $data = new ContactPerson;
 
@@ -62,7 +66,7 @@ class ContactPersonController extends Controller
 
             $data->save(); 
 
-            return redirect()->action('IndexController@pdf');
+            return view('pages.pdf');
         }
 
     }
