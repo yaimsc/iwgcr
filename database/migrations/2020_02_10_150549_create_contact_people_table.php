@@ -19,6 +19,7 @@ class CreateContactPersonsTable extends Migration
             $table->string('telephonecode'); 
             $table->string('number'); 
             $table->string('email'); 
+            $table->string('country');
             $table->string('centre_name'); 
             $table->timestamps();
         });
@@ -31,6 +32,6 @@ class CreateContactPersonsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('contact_persons');
+        Schema::dropIfExists('contact_people');
     }
 }

@@ -19,7 +19,7 @@ class IndexController extends Controller
         return view('pages.pdf');
     }
 
-    public function photos(){
-        return view('pages.photos'); 
+    public function doors(){
+        return view('pages.doors'); 
     }
 }

@@ -46,5 +46,8 @@
     </div>
   </form>
 </div>
+<div class="next">
+  <a href="{{route('pdf')}}">Next</a>
+</div>
 
 @endsection 

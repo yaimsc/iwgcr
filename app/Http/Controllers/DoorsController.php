@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Centre;
 
-class PhotosController extends Controller
+class DoorsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class PhotosController extends Controller
      */
     public function index()
     {
-        return view('pages.photos', [
+        return view('pages.doors', [
             'centres' => Centre::all()
         ]);
     }
@@ -43,6 +43,8 @@ class PhotosController extends Controller
             'int_length' => 'required|numeric', 
             'check' => 'nullable'
         ]); 
+
+        
 
         
     }

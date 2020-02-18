@@ -19,6 +19,11 @@ class CentreController extends Controller
         //
     }
 
+
+    public function getCentresByCountry(){
+
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -46,11 +51,12 @@ class CentreController extends Controller
             'city' => 'string|required|min:2',
             'address' => 'string|required|min:2'
         ]);
+        // $country=DB::table('centres')->where('country', $request->get('country'))->get(); 
         $centre=DB::table('centres')->where('name', $request->input('name'))->get(); 
         if($centre->count() != 0){
             return view('pages.contactPerson', [
                 'countries' => Country::all(),
-                'centres' => Centre::all()
+                'centres' => DB::table('centres')->where('country', $request->get('country'))->get()
             ]); 
         }else{
             $data = new Centre; 
@@ -65,7 +71,7 @@ class CentreController extends Controller
 
             return view('pages.contactPerson', [
                 'countries' => Country::all(),
-                'centres' => Centre::all()
+                'centres' => DB::table('centres')->where('country', $request->get('country'))->get()
             ]); 
         }
     }

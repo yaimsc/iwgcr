@@ -4,7 +4,7 @@
 
 @section('content')
 
-<div class="photos-content">
+<div class="doors-content">
   <form method="POST">
     @csrf
     <div class="form">
