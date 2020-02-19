@@ -2,7 +2,7 @@
 @section('title', 'Regus Survey Data')
 @section('content')
   <div class="content">
-    <form method="GET" action={{route('home.centres.search')}}>
+    <form method="GET" action={{route('centres.search')}}>
       <div class="filter">
         <select class="form-control" name="country" id="country">
           <option value="" hidden disabled selected class="placeholder">Select Country</option>

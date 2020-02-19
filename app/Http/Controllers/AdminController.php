@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Country; 
+use App\Centre;
+use App\User;
 
 class AdminController extends Controller
 {
@@ -13,7 +16,31 @@ class AdminController extends Controller
      */
     public function index()
     {
-        //
+        return view('pages.admin.adminCentre', [
+            'countries' => Country::all(),
+            'centres' => Centre::all()
+        ]);
+    }
+
+    public function centres(){
+        return view('pages.admin.adminCentre', [
+            'centres' => Centre::all(), 
+            'countries' => Country::all()
+        ]);
+    }
+
+    public function contactPeople(){
+        return view('pages.admin.adminContactPerson', [
+            'contact_people' => ContactPerson::all(), 
+            'countries' => Country::all()
+        ]);
+    }
+
+    public function users(){
+        return view ('pages.admin.adminUser', [
+            'users' => User::all(), 
+            'countries' => Country::all()
+        ]);
     }
 
     /**

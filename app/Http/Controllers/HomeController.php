@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Centre;
 use App\ContactPerson;
 use App\Country;
+use Auth;
 
 class HomeController extends Controller
 {
@@ -26,20 +27,24 @@ class HomeController extends Controller
      */
     public function index()
     {
+        if(Auth::user()->role_id == 1){
+           return redirect()->action('AdminController@index'); 
+        }else{
+            return view('pages.home.homeCentre', [
+                'centres' => Centre::all(), 
+                'countries' => Country::all()
+            ]);
+        }
+    }
+
+    public function centres(){
         return view('pages.home.homeCentre', [
             'centres' => Centre::all(), 
             'countries' => Country::all()
         ]);
     }
 
-    public function centre(){
-        return view('pages.home.homeCentre', [
-            'centres' => Centre::all(), 
-            'countries' => Country::all()
-        ]);
-    }
-
-    public function contactPerson(){
+    public function contactPeople(){
         return view('pages.home.homeContactPerson', [
             'contact_people' => ContactPerson::all(), 
             'countries' => Country::all()

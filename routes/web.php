@@ -42,12 +42,7 @@ Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail'
 Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
 Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/home/centres', 'HomeController@centre')->name('home.centres');
-Route::get('/home/centres/search', 'SearchController@centres')->name('home.centres.search');
-Route::get('home/contacts', 'HomeController@contactPerson')->name('home.contacts'); 
-Route::get('home/contacts/search', 'SearchController@contactPeople')->name('home.contacts.search');
-
+// ---- FORM ------
 
 Route::resource('centre', 'CentreController'); 	//CRUD
 
@@ -55,4 +50,22 @@ Route::resource('contactPerson', 'ContactPersonController');	//CRUD
 
 Route::resource('door', 'DoorController'); //CRUD
 
+// --- HOME USER -----
+
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home/centres', 'HomeController@centres')->name('home.centres');
+Route::get('/home/contacts', 'HomeController@contactPeople')->name('home.contacts'); 
+
+
+// ---- FILTERS -----
+Route::get('/centres/search', 'SearchController@centres')->name('centres.search');
+Route::get('/contacts/search', 'SearchController@contactPeople')->name('contacts.search');
+
+
+// ----- ADMIN ------
+
+Route::get('/admin', 'AdminController@index')->name('admin'); 
+Route::get('/admin/centres', 'AdminController@centres')->name('admin.centres');
+Route::get('/admin/contacts', 'AdminController@contactPeople')->name('admin.contacts');
+Route::get('/admin/users', 'AdminController@users')->name('admin.users');
 

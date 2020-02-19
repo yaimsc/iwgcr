@@ -45,9 +45,7 @@ class DoorController extends Controller
         //     'exterior_length' => 'required|numeric', 
         //     'interior_length' => 'required|numeric', 
         //     'check' => 'nullable'
-        // ]); 
-
-        $TOKEN='AIzaSyCDDIH3puVpdEtWN0rj5qJOY_Dwy3Wsg6E';
+        // ]);
 
         $data = new Door; 
 
@@ -100,7 +98,7 @@ class DoorController extends Controller
             CURLOPT_POSTFIELDS => array('image' => $interior_photo),
             CURLOPT_HTTPHEADER => array(
             // "Authorization: Client-ID {{1cb45b7462006f}}",
-            "Authorization: Bearer ".$TOKEN //nuestro token para acceder a la api
+            "Authorization: Bearer ".env('GOOGLE_DRIVE_ACCESS_TOKEN') //nuestro token para acceder a la api
             ),
         ));
 
