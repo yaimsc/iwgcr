@@ -28,9 +28,9 @@ class HomeController extends Controller
     public function index()
     {
         if(Auth::user()->role_id == 1){
-           return redirect()->action('AdminController@index'); 
+           return redirect()->action('SuperadminController@index'); 
         }else{
-            return view('pages.home.homeCentre', [
+            return view('pages.home.centre', [
                 'centres' => Centre::all(), 
                 'countries' => Country::all()
             ]);
@@ -38,14 +38,14 @@ class HomeController extends Controller
     }
 
     public function centres(){
-        return view('pages.home.homeCentre', [
+        return view('pages.home.centre', [
             'centres' => Centre::all(), 
             'countries' => Country::all()
         ]);
     }
 
     public function contactPeople(){
-        return view('pages.home.homeContactPerson', [
+        return view('pages.home.contactPerson', [
             'contact_people' => ContactPerson::all(), 
             'countries' => Country::all()
         ]);

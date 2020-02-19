@@ -2,7 +2,7 @@
   <meta charset="utf-8">
   <head>
     @include('includes.head')
-    <link rel="stylesheet" href="/css/admin.css">
+    <link rel="stylesheet" href="/css/superadmin.css">
     <title>@yield('title')</title>
   </head>
   <body>

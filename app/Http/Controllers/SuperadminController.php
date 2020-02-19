@@ -5,9 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Country; 
 use App\Centre;
+use App\ContactPerson;
 use App\User;
 
-class AdminController extends Controller
+class SuperadminController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,28 +17,28 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('pages.admin.adminCentre', [
+        return view('pages.superadmin.centre', [
             'countries' => Country::all(),
             'centres' => Centre::all()
         ]);
     }
 
     public function centres(){
-        return view('pages.admin.adminCentre', [
+        return view('pages.superadmin.centre', [
             'centres' => Centre::all(), 
             'countries' => Country::all()
         ]);
     }
 
     public function contactPeople(){
-        return view('pages.admin.adminContactPerson', [
+        return view('pages.superadmin.contactPerson', [
             'contact_people' => ContactPerson::all(), 
             'countries' => Country::all()
         ]);
     }
 
     public function users(){
-        return view ('pages.admin.adminUser', [
+        return view ('pages.superadmin.user', [
             'users' => User::all(), 
             'countries' => Country::all()
         ]);

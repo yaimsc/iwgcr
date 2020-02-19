@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.superadmin')
 @section('title', 'Regus Survey Data')
 @section('content')
   <div class="content">

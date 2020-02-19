@@ -50,7 +50,7 @@ Route::resource('contactPerson', 'ContactPersonController');	//CRUD
 
 Route::resource('door', 'DoorController'); //CRUD
 
-// --- HOME USER -----
+// --- LOCAL ADMIN USER -----
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/home/centres', 'HomeController@centres')->name('home.centres');
@@ -64,8 +64,8 @@ Route::get('/contacts/search', 'SearchController@contactPeople')->name('contacts
 
 // ----- ADMIN ------
 
-Route::get('/admin', 'AdminController@index')->name('admin'); 
-Route::get('/admin/centres', 'AdminController@centres')->name('admin.centres');
-Route::get('/admin/contacts', 'AdminController@contactPeople')->name('admin.contacts');
-Route::get('/admin/users', 'AdminController@users')->name('admin.users');
+Route::get('/superadmin', 'SuperadminController@index')->name('superadmin'); 
+Route::get('/superadmin/centres', 'SuperadminController@centres')->name('superadmin.centres');
+Route::get('/superadmin/contacts', 'SuperadminController@contactPeople')->name('superadmin.contacts');
+Route::get('/superadmin/users', 'SuperadminController@users')->name('superadmin.users');
 

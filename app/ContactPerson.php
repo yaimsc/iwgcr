@@ -3,7 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Centre; 
+use App\Centre;
 
 class ContactPerson extends Model
 {
