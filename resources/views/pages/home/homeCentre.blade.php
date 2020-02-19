@@ -2,7 +2,21 @@
 @section('title', 'Regus Survey Data')
 @section('content')
   <div class="content">
-    <table id="table" class="row-border">
+    <form method="GET" action={{route('home.centres.search')}}>
+      <div class="filter">
+        <select class="form-control" name="country" id="country">
+          <option value="" hidden disabled selected class="placeholder">Select Country</option>
+            @foreach ($countries as $country)
+              <option value="{{$country->name}}">{{$country->name}}</option>
+            @endforeach
+        </select>
+        <button class="btn btn-raised btn-info" type="submit">
+          <i class="fas fa-search"></i>
+          <div class="search">Search</div>
+        </button>
+      </div> 
+    </form> 
+    <table class="table" class="row-border">
       <thead>
         <tr>
           <th>Name</th>

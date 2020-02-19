@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Centre;
 use App\ContactPerson;
+use App\Country;
 
 class HomeController extends Controller
 {
@@ -26,19 +27,22 @@ class HomeController extends Controller
     public function index()
     {
         return view('pages.home.homeCentre', [
-            'centres' => Centre::all()
+            'centres' => Centre::all(), 
+            'countries' => Country::all()
         ]);
     }
 
     public function centre(){
         return view('pages.home.homeCentre', [
-            'centres' => Centre::all()
+            'centres' => Centre::all(), 
+            'countries' => Country::all()
         ]);
     }
 
     public function contactPerson(){
         return view('pages.home.homeContactPerson', [
-            'contact_people' => ContactPerson::all()
+            'contact_people' => ContactPerson::all(), 
+            'countries' => Country::all()
         ]);
     }
 }

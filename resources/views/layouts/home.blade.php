@@ -8,10 +8,10 @@
   <body>
     @include('includes.navbars.navdark')
     <div class="row">
-      <aside class="col-md-3">
+      <aside class="col-md-2">
         @include('includes.drawer')
       </aside>
-    <section class="col-md-9">
+    <section class="col-md-10">
       @yield('content')
     </section>
   </div>

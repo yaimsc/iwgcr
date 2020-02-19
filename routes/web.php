@@ -44,7 +44,9 @@ Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/home/centres', 'HomeController@centre')->name('home.centres');
+Route::get('/home/centres/search', 'SearchController@centres')->name('home.centres.search');
 Route::get('home/contacts', 'HomeController@contactPerson')->name('home.contacts'); 
+Route::get('home/contacts/search', 'SearchController@contactPeople')->name('home.contacts.search');
 
 
 Route::resource('centre', 'CentreController'); 	//CRUD
