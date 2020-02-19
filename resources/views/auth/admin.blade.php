@@ -73,12 +73,12 @@
         <a href="{{ url('/home') }}">Home</a>
       </div>
     @else
-      <div>
+      <div class="card">
         <a href="{{ route('login') }}">Login</a>
       </div>
       
       @if (Route::has('register'))
-        <div>
+        <div class="card">
           <a href="{{ route('register') }}">Register</a>
         </div>
       @endif
