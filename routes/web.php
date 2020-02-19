@@ -27,6 +27,7 @@ Route::get('/download/{file}', function($file){
 	return response()->download($path);
 });
 
+Route::get('admin', 'AdminController@index')->name('admin');
 // Authentication Routes...
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login');
@@ -50,7 +51,7 @@ Route::resource('contactPerson', 'ContactPersonController');	//CRUD
 
 Route::resource('door', 'DoorController'); //CRUD
 
-// --- LOCAL ADMIN USER -----
+// --- LOCAL HOME BU USER -----
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/home/centres', 'HomeController@centres')->name('home.centres');
@@ -62,7 +63,7 @@ Route::get('/centres/search', 'SearchController@centres')->name('centres.search'
 Route::get('/contacts/search', 'SearchController@contactPeople')->name('contacts.search');
 
 
-// ----- ADMIN ------
+// ----- SUPER ADMIN ------
 
 Route::get('/superadmin', 'SuperadminController@index')->name('superadmin'); 
 Route::get('/superadmin/centres', 'SuperadminController@centres')->name('superadmin.centres');

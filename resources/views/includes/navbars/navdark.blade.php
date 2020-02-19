@@ -7,12 +7,18 @@
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <a href="{{route('index')}}"><h1 class="navbar-brand js-scroll-trigger">Regus Survey</h1></a>
   </div>
-  {{-- <div class="collapse navbar-collapse" id="navbarNavDropdown">
-    <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home</a>
-      </li>
-      <li class="nav-item">
+  {{-- <div class="collapse navbar-collapse" id="navbarNavDropdown"> --}}
+    <form action="{{ route('logout') }}" method="POST">
+      @csrf
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <button type="submit">
+            <a class="nav-link">Logout</a>
+          </button>
+        </li>
+      </ul>
+  </form>
+    {{-- <li class="nav-item">
         <a class="nav-link" href="#">Features</a>
       </li>
       <li class="nav-item">
