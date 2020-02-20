@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Centre;
 use App\ContactPerson;
 use App\Country;
+use App\Door;
 use Auth;
 
 class HomeController extends Controller
@@ -47,6 +48,13 @@ class HomeController extends Controller
     public function contactPeople(){
         return view('pages.home.contactPerson', [
             'contact_people' => ContactPerson::all(), 
+            'countries' => Country::all()
+        ]);
+    }
+
+    public function doors(){
+        return view('pages.home.door', [
+            'doors' => Door::all(), 
             'countries' => Country::all()
         ]);
     }

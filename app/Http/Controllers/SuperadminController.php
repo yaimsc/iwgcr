@@ -39,7 +39,7 @@ class SuperadminController extends Controller
     }
 
     public function doors(){
-        return view('pages.superadmin.doors', [
+        return view('pages.superadmin.door', [
             'doors' => Door::all(), 
             'countries' => Country::all()
         ]);

@@ -6,7 +6,7 @@
 @section('content')
 
 <div class="content">
-  <div class="card text-center">
+  <div id="card-contact" class="card text-center">
     <div class="card-body">
       <h5 class="card-title">Sumbitted</h5>
       <p class="card-text">Your form has been submitted</p>

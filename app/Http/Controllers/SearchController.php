@@ -79,12 +79,12 @@ class SearchController extends Controller
         $filter=$request->get('country');
         if($filter == ""){
             if(Auth::user()->role_id == 1){
-                return view('pages.superadmin.doors', [
+                return view('pages.superadmin.door', [
                     'doors' => Door::all(), 
                     'countries' => Country::all()
                 ]);  
             }else{
-                return view('pages.home.doors', [
+                return view('pages.home.door', [
                     'doors' => Door::all(), 
                     'countries' => Country::all()
                 ]);
@@ -92,13 +92,13 @@ class SearchController extends Controller
         }else{
             $doors = DB::table('doors')->where('country', $filter)->get();
             if(Auth::user()->role_id == 1){
-                return view('pages.superadmin.doors', [
+                return view('pages.superadmin.door', [
                     'doors' => $doors, 
                     'countries' => Country::all()
                 ]);
             }else{
-                return view('pages.home.doors', [
-                    'contact_people' => $doors, 
+                return view('pages.home.door', [
+                    'doors' => $doors, 
                     'countries' => Country::all()
                 ]);
             }
@@ -108,13 +108,13 @@ class SearchController extends Controller
     public function users(Request $request){
         $filter=$request->get('country');
         if($filter == ""){
-            return view('pages.superadmin.doors', [
+            return view('pages.superadmin.user', [
                 'doors' => Door::all(), 
                 'countries' => Country::all()
             ]);  
         }else{
             $doors = DB::table('doors')->where('country', $filter)->get();
-            return view('pages.superadmin.doors', [
+            return view('pages.superadmin.user', [
                 'doors' => $doors, 
                 'countries' => Country::all()
             ]);

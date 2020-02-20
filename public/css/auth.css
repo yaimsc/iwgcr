@@ -18,7 +18,7 @@ body {
 }
 
 #main{
-  padding-top: 25%;
+  padding-top: 15%;
 }
 
 /* .card{
@@ -35,4 +35,40 @@ body {
 
 a{
   color: white;
+}
+h3{
+  text-transform: uppercase;
+  font-weight: bold;
+  text-align: center;
+  font-size: 36pt;
+  color: #3c3c3b;
+}
+
+img{
+  width: 250px;
+  height:180px;
+}
+
+.content{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#right{
+  margin-top: -20px;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.btn-primary {
+  background-color: #2294cb;
+  padding: 5px;
+  padding-left: 15px; 
+  padding-right: 15px;
+  border-radius: 30px;
 }

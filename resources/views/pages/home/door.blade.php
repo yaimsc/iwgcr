@@ -20,7 +20,8 @@
       <thead>
         <tr>
           <th>Centre Name</th>
-          <th>Interior Photo/th>
+          <th>Country</th>
+          <th>Interior Photo</th>
           <th>Front Photo</th>
           <th>Exterior Photo</th>
           <th>Cylinder Name</th>
@@ -33,13 +34,24 @@
         @foreach ($doors as $door)
           <tr>
             <td>{{$door->centre_name}}</td>
-            <td>{{$door->interior_photo}}</td>
-            <td>{{$door->front_photo}}</td>
-            <td>{{$door->exterior_photo}}</td>
+            <td>{{$door->country}}</td>
+            <td>
+              <a href="{{$door->interior_photo}}"><img src="{{$door->interior_photo}}"/></a>
+            </td>
+            <td>
+              <a href="{{$door->front_photo}}"><img src="{{$door->front_photo}}"/></a>
+            </td>
+            <td>
+              <a href="{{$door->exterior_photo}}"><img src="{{$door->exterior_photo}}"/></a>
+            </td>
             <td>{{$door->cylinder_name}}</td>
             <td>{{$door->exterior_length}}</td>
             <td>{{$door->interior_length}}</td>
-            <td>{{$door->distance_knobs_frame_ok}}</td>
+            @if($door->distance_knobs_frame_ok == 1)
+              <td>YES</td>
+            @else
+              <td>NO</td>
+            @endif
           </tr> 
         @endforeach
       </tbody>
