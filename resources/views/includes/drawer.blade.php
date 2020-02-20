@@ -13,6 +13,12 @@
           <p>Centres Contacts</p>
         </a>
       </li>
+      <li class="doors">
+        <a href="{{route('superadmin.doors')}}">
+          <i class="fas fa-door-open"></i>
+          <p>Centres Doors</p>
+        </a>
+      </li>
       <li class="contacts">
       <a href="{{route('superadmin.users')}}">
         <i class="fas fa-users"></i>
@@ -30,6 +36,12 @@
       <a href="{{route('home.contacts')}}">
         <i class="fas fa-address-book"></i>
         <p>Centres Contacts</p>
+      </a>
+    </li>
+    <li class="doors">
+      <a href="{{route('superadmin.doors')}}">
+        <i class="fas fa-door-open"></i>
+        <p>Centres Doors</p>
       </a>
     </li>
   @endif

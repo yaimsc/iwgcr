@@ -11,11 +11,12 @@
     <form action="{{ route('logout') }}" method="POST">
       @csrf
       <ul class="navbar-nav">
-        <li class="nav-item active">
-          <button type="submit">
-            <a class="nav-link">Logout</a>
+        {{-- <li class="nav-item active"> --}}
+          <button type="submit" class="btn btn-link">
+            <a class="nav-link active">Logout</a>
+            <i id="logout" class="fas fa-sign-out-alt"></i>
           </button>
-        </li>
+        {{-- </li> --}}
       </ul>
   </form>
     {{-- <li class="nav-item">
