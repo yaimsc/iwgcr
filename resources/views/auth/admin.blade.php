@@ -69,18 +69,18 @@
             </div>
         </div> --}}
     @auth
-      <div class="card">
-        <a href="{{ url('/home') }}">Home</a>
-      </div>
+        <button type="button" class="btn btn-raised btn-info">
+            <a href="{{ url('/home') }}">Home</a>
+        </button>
     @else
-      <div class="card">
-        <a href="{{ route('login') }}">Login</a>
-      </div>
-      
+        <button type="button" class="btn btn-raised btn-info">
+            <a href="{{ route('login') }}">Login</a>
+        </button>
       @if (Route::has('register'))
-        <div class="card">
-          <a href="{{ route('register') }}">Register</a>
-        </div>
+        {{-- <div class="card"> --}}
+        <button type="button" class="btn btn-raised btn-info">
+            <a href="{{ route('register') }}">Register</a>
+        </button>
       @endif
     @endauth
   </div>
