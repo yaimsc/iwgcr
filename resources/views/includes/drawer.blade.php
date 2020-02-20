@@ -39,7 +39,7 @@
       </a>
     </li>
     <li class="doors">
-      <a href="{{route('superadmin.doors')}}">
+      <a href="{{route('home.doors')}}">
         <i class="fas fa-door-open"></i>
         <p>Centres Doors</p>
       </a>

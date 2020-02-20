@@ -20,6 +20,12 @@
           </select>
         {{-- </div>  --}}
       </div>
+      <select class="form-control" name="country" id="country" hidden>
+        {{-- <option value="" hidden disabled selected class="placeholder">Select Centre</option> --}}
+          @foreach ($countries as $country)
+            <option selected value="{{$country->name}}">{{$country->name}}</option>
+          @endforeach
+      </select>
       <div class="card">
         <label class="title">Interior Photo</label>
         <input class="form-control"  type="file" name="interior_photo"/>

@@ -51,6 +51,7 @@ class ContactPersonController extends Controller
         ]);
 
         Session::put('centre_key', DB::table('centres')->where('name', $request->get('centre_name'))->get());
+        Session::put('country_key', DB::table('countries')->where('name', $request->get('country'))->get());
 
         $contact=DB::table('contact_people')->where('name', $request->input('name'))->get(); 
 

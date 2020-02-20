@@ -62,6 +62,8 @@ Route::get('/home/contacts', 'HomeController@contactPeople')->name('home.contact
 // ---- FILTERS -----
 Route::get('/centres/search', 'SearchController@centres')->name('centres.search');
 Route::get('/contacts/search', 'SearchController@contactPeople')->name('contacts.search');
+Route::get('/doors/search', 'SearchController@doors')->name('doors.search'); 
+Route::get('/users/search', 'SearchController@users')->name('users.search');
 
 
 // ----- SUPER ADMIN ------
@@ -69,6 +71,6 @@ Route::get('/contacts/search', 'SearchController@contactPeople')->name('contacts
 Route::get('/superadmin', 'SuperadminController@index')->name('superadmin'); 
 Route::get('/superadmin/centres', 'SuperadminController@centres')->name('superadmin.centres');
 Route::get('/superadmin/contacts', 'SuperadminController@contactPeople')->name('superadmin.contacts');
-Route::get('/superadmin/doors', 'Superadmin@doors')->name('superadmin.doors');
+Route::get('/superadmin/doors', 'SuperadminController@doors')->name('superadmin.doors');
 Route::get('/superadmin/users', 'SuperadminController@users')->name('superadmin.users');
 

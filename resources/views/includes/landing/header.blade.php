@@ -24,8 +24,8 @@
         </button>
      
 
-      </div>
-    </nav>
+    </div>
+  </nav>
 
     <header class="masthead text-center text-white d-flex">
       <div class="container my-auto">

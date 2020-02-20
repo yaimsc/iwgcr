@@ -8,6 +8,8 @@ use Auth;
 use App\Centre; 
 Use App\ContactPerson;
 use App\Country;
+use App\Door;
+use App\User;
 
 
 
@@ -70,6 +72,52 @@ class SearchController extends Controller
                     'countries' => Country::all()
                 ]);
             }
+        }
+    }
+
+    public function doors(Request $request){
+        $filter=$request->get('country');
+        if($filter == ""){
+            if(Auth::user()->role_id == 1){
+                return view('pages.superadmin.doors', [
+                    'doors' => Door::all(), 
+                    'countries' => Country::all()
+                ]);  
+            }else{
+                return view('pages.home.doors', [
+                    'doors' => Door::all(), 
+                    'countries' => Country::all()
+                ]);
+            }
+        }else{
+            $doors = DB::table('doors')->where('country', $filter)->get();
+            if(Auth::user()->role_id == 1){
+                return view('pages.superadmin.doors', [
+                    'doors' => $doors, 
+                    'countries' => Country::all()
+                ]);
+            }else{
+                return view('pages.home.doors', [
+                    'contact_people' => $doors, 
+                    'countries' => Country::all()
+                ]);
+            }
+        }
+    }
+
+    public function users(Request $request){
+        $filter=$request->get('country');
+        if($filter == ""){
+            return view('pages.superadmin.doors', [
+                'doors' => Door::all(), 
+                'countries' => Country::all()
+            ]);  
+        }else{
+            $doors = DB::table('doors')->where('country', $filter)->get();
+            return view('pages.superadmin.doors', [
+                'doors' => $doors, 
+                'countries' => Country::all()
+            ]);
         }
     }
 

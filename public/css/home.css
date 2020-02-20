@@ -51,7 +51,7 @@ li{
   border-bottom: 1px solid rgba(100,100,100,0.4);
 }
 
-li a{
+li a, #logout{
   color: white;
 }
 

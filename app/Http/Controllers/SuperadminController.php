@@ -7,6 +7,7 @@ use App\Country;
 use App\Centre;
 use App\ContactPerson;
 use App\User;
+use App\Door; 
 
 class SuperadminController extends Controller
 {
@@ -33,6 +34,13 @@ class SuperadminController extends Controller
     public function contactPeople(){
         return view('pages.superadmin.contactPerson', [
             'contact_people' => ContactPerson::all(), 
+            'countries' => Country::all()
+        ]);
+    }
+
+    public function doors(){
+        return view('pages.superadmin.doors', [
+            'doors' => Door::all(), 
             'countries' => Country::all()
         ]);
     }

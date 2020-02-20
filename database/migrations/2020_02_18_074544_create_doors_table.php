@@ -16,6 +16,7 @@ class CreateDoorsTable extends Migration
         Schema::create('doors', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('centre_name');
+            $table->string('country');
             $table->string('interior_photo'); 
             $table->string('front_photo');
             $table->string('exterior_photo');
