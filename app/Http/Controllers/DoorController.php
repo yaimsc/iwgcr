@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Session;
 use App\Door;
 use App\Googl;
@@ -81,11 +82,12 @@ class DoorController extends Controller
         //     'check' => 'nullable'
         // ]);
 
-        $INTERIOR_PHOTO_NAME = 'interior_photo';
-        $FRONT_PHOTO_NAME = 'front_photo'; 
-        $EXTERIOR_PHOTO_NAME = 'exterior_photo'; 
-
-        $data = new Door; 
+        $centre=DB::table('centres')->where('name', $request->input('name'))->get(); 
+        if($centre->count() != 0){
+            alert('Your centre has been already submitted!'); 
+            return view('pages.storeForm');
+        }else{
+            $data = new Door; 
 
         $data->centre_name=$request->get('centre_name');
 
@@ -123,20 +125,12 @@ class DoorController extends Controller
         $data->cylinder_name=$request->input('cylinder_name'); 
         $data->exterior_length=$request->input('exterior_length');
         $data->interior_length=$request->input('interior_length');
-
-        //boolean 
-        $ok =  $request->has('distance_knobs_frame_ok'); 
-        if($ok == 1){
-            $data->distance_knobs_frame_ok='yes';
-        }else{
-            $data->distance_knobs_frame_ok='no';
-        }
-        
+        $ok =  $request->has('distance_knobs_frame_ok'); //boolean
         
         $data->save();
 
         return view('pages.storeForm');
-
+        }
     }
 
     /**

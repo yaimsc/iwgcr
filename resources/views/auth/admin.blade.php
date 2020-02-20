@@ -68,6 +68,7 @@
                 </div>
             </div>
         </div> --}}
+    <div class="card text-center">
     @auth
         <button type="button" class="btn btn-raised btn-info">
             <a href="{{ url('/home') }}">Home</a>
@@ -83,6 +84,7 @@
         </button>
       @endif
     @endauth
+    <div>
   </div>
 </div>
 @endsection
