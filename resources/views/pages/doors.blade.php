@@ -48,12 +48,12 @@
         </div>
         <div class="form-group col-md-6">
           <label class="bmd-label-floating">Interior Length</label>
-          <input class="form-control" type="number" name="interor_length" placeholder="Interior Length (mm)" required/>
+          <input class="form-control" type="number" name="interior_length" placeholder="Interior Length (mm)" required/>
         </div>
       </div>
       <div class="checkbox">
         <label>
-          <input type="checkbox" name="check">Distance from Knobs Centre to Frame OK
+          <input type="checkbox" name="distance_knobs_frame_ok">Distance from Knobs Centre to Frame OK
         </label>
       </div>
     </div>

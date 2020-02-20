@@ -32,6 +32,40 @@ class DoorController extends Controller
         ]);
     }
 
+    /* Sube la photo a la API y nos devuelve un JSON */
+
+    public function uploadPhotos($image64){
+        $curl = curl_init();
+            
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => "https://api.imgur.com/3/image",
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => "",
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 0,
+            CURLOPT_FOLLOWLOCATION => false,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => "POST",
+            CURLOPT_POSTFIELDS => array('image' => $image64),
+            CURLOPT_HTTPHEADER => array(
+                "Authorization: Client-ID ".env('IMGUR_CLIENT_ID'),
+           //"Authorization: Bearer ".env('IMGUR_ACCESS_TOKEN') //nuestro token para acceder a la api
+            ),
+        ));
+
+        $response = curl_exec($curl);
+            $err = curl_error($curl);
+
+            curl_close($curl);
+
+            if ($err) {
+              echo "cURL Error #:" . $err;
+            } else {
+              return $json = json_decode($response);
+            //   $data->$dbName = $json->data->link; //pilla link de la api
+            } 
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -47,13 +81,32 @@ class DoorController extends Controller
         //     'check' => 'nullable'
         // ]);
 
+        $INTERIOR_PHOTO_NAME = 'interior_photo';
+        $FRONT_PHOTO_NAME = 'front_photo'; 
+        $EXTERIOR_PHOTO_NAME = 'exterior_photo'; 
+
         $data = new Door; 
 
         $data->centre_name=$request->get('centre_name');
 
-        $interior_photo=$request->file('interior_photo'); 
-        
-        $data->interior_photo=$interior_photo;
+        //INTERIOR_PHOTO
+
+        $interior_photo=$request->file('interior_photo'); //get file from form
+        $interior_image64 = base64_encode(file_get_contents($interior_photo)); //put the photo into base64
+        $data->interior_photo = $this->uploadPhotos($interior_image64)->data->link; //get the link in whit it is stored the photo and put it in the form table from db
+
+        //FRONT_PHOTO
+
+        $front_photo=$request->file('front_photo');
+        $front_image64 = base64_encode(file_get_contents($front_photo));
+        $data->front_photo = $this->uploadPhotos($front_image64)->data->link;
+
+        //EXTERIOR PHOTO
+
+        $exterior_photo=$request->file('exterior_photo'); 
+        $exterior_image64=base64_encode(file_get_contents($exterior_photo));
+        $data->exterior_photo = $this->uploadPhotos($exterior_image64)->data->link;
+
 
         // $fileMetadata = new Google_Service_Drive_DriveFile(array(
         //     'name' => $interior_photo));
@@ -67,58 +120,22 @@ class DoorController extends Controller
         //     dd($file);
 
 
+        $data->cylinder_name=$request->input('cylinder_name'); 
+        $data->exterior_length=$request->input('exterior_length');
+        $data->interior_length=$request->input('interior_length');
 
-//         $curl = curl_init(); 
-
-//         curl_setopt_arry($curl, array(
-
-//         ));
-
-//         curl -v "https://www.googleapis.com/upload/drive/v2/files/?uploadType=multipart" \
-// 	    --header "Authorization: Bearer $TOKEN" \
-// 	--header "Content-Type: multipart/related; boundary=\"$BOUNDARY\"" \
-// 	--data-binary "@-"
-
-//         curl -X POST 'https://www.googleapis.com/upload/drive/v3/files?uploadType=media' HTTP/1.1
-// Content-Type: 'image/jpeg'
-// Content-Length: 2000000
-// --headerAuthorization: 'Bearer '.$token;
-
-        $curl = curl_init();
-            
-        curl_setopt_array($curl, array(
-            CURLOPT_URL => "https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart",
-            CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_ENCODING => "",
-            CURLOPT_MAXREDIRS => 10,
-            CURLOPT_TIMEOUT => 0,
-            CURLOPT_FOLLOWLOCATION => false,
-            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-            CURLOPT_CUSTOMREQUEST => "POST",
-            CURLOPT_POSTFIELDS => array('image' => $interior_photo),
-            CURLOPT_HTTPHEADER => array(
-            // "Authorization: Client-ID {{1cb45b7462006f}}",
-            "Authorization: Bearer ".env('GOOGLE_DRIVE_ACCESS_TOKEN') //nuestro token para acceder a la api
-            ),
-        ));
-
-        $response = curl_exec($curl);
-            $err = curl_error($curl);
-
-            curl_close($curl);
-
-            if ($err) {
-              echo "cURL Error #:" . $err;
-            } else {
-              $json = dd(json_decode($response));
-              $data->interior_photo = $json->data->link; //pilla link de la api
-            }
+        //boolean 
+        $ok =  $request->has('distance_knobs_frame_ok'); 
+        if($ok == 1){
+            $data->distance_knobs_frame_ok='yes';
+        }else{
+            $data->distance_knobs_frame_ok='no';
+        }
         
-            $data->save();
+        
+        $data->save();
 
-            dd('guardado');
-
-            return view('pages.storeForm');
+        return view('pages.storeForm');
 
     }
 
