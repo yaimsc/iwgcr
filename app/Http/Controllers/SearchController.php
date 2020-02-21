@@ -109,13 +109,13 @@ class SearchController extends Controller
         $filter=$request->get('country');
         if($filter == ""){
             return view('pages.superadmin.user', [
-                'doors' => Door::all(), 
+                'users' => User::all(), 
                 'countries' => Country::all()
             ]);  
         }else{
-            $doors = DB::table('doors')->where('country', $filter)->get();
+            $doors = DB::table('users')->where('country', $filter)->get();
             return view('pages.superadmin.user', [
-                'doors' => $doors, 
+                'users' => $doors, 
                 'countries' => Country::all()
             ]);
         }

@@ -54,8 +54,8 @@
     </div>
   </form>
 </div>
-<div class="next">
+{{-- <div class="next">
   <a href="{{route('pdf')}}">Next</a>
-</div>
+</div> --}}
 
 @endsection 

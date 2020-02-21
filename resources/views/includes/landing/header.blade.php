@@ -4,7 +4,7 @@
         <img src="img/SALTO_inspired_access_LOGO.png" alt="SALTO" id="icon" class="rounded float-left">
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <h1 class="navbar-brand js-scroll-trigger">Regus Survey</h1>
-          @if (Route::has('login'))
+          {{-- @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
                         <a href="{{ url('/home') }}">Home</a>
@@ -16,7 +16,7 @@
                         @endif
                     @endauth
                 </div>
-            @endif
+            @endif --}}
         </div>
         
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
