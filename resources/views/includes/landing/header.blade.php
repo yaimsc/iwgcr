@@ -3,7 +3,7 @@
       <div class="container-fluid">
         <img src="img/SALTO_inspired_access_LOGO.png" alt="SALTO" id="icon" class="rounded float-left">
         <div class="collapse navbar-collapse" id="navbarResponsive">
-          <h1 class="navbar-brand js-scroll-trigger">Regus Survey</h1>
+        <h1 class="navbar-brand js-scroll-trigger">{{config('app.name')}}</h1>
           {{-- @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
@@ -31,7 +31,7 @@
       <div class="container my-auto">
         <div class="column" id="content">
 
-          <h1 id="welcome"><strong>Regus Site Survey</strong></h1>
+        <h1 id="welcome"><strong>{{config('app.name')}}</strong></h1>
 
           {{-- <span class="icon">
             <a href="#form"><i class="fas fa-chevron-down" ></i></a>

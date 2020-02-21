@@ -42,15 +42,15 @@ class CentreController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'string|required|min:2|max:255', 
-            'number' => 'numeric|required', 
+            'centre_name' => 'string|required|min:2|max:255', 
+            'centre_number' => 'numeric|required', 
             'country' => 'string|required', 
             'city' => 'string|required|min:2',
             'address' => 'string|required|min:2'
         ]);
         // $country=DB::table('centres')->where('country', $request->get('country'))->get(); 
         // Session::put('country_key', DB::table('countries')->where('name', $request->get('country'))->get());
-        $centre=DB::table('centres')->where('name', $request->input('name'))->get(); 
+        $centre=DB::table('centres')->where('number', $request->input('cenrtre_number'))->get(); 
         if($centre->count() != 0){
             return view('pages.contactPerson', [
                 'countries' =>  DB::table('countries')->where('name', $request->get('country'))->get(),
@@ -59,9 +59,8 @@ class CentreController extends Controller
         }else{
             $data = new Centre; 
             
-
-            $data->name=$request->input('name'); 
-            $data->number=$request->input('number');
+            $data->name=$request->input('centre_name'); 
+            $data->number=$request->input('centre_number');
             $data->country=$request->get('country'); 
             $data->city=$request->input('city'); 
             $data->address=$request->input('address');
