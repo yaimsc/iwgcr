@@ -30,6 +30,13 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'imgur' => [
+        'client_id' => env('IMGUR_CLIENT_ID'), 
+        'client_secret' => env('IMGUR_CLIENT_SECRET'), 
+        'acces_token' => env('IMGUR_ACCESS_TOKEN'), 
+        'refresh_token' => env('IMGUR_ACCESS_TOKEN')
+    ],
+
     'google' => [
         'client_id' => env('GOOGLE_CLIENT_ID'),
         'project_id' => env('GOOGLE_APP_ID'),

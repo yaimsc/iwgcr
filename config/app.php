@@ -174,7 +174,8 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        App\Providers\GoogleDriveServiceProvider::class
+        App\Providers\GoogleDriveServiceProvider::class, 
+        App\Providers\ConfigServiceProvider::class
 
     ],
 
@@ -228,5 +229,5 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
     ],
-
+    
 ];

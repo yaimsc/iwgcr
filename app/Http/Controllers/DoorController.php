@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Session;
 use App\Door;
-use App\Googl;
+use Config;
 
 class DoorController extends Controller
 {
@@ -38,7 +38,11 @@ class DoorController extends Controller
     /* Sube la photo a la API y nos devuelve un JSON */
 
     public function uploadPhotos($image64){
+
         $curl = curl_init();
+
+        // $client_id = "4b2f0cce3b2522f";
+        $client_id = config('services.imgur.client_id');
             
         curl_setopt_array($curl, array(
             CURLOPT_URL => "https://api.imgur.com/3/image",
@@ -51,8 +55,8 @@ class DoorController extends Controller
             CURLOPT_CUSTOMREQUEST => "POST",
             CURLOPT_POSTFIELDS => array('image' => $image64),
             CURLOPT_HTTPHEADER => array(
-                "Authorization: Client-ID ".env('IMGUR_CLIENT_ID'),
-           //"Authorization: Bearer ".env('IMGUR_ACCESS_TOKEN') //nuestro token para acceder a la api
+                "Authorization: Client-ID " .$client_id,
+            //"Authorization: Bearer ".env('IMGUR_ACCESS_TOKEN') //nuestro token para acceder a la api
             ),
         ));
 
@@ -64,7 +68,7 @@ class DoorController extends Controller
             if ($err) {
               echo "cURL Error #:" . $err;
             } else {
-              return $json = dd(json_decode($response));
+              return $json = json_decode($response);
             //   $data->$dbName = $json->data->link; //pilla link de la api
             } 
     }
@@ -97,19 +101,19 @@ class DoorController extends Controller
         //INTERIOR_PHOTO
         $interior_photo=$request->file('interior_photo'); //get file from form
         $interior_image64 = base64_encode(file_get_contents($interior_photo)); //put the photo into base64
-        $data->interior_photo = $this->uploadPhotos($interior_photo)->data->link; //get the link in whit it is stored the photo and put it in the form table from db
+        $data->interior_photo = $this->uploadPhotos($interior_image64)->data->link; //get the link in whit it is stored the photo and put it in the form table from db
 
         //FRONT_PHOTO
 
         $front_photo=$request->file('front_photo');
-        // $front_image64 = base64_encode(file_get_contents($front_photo));
-        $data->front_photo = $this->uploadPhotos($front_photo)->data->link;
+        $front_image64 = base64_encode(file_get_contents($front_photo));
+        $data->front_photo = $this->uploadPhotos($front_image64)->data->link;
 
         //EXTERIOR PHOTO
 
         $exterior_photo=$request->file('exterior_photo'); 
-        // $exterior_image64=base64_encode(file_get_contents($exterior_photo));
-        $data->exterior_photo = $this->uploadPhotos($$exterior_photo)->data->link;
+        $exterior_image64=base64_encode(file_get_contents($exterior_photo));
+        $data->exterior_photo = $this->uploadPhotos($exterior_image64)->data->link;
 
 
         // $fileMetadata = new Google_Service_Drive_DriveFile(array(
