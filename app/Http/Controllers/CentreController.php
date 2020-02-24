@@ -58,7 +58,7 @@ class CentreController extends Controller
         $centre=DB::table('centres')->where('number', $request->input('centre_number'))->get(); 
         if($centre->count() != 0){
             return view('pages.contactPerson', [
-                'countries' =>  DB::table('countries')->where('name', $request->get('country'))->get(),
+                'countries' =>  Country::all(),
                 'centres' => DB::table('centres')->where('country', $request->get('country'))->get()
             ]); 
         }else{

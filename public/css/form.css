@@ -66,7 +66,7 @@ nav{
   text-align: center;
 }
 
-#telephonecode{
+#mobile_telephonecode, #centre_telephonecode{
   margin-top: -8px;
 }
 
@@ -152,6 +152,21 @@ nav{
 
 .next a{
   color: white;
+}
+
+.back{
+  display: flex;
+  justify-content: center;
+  margin-right: 20%;
+  text-transform: uppercase;
+}
+
+.back a{
+  color: white;
+}
+
+.placeholder{
+  color: lightgray;
 }
 
 select{

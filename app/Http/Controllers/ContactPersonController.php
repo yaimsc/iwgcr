@@ -46,8 +46,8 @@ class ContactPersonController extends Controller
     {
         $this->validate($request, [
             'name' => 'required|string|min:2|max:255',
-            'centre_phone' => 'numeric',
-            'mobile_phone' => 'numeric', 
+            'centre_phone' => 'numeric|nullable',
+            'mobile_phone' => 'numeric|nullable', 
             'email' => 'email', 
         ]);
 
@@ -55,7 +55,7 @@ class ContactPersonController extends Controller
         
         $contact=DB::table('contact_people')->where('name', $request->input('name'))->get(); 
 
-        if($contact->count() != 0){
+        if($contact->count() !== 0){
             return  redirect()->action('IndexController@pdf');
         }else{
             $data = new ContactPerson;

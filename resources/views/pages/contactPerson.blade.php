@@ -24,17 +24,17 @@
     </div>
     <div class="form-row">
       <div class="form-group col-md-6">
-        <select class="form-control" name="centre_telephonecode" id="telephonecode">
+        <select class="form-control" name="centre_telephonecode" id="centre_telephonecode">
           @foreach(Session::get('country_key') as $countrySelect)
-            <option value="" hidden disabled selected class="placeholder">{{$countrySelect->name}} {{$countrySelect->telephonecode}}</option>
+            <option value="{{$countrySelect->telephonecode}}" selected class="placeholder">{{$countrySelect->name}} {{$countrySelect->telephonecode}}</option>
           @endforeach
-            @foreach ($countries as $country)
-              <option selected value="{{$country->telephonecode}}">{{$country->name}} {{$country->telephonecode}}</option>
-            @endforeach
+          @foreach ($countries as $country)
+            <option  value="{{$country->telephonecode}}">{{$country->name}} {{$country->telephonecode}}</option>
+          @endforeach
         </select>
       </div>
       <div class="form-group col-md-6">
-        <input type="tel" id="telephone" class="form-control @error('centre_phone') is-invalid @enderror" name="centre_phone" placeholder="943 29 05 34"/>
+        <input type="tel" id="centre_telephone" class="form-control @error('centre_phone') is-invalid @enderror" name="centre_phone" placeholder="Ex. 943 29 05 34"/>
         @error('centre_phone')
           <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>
@@ -44,15 +44,15 @@
     </div>
     <div class="form-row">
       <div class="form-group col-md-6">
-        <select class="form-control" name="mobile_telephonecode" id="telephonecode">
-        <option value="" hidden disabled selected class="placeholder">{{$countrySelect->name}} {{$countrySelect->telephonecode}}</option>
+        <select class="form-control" name="mobile_telephonecode" id="mobile_telephonecode">
+        <option value="{{$countrySelect->telephonecode}}" selected class="placeholder">{{$countrySelect->name}} {{$countrySelect->telephonecode}}</option>
             @foreach ($countries as $country)
-              <option selected value="{{$country->telephonecode}}">{{$country->name}} {{$country->telephonecode}}</option>
+              <option value="{{$country->telephonecode}}">{{$country->name}} {{$country->telephonecode}}</option>
             @endforeach
         </select>
       </div>
       <div class="form-group col-md-6">
-        <input type="tel" id="telephone" class="form-control @error('mobile_phone') is-invalid @enderror" name="mobile_phone" placeholder="671 29 05 34"/>
+        <input type="tel" id="mobile_telephone" class="form-control @error('mobile_phone') is-invalid @enderror" name="mobile_phone" placeholder="Ex. 671 29 05 34"/>
         @error('mobile_phone')
           <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>
@@ -72,20 +72,20 @@
     {{-- <div class="form-group"> --}}
       <select class="form-control" name="centre_name" id="centre" hidden>
         {{-- <option value="" hidden disabled class="placeholder">Select Centre</option> --}}
-          {@foreach ($centres as $centre)
+          @foreach ($centres as $centre)
             <option selected value="{{$centre->name}}">{{$centre->name}}</option>
           @endforeach
       </select>
     {{-- </div>  --}}
     <div class="submit">
       <button type="submit" class="btn">
-        {{ __('SUBMIT') }}
+        {{ __('NEXT') }}
     </button>
     </div>
   </form>
 </div>
-{{-- <div class="next">
-  <a href="{{route('pdf')}}">Next</a>
-</div> --}}
+<div class="back">
+  <a href="{{route('centre.create')}}">Back</a>
+</div>
 
 @endsection 
