@@ -5,21 +5,17 @@
 @section('content')
 
 <div class="doors-content">
-<form method="POST" action="{{route('door.store')}}" enctype="multipart/form-data">
+  <div class="card">
+    <label class="title">CENTRE NAME</label>
+      @foreach ($centres as $centre)
+        <label>{{$centre->name}}</label>
+      @endforeach
+  </div>
+  <form method="POST" action="{{route('door.store')}}" enctype="multipart/form-data">
     @csrf
     <div class="doors">
     <div id="photo">
-      <div class="card">
-        <label class="title">CENTRE NAME</label>
-        {{-- <div class="form-group"> --}}
-          <select class="form-control" name="centre_name" id="centre">
-            {{-- <option value="" hidden disabled selected class="placeholder">Select Centre</option> --}}
-              @foreach ($centres as $centre)
-                <option selected value="{{$centre->name}}">{{$centre->name}}</option>
-              @endforeach
-          </select>
-        {{-- </div>  --}}
-      </div>
+     
       <select class="form-control" name="country" id="country" hidden>
         {{-- <option value="" hidden disabled selected class="placeholder">Select Centre</option> --}}
           @foreach ($countries as $country)

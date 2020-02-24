@@ -17,9 +17,11 @@ class CreateCentresTable extends Migration
             $table->bigIncrements('id');
             $table->string('name'); 
             $table->integer('number'); 
-            $table->string('country'); 
-            $table->string('city');
             $table->string('address'); 
+            $table->string('city');
+            $table->string('postal_code'); 
+            $table->string('province');
+            $table->string('country'); 
             $table->timestamps();
         });
     }
