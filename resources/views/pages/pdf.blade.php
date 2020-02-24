@@ -9,7 +9,11 @@
     <h3>Download the PDF and follow the details of the survey guide</h3>
   </div>
   <div id="pdf-icon">
-    <a href="/download/REGUS_Survey_Comms_Rooms.pdf"><img id="pdf" src="img/icon_pdf.png" alt="Regus Survey Requirements"></a>
+    <a href="/download/IWG_Communication_Rooms_Project_Survey.pdf"><img id="pdf" src="img/icon_pdf.png" alt="Regus Survey Requirements"></a>
+  </div>
+  <div>
+    <a class="link">View online</a>
+    <a class="link" href="/download/IWG_Communication_Rooms_Project_Survey.pdf">Download</a>
   </div>
   <div id="pdf-button">
     <a href="{{route('door.create')}}">
