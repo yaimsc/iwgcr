@@ -44,7 +44,7 @@ class CentreController extends Controller
     {
         $this->validate($request, [
             'centre_name' => 'required|string|min:2|max:255', 
-            'centre_number' => 'numeric|max:4|required', 
+            'centre_number' => 'numeric|digits:4|required', 
             'country' => 'required', 
             'city' => 'required|min:2|max:255|string',
             'postal_code' => 'min:2|max:10',
@@ -52,16 +52,10 @@ class CentreController extends Controller
             'province' => 'required|min:2|max:25|string'
         ]);
 
-        // $validator=Validator::make($request, [
-        //     // array(
-        //         'centre_name' => ['required', 'string'], 
-        //         'centre_number' =>  ['required', 'numeric', 'max:4'], 
-        //         'country' => ['required']
-        //     // )
-        // ]);
-
         // $country=DB::table('centres')->where('country', $request->get('country'))->get(); 
-        $centre=DB::table('centres')->where('number', $request->input('cenrtre_number'))->get(); 
+        Session::put('country_key', DB::table('countries')->where('name', $request->get('country'))->get());
+
+        $centre=DB::table('centres')->where('number', $request->input('centre_number'))->get(); 
         if($centre->count() != 0){
             return view('pages.contactPerson', [
                 'countries' =>  DB::table('countries')->where('name', $request->get('country'))->get(),
@@ -81,8 +75,9 @@ class CentreController extends Controller
             $data->save(); 
 
             return view('pages.contactPerson', [
-                'countries' =>  DB::table('countries')->where('name', $request->get('country'))->get(),
-                'centres' => DB::table('centres')->where('country', $request->get('country'))->get(), 
+                // 'countries' =>  DB::table('countries')->where('name', $request->get('country'))->get(),
+                'countries' => Country::all(),
+                'centres' => DB::table('centres')->where('name', $request->get('centre_name'))->get(), 
                 // 'messages' => $validator->messages()
             ]); 
         }

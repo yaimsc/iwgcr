@@ -44,15 +44,15 @@ class ContactPersonController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => 'string|required|min:2|max:255', 
-            'number' => 'numeric', 
+        $this->validate($request, [
+            'name' => 'required|string|min:2|max:255',
+            'centre_phone' => 'numeric',
+            'mobile_phone' => 'numeric', 
             'email' => 'email', 
         ]);
 
         Session::put('centre_key', DB::table('centres')->where('name', $request->get('centre_name'))->get());
-        Session::put('country_key', DB::table('countries')->where('name', $request->get('country'))->get());
-
+        
         $contact=DB::table('contact_people')->where('name', $request->input('name'))->get(); 
 
         if($contact->count() != 0){
@@ -61,15 +61,18 @@ class ContactPersonController extends Controller
             $data = new ContactPerson;
 
             $data->name=$request->input('name');
-            $data->telephonecode=$request->get('telephonecode');
-            $data->number=$request->input('number');
+            $data->centre_telephonecode=$request->get('centre_telephonecode');
+            $fijo=$request->input('centre_phone'); 
+            $data->centre_phone= empty($fijo) ? null : $fijo; 
+            $data->mobile_telephonecode=$request->get('mobile_telephonecode');
+            $movil=$request->input('mobile_phone');
+            $data->mobile_phone= empty($movil) ? null : $movil; 
             $data->email=$request->input('email');
-            $data->country=$request->get('country');
             $data->centre_name=$request->get('centre_name');
 
             $data->save(); 
 
-            return redirect()->action('IndexController@pdf');
+            return view('pages.pdf');
         }
 
     }

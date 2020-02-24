@@ -3,7 +3,7 @@
 @section('content')
 <div id="card-contact" class="card">
   <div class="card-header">
-    <h5 class="title">Centre Information<h5>
+    <h4 class="title">Centre Information<h4>
   </div>
   <form method="POST" action="{{route('centre.store')}}" enctype="multipart/form-data">
     @csrf
@@ -18,7 +18,7 @@
     </div>
     <div class="form-group">
       <label class="bmd-label-floating">Centre Number/ID</label>
-      <input type="number" class="form-control @error('centre_number') is-invalid @enderror" name="centre_number" min="1" max="4"/>
+      <input type="number" class="form-control @error('centre_number') is-invalid @enderror" name="centre_number"/>
       <small class="text-muted">If Centre number/ID does not have 4 digits, put 0 before. Ex. 0074</small>
       @error('centre_number')
         <span class="invalid-feedback" role="alert">
@@ -81,12 +81,12 @@
               @foreach ($countries as $country)
                 <option value="{{$country->name}}">{{$country->name}}</option>
               @endforeach
-              @error('country')
-                <span class="invalid-feedback" role="alert">
-                  <strong>{{ $message }}</strong>
-                </span>
-              @enderror
           </select>
+          @error('country')
+            <span class="invalid-feedback" role="alert">
+              <strong>{{ $message }}</strong>
+            </span>
+          @enderror
         </div>
       </div>
       <div class="submit">

@@ -6,47 +6,77 @@
 
 <div id="card-contact" class="card">
   <div class="card-header">
-    <h5 class="title">Centre Staff Contact Person<h5>
+    <h4 class="title">Centre Staff Contact Person<h4>
+    @foreach ($centres as $centre)
+    <h4 class="title">- {{$centre->name}}</h4>
+    @endforeach
   </div>
   <form method="POST" action="{{route('contactPerson.store')}}" enctype="multipart/form-data">
     @csrf
     <div class="form-group">
       <label class="bmd-label-floating">Name</label>
-       <input type="text" class="form-control" name="name" id="name" min="2" max="35" required/> 
+        <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" id="name"/> 
+        @error('name')
+          <span class="invalid-feedback" role="alert">
+            <strong>{{ $message }}</strong>
+          </span>
+        @enderror
     </div>
     <div class="form-row">
       <div class="form-group col-md-6">
-        <select class="form-control" name="telephonecode" id="telephonecode">
-          {{-- <option value="" hidden disabled selected class="placeholder">Select Code</option> --}}
+        <select class="form-control" name="centre_telephonecode" id="telephonecode">
+          @foreach(Session::get('country_key') as $countrySelect)
+            <option value="" hidden disabled selected class="placeholder">{{$countrySelect->name}} {{$countrySelect->telephonecode}}</option>
+          @endforeach
             @foreach ($countries as $country)
               <option selected value="{{$country->telephonecode}}">{{$country->name}} {{$country->telephonecode}}</option>
             @endforeach
         </select>
       </div>
       <div class="form-group col-md-6">
-        <input type="tel" id="telephone" class="form-control" name="number" placeholder="671 29 05 34" required/>
+        <input type="tel" id="telephone" class="form-control @error('centre_phone') is-invalid @enderror" name="centre_phone" placeholder="943 29 05 34"/>
+        @error('centre_phone')
+          <span class="invalid-feedback" role="alert">
+            <strong>{{ $message }}</strong>
+          </span>
+        @enderror
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <select class="form-control" name="mobile_telephonecode" id="telephonecode">
+        <option value="" hidden disabled selected class="placeholder">{{$countrySelect->name}} {{$countrySelect->telephonecode}}</option>
+            @foreach ($countries as $country)
+              <option selected value="{{$country->telephonecode}}">{{$country->name}} {{$country->telephonecode}}</option>
+            @endforeach
+        </select>
+      </div>
+      <div class="form-group col-md-6">
+        <input type="tel" id="telephone" class="form-control @error('mobile_phone') is-invalid @enderror" name="mobile_phone" placeholder="671 29 05 34"/>
+        @error('mobile_phone')
+          <span class="invalid-feedback" role="alert">
+            <strong>{{ $message }}</strong>
+          </span>
+        @enderror
       </div>
     </div>
     <div class="form-group">
       <label class="bmd-label-floating">Email</label>
-      <input type="email" class="form-control" name="email" required/>
+      <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" required/>
+      @error('email')
+        <span class="invalid-feedback" role="alert">
+          <strong>{{ $message }}</strong>
+        </span>
+      @enderror
     </div>
     {{-- <div class="form-group"> --}}
-      <select class="form-control" name="country" id="country" hidden>
-        {{-- <option value="" hidden disabled selected class="placeholder">Select Centre</option> --}}
-          {{-- @foreach ($countries as $country) --}}
-            <option selected value="{{$country->name}}">{{$country->name}}</option>
-          {{-- @endforeach --}}
-      </select>
-    {{-- </div>  --}}
-    <div class="form-group">
-      <select class="form-control" name="centre_name" id="centre">
-        <option value="" hidden disabled selected class="placeholder">Select Centre</option>
-          @foreach ($centres as $centre)
-            <option value="{{$centre->name}}">{{$centre->name}}</option>
+      <select class="form-control" name="centre_name" id="centre" hidden>
+        {{-- <option value="" hidden disabled class="placeholder">Select Centre</option> --}}
+          {@foreach ($centres as $centre)
+            <option selected value="{{$centre->name}}">{{$centre->name}}</option>
           @endforeach
       </select>
-    </div> 
+    {{-- </div>  --}}
     <div class="submit">
       <button type="submit" class="btn">
         {{ __('SUBMIT') }}
