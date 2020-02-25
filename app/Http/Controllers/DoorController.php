@@ -115,6 +115,12 @@ class DoorController extends Controller
         $exterior_image64=base64_encode(file_get_contents($exterior_photo));
         $data->exterior_photo = $this->uploadPhotos($exterior_image64)->data->link;
 
+        //IQ PLACEMENT PHOTO
+
+        $placememt_photo=$request->file('placment_photo');
+        $placement_image64=base64_encode(file_get_contents($placememt_photo));
+        $data->placement_photo=$this->uploadPhotos($placement_image64)->data->link;
+
 
         // $fileMetadata = new Google_Service_Drive_DriveFile(array(
         //     'name' => $interior_photo));
@@ -128,7 +134,7 @@ class DoorController extends Controller
         //     dd($file);
 
 
-        $data->cylinder_name=$request->input('cylinder_name'); 
+        $data->door_name=$request->input('door_name'); 
         $data->exterior_length=$request->input('exterior_length');
         $data->interior_length=$request->input('interior_length');
         $data->distance_knobs_frame_ok=$request->has('distance_knobs_frame_ok'); //boolean

@@ -44,7 +44,10 @@
             <td>
               <a href="{{$door->exterior_photo}}"><img src="{{$door->exterior_photo}}"/></a>
             </td>
-            <td>{{$door->cylinder_name}}</td>
+            <td>
+              <a href="{{$door->placement_photo}}"><img src="{{$door->placement_photo}}"/></a>
+            </td>
+            <td>{{$door->door_name}}</td>
             <td>{{$door->exterior_length}}</td>
             <td>{{$door->interior_length}}</td>
             @if($door->distance_knobs_frame_ok == 1)

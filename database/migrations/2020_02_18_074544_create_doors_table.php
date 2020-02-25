@@ -20,7 +20,8 @@ class CreateDoorsTable extends Migration
             $table->string('interior_photo'); 
             $table->string('front_photo');
             $table->string('exterior_photo');
-            $table->string('cylinder_name');
+            $table->string('placement_photo');
+            $table->string('door_name');
             $table->float('exterior_length');
             $table->float('interior_length');
             $table->boolean('distance_knobs_frame_ok');

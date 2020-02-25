@@ -4,18 +4,17 @@
 
 @section('content')
 
+<section>
+<div class="row">
+  @foreach ($centres as $centre)
+    <h2 class="title-white">Centre - {{$centre->name}}</h2>
+  @endforeach
+</div>
 <div class="doors-content">
-  <div class="card">
-    <label class="title">CENTRE NAME</label>
-      @foreach ($centres as $centre)
-        <label>{{$centre->name}}</label>
-      @endforeach
-  </div>
   <form method="POST" action="{{route('door.store')}}" enctype="multipart/form-data">
     @csrf
     <div class="doors">
     <div id="photo">
-     
       <select class="form-control" name="country" id="country" hidden>
         {{-- <option value="" hidden disabled selected class="placeholder">Select Centre</option> --}}
           @foreach ($countries as $country)
@@ -34,14 +33,18 @@
         <label class="title">Exterior Photo</label>
         <input class="form-control" type="file" name="exterior_photo"/>
       </div>
+      <div class="card">
+        <label class="title">IQ Placement Photo</label>
+        <input class="form-control" type="file" name="placement_photo"/>
+      </div>
     </div>
     <div class="card">
       <div class="card-header">
         <h5 class="title">Cylinder Specifications</h5>
       </div>
       <div class="form-group">
-        <label class="bmd-label-floating">Cylinder Name</label>
-        <input class="form-control" name="cylinder_name" required/>
+        <label class="bmd-label-floating">Coomunication Rooms Door Name</label>
+        <input class="form-control" name="door_name" required/>
       </div>
       <div class="form-row">
         <div class="form-group col-md-6">
@@ -67,6 +70,7 @@
     </div>
   </form>
 </div>
+</section>
     
 @endsection
     
