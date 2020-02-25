@@ -19,4 +19,9 @@ class IndexController extends Controller
     public function pdf(Request $request){
         return view('pages.pdf');
     }
+
+    public function showPDF(){
+        $path ="/download/IWG_Communication_Rooms_Project_Survey.pdf";
+        return response()->file($path);
+    }
 }

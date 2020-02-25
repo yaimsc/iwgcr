@@ -108,7 +108,7 @@ nav{
 #pdf-button{
   display: flex;
   justify-content: center;
-  margin-top: 80px;
+  margin-top: 30px;
 }
 
 #pdf{
@@ -165,14 +165,29 @@ nav{
   color: white;
 }
 
-.link{
+.links a{
   display: flex;
-  justify-content: center;
-  margin-left: 20%;
+  align-items: center;
   text-transform: uppercase;
   color:white;
+  font-weight: bold;
+}
+
+.links{
+  margin-top: 10px;
+  display: inline-flex; 
+  justify-content: space-around;
+}
+
+.text{
+  margin-top: 50px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  font-style: italic;
 }
 
 select{
   margin-top: -10px;
 }
+

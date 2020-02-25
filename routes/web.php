@@ -27,6 +27,11 @@ Route::get('/download/{file}', function($file){
 	return response()->download($path);
 });
 
+Route::get('/view/{file}', function($file){
+	$path = storage_path('app/public/files/'.$file);
+	return response()->file($path);
+});
+
 Route::get('admin', 'AdminController@index')->name('admin');
 // Authentication Routes...
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
