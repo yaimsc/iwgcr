@@ -137,6 +137,7 @@ class DoorController extends Controller
         $data->door_name=$request->input('door_name'); 
         $data->exterior_length=$request->input('exterior_length');
         $data->interior_length=$request->input('interior_length');
+        $data->type_length=$request->input('type_length');
         $data->distance_knobs_frame_ok=$request->has('distance_knobs_frame_ok'); //boolean
         
         $data->save();

@@ -50,6 +50,7 @@
             <td>{{$door->door_name}}</td>
             <td>{{$door->exterior_length}}</td>
             <td>{{$door->interior_length}}</td>
+            <td>{{$door->type_length}}</td>
             @if($door->distance_knobs_frame_ok == 1)
               <td>YES</td>
             @else

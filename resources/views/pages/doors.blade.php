@@ -43,22 +43,28 @@
         <h5 class="title">Cylinder Specifications</h5>
       </div>
       <div class="form-group">
-        <label class="bmd-label-floating">Coomunication Rooms Door Name</label>
+        <label class="bmd-label-floating">Comunication Rooms Door Name</label>
         <input class="form-control" name="door_name" required/>
       </div>
       <div class="form-row">
-        <div class="form-group col-md-6">
+        <div class="form-group col-md-5">
           <label class="bmd-label-floating">Exterior Length</label>
-          <input class="form-control" type="number" name="exterior_length" placeholder="Exterior Length (mm)" required/>
+          <input class="form-control" type="number" name="exterior_length" placeholder="Exterior Length" required/>
         </div>
-        <div class="form-group col-md-6">
+        <div class="form-group col-md-5">
           <label class="bmd-label-floating">Interior Length</label>
-          <input class="form-control" type="number" name="interior_length" placeholder="Interior Length (mm)" required/>
+          <input class="form-control" type="number" name="interior_length" placeholder="Interior Length" required/>
+        </div>
+        <div class="form-group col-md-2">
+          <select class="form-control" name="type_length" id="type_length">
+            <option value="mm" selected class="placeholder">mm</option>
+            <option value="inches">inches</option>
+          </select>
         </div>
       </div>
       <div class="checkbox">
         <label>
-          <input type="checkbox" name="distance_knobs_frame_ok">Distance from Knobs Centre to Frame OK
+          <input type="checkbox" name="distance_knobs_frame_ok">Confirmation Distance from Knob's centre to Frame OK
         </label>
       </div>
     </div>

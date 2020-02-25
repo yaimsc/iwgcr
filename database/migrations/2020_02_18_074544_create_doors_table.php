@@ -24,6 +24,7 @@ class CreateDoorsTable extends Migration
             $table->string('door_name');
             $table->float('exterior_length');
             $table->float('interior_length');
+            $table->string('type_length');
             $table->boolean('distance_knobs_frame_ok');
             $table->timestamps();
         });
