@@ -177,6 +177,11 @@ nav{
   color: white;
 }
 
+#back-pdf{
+  margin-right: 0%;
+  margin-top: 40px;
+}
+
 .links a{
   display: flex;
   align-items: center;

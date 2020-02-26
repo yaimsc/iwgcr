@@ -15,6 +15,12 @@
     @csrf
     <div class="doors">
     <div id="photo">
+      <select class="form-control" name="centre_name" id="centre_name" hidden>
+        {{-- <option value="" hidden disabled selected class="placeholder">Select Centre</option> --}}
+          @foreach ($centres as $centre)
+            <option selected value="{{$centre->name}}">{{$centre->name}}</option>
+          @endforeach
+      </select>
       <select class="form-control" name="country" id="country" hidden>
         {{-- <option value="" hidden disabled selected class="placeholder">Select Centre</option> --}}
           @foreach ($countries as $country)

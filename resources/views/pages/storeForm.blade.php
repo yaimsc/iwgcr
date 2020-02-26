@@ -10,7 +10,7 @@
     <div class="card-body">
       <h5 class="card-title">Sumbitted</h5>
       <p class="card-text">Your form has been submitted</p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
+      <a href="{{route()}}" class="btn btn-primary">Submit another one</a>
     </div>
     <div class="card-footer text-muted">
       Thank you

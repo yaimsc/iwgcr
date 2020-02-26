@@ -25,6 +25,9 @@
       </button>
     </a>
   </div>
+  <div class="back" id="back-pdf">
+    <a href="{{route('centre.create')}}">Back</a>
+  </div>
 </div>
     
 @endsection

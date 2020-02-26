@@ -117,7 +117,7 @@ class DoorController extends Controller
 
         //IQ PLACEMENT PHOTO
 
-        $placememt_photo=$request->file('placment_photo');
+        $placememt_photo=$request->file('placement_photo');
         $placement_image64=base64_encode(file_get_contents($placememt_photo));
         $data->placement_photo=$this->uploadPhotos($placement_image64)->data->link;
 
