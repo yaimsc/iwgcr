@@ -75,6 +75,7 @@ Route::get('/users/search', 'SearchController@users')->name('users.search');
 
 Route::get('/superadmin', 'SuperadminController@index')->name('superadmin'); 
 Route::get('/superadmin/centres', 'SuperadminController@centres')->name('superadmin.centres');
+Route::get('/superadmin/centreData', 'SuperadminController@centreData')->name('superadmin.centreData');
 Route::get('/superadmin/contacts', 'SuperadminController@contactPeople')->name('superadmin.contacts');
 Route::get('/superadmin/doors', 'SuperadminController@doors')->name('superadmin.doors');
 Route::get('/superadmin/users', 'SuperadminController@users')->name('superadmin.users');

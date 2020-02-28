@@ -1,5 +1,8 @@
 @extends('layouts.superadmin')
 @section('title', 'Regus Survey Data')
+@section('drawer')
+    @include('includes.drawerUser')
+@endsection
 @section('content')
   <div class="content">
   <form method="GET" action="{{route('users.search')}}">

@@ -1,5 +1,8 @@
 @extends('layouts.superadmin')
 @section('title', 'Regus Survey Data')
+@section('drawer')
+  @include('includes.drawerCentre')
+@endsection
 @section('content')
   <div class="content">
     <form method="GET" action={{route('centres.search')}}>
@@ -29,6 +32,7 @@
       </thead>
       <tbody>
         @foreach ($centres as $centre)
+        <a href={{route('superadmin.centreData', $centre->name)}}>
           <tr>
             <td>{{$centre->name}}</td>
             <td>{{$centre->number}}</td>
@@ -44,7 +48,8 @@
                 <i id="delete" class="fas fa-trash-alt fa-xs"></i>
               </button>
             </td>
-          </tr> 
+          </tr>
+        </a> 
         @endforeach
       </tbody>
     </table>

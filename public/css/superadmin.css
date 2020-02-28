@@ -36,6 +36,40 @@ p{
   box-shadow: 3px 3px 11px -2px rgba(60,60,59,0.64);
 }
 
+.centre-open a, .user-open a{
+  padding-top: 15px;
+  padding-bottom: -10px;
+  padding-left: 40px;
+  margin-top: 20px;
+  background-color: #2294cb;
+  width: 180px;
+  height: 50px;
+  border-radius: 0px 60px 60px 0px;
+}
+
+.centre-open a:hover, .user-open a:hover, .user a:hover, .centre a:hover{
+  text-decoration: none;
+  background-color: #2286cb;
+  -webkit-box-shadow: 10px 10px 11px -11px rgba(0,0,0,0.75);
+  -moz-box-shadow: 10px 10px 11px -11px rgba(0,0,0,0.75);
+  box-shadow: 10px 10px 11px -11px rgba(0,0,0,0.75);
+
+}
+
+.centre-open p, .centre-open i, .user-open p, .user-open i, .user i, .centre i{
+  color: white;
+}
+
+.user a, .centre a{
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 35px;
+  margin-top: 20px;
+  background-color: #2294cb;
+  width: 80px;
+  border-radius: 0px 60px 60px 0px;
+}
+
 ul{
   margin: 0px; 
   padding: 0px;
@@ -52,10 +86,6 @@ li{
 
 li a, #logout{
   color: white;
-}
-
-li a:hover{
-  text-decoration: none;
 }
 
 li p{

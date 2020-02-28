@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Country; 
 use App\Centre;
 use App\ContactPerson;
@@ -28,6 +29,14 @@ class SuperadminController extends Controller
         return view('pages.superadmin.centre', [
             'centres' => Centre::all(), 
             'countries' => Country::all()
+        ]);
+    }
+
+    public function centreData($name){
+        return view('pages.superadmin.centreData', [
+            'centres' => DB::table('centres')->where('name', $name), 
+            'contact_people' => DB::table('contact_people')->where('centre_name', $name), 
+            'doors' => DB::table('doors')->where('centre_name', $name)
         ]);
     }
 

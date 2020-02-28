@@ -8,8 +8,8 @@
   <body>
     @include('includes.navbars.navdark')
     <div class="row">
-      <aside class="col-md-2">
-        @include('includes.drawer')
+      <aside>
+        @yield('drawer')
       </aside>
     <section class="col-md-10">
       @yield('content')
@@ -17,4 +17,10 @@
   </div>
     @include('includes.scripts')
   </body>
+  <style>
+    .row{
+      display: flex; 
+      flex-direction: row;
+    }
+  </style>
 </html>
