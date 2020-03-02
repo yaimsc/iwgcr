@@ -1,4 +1,4 @@
-@extends('layouts.superadmin')
+@extends('layouts.home')
 <link rel="stylesheet" href="/css/data.css" />
 @section('drawer')
   @include('includes.drawer')

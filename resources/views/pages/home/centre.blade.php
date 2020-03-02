@@ -1,5 +1,8 @@
 @extends('layouts.home')
 @section('title', 'Regus Survey Data')
+@section('drawer')
+  @include('includes.drawerCentre')
+@endsection
 @section('content')
   <div class="content">
     <form method="GET" action={{route('centres.search')}}>
@@ -30,12 +33,12 @@
       <tbody>
         @foreach ($centres as $centre)
           <tr>
-            <td>{{$centre->name}}</td>
-            <td>{{$centre->number}}</td>
-            <td>{{$centre->country}}</td>
-            <td>{{$centre->city}}</td>
-            <td>{{$centre->address}}</td>
-            <td>{{$centre->created_at}}</td>
+            <td><a href="{{route('home.centreData', $centre->name)}}">{{$centre->name}}</a></td>
+            <td><a href="{{route('home.centreData', $centre->name)}}">{{$centre->number}}</a></td>
+            <td><a href="{{route('home.centreData', $centre->name)}}">{{$centre->country}}</a></td>
+            <td><a href="{{route('home.centreData', $centre->name)}}">{{$centre->city}}</a></td>
+            <td><a href="{{route('home.centreData', $centre->name)}}">{{$centre->address}}</a></td>
+            <td><a href="{{route('home.centreData', $centre->name)}}">{{$centre->created_at}}</a></td>
           </tr> 
         @endforeach
       </tbody>

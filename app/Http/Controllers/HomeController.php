@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Centre;
 use App\ContactPerson;
 use App\Country;
@@ -42,6 +43,14 @@ class HomeController extends Controller
         return view('pages.home.centre', [
             'centres' => Centre::all(), 
             'countries' => Country::all()
+        ]);
+    }
+
+    public function centreData($name){
+        return view('pages.home.centreData', [
+            'centres' => DB::table('centres')->where('name', $name)->get(), 
+            'contact_people' => DB::table('contact_people')->where('centre_name', $name)->get(), 
+            'doors' => DB::table('doors')->where('centre_name', $name)->get()
         ]);
     }
 

@@ -19,6 +19,11 @@ nav{
 a{
   display: inline-flex;
   align-content: center;
+  color: #3c3c3b;
+}
+
+a:hover{
+  color: #2286cb;
 }
 
 p{

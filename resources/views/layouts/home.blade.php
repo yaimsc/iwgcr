@@ -9,7 +9,7 @@
     @include('includes.navbars.navdark')
     <div class="row">
       <aside class="col-md-2">
-        @include('includes.drawer')
+        @yield('drawer')
       </aside>
     <section class="col-md-10">
       @yield('content')

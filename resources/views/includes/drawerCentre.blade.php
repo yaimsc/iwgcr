@@ -4,8 +4,10 @@
     <p>Centres</p>
   </a>
 </div>
-<div class="user">
-  <a href="{{route('superadmin.users')}}">
-    <i class="fas fa-users"></i>
-  </a>
-</div>
+@if(Auth::user()->role_id == 1)
+  <div class="user">
+    <a href="{{route('superadmin.users')}}">
+      <i class="fas fa-users"></i>
+    </a>
+  </div>
+@endif

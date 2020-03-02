@@ -37,16 +37,17 @@
           <td><a href="{{route('superadmin.centreData', $centre->name)}}">{{$centre->name}}</a></td>
           <td><a href="{{route('superadmin.centreData', $centre->name)}}">{{$centre->number}}</a></td>
           <td><a href="{{route('superadmin.centreData', $centre->name)}}">{{$centre->country}}</a></td>
+          <td><a href="{{route('superadmin.centreData', $centre->name)}}">{{$centre->city}}</a></td>
           <td><a href="{{route('superadmin.centreData', $centre->name)}}">{{$centre->address}}</a></td>
           <td><a href="{{route('superadmin.centreData', $centre->name)}}">{{$centre->created_at}}</a></td>
-          <td>
+          {{-- <td>
           <button type="button" class="btn btn-info bmd-btn-icon active">
             <i id="edit" class="fas fa-pen fa-xs"></i>
           </button>
           <button type="button" class="btn btn-danger bmd-btn-icon active">
             <i id="delete" class="fas fa-trash-alt fa-xs"></i>
           </button>
-        </td>
+        </td> --}}
         </tr>
         
         @endforeach

@@ -60,6 +60,7 @@ Route::resource('door', 'DoorController'); //CRUD
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/home/centres', 'HomeController@centres')->name('home.centres');
+Route::get('/home/centreData/{name}', 'HomeController@centreData')->name('home.centreData');
 Route::get('/home/doors', 'HomeController@doors')->name('home.doors');
 Route::get('/home/contacts', 'HomeController@contactPeople')->name('home.contacts'); 
 

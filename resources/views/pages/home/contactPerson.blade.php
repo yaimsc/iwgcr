@@ -1,5 +1,8 @@
 @extends('layouts.home')
 @section('title', 'Regus Survey Data')
+@section('drawer')
+  @include('includes.drawerCentre')
+@endsection
 @section('content')
   <div class="content">
   <form method="GET" action="{{route('contacts.search')}}">
