@@ -70,7 +70,7 @@
       </div>
       <div class="checkbox">
         <label>
-          <input type="checkbox" name="distance_knobs_frame_ok">Confirmation Distance from Knob's centre to Frame OK
+          <input type="checkbox" name="distance_knobs_frame_ok">Confirmation Distance from Knob's centre to Frame is OK
         </label>
       </div>
     </div>

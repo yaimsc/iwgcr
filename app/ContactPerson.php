@@ -10,4 +10,5 @@ class ContactPerson extends Model
     public function centre(){
         return $this->hasOne('App\Centre'); 
     }
+
 }

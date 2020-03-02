@@ -23,7 +23,7 @@
       <thead>
         <tr>
           <th>Name</th>
-          <th>Number</th>
+          <th>Number/ID</th>
           <th>Country</th>
           <th>City</th>
           <th>Address</th>
@@ -32,27 +32,35 @@
       </thead>
       <tbody>
         @foreach ($centres as $centre)
-        <a href={{route('superadmin.centreData', $centre->name)}}>
-          <tr>
-            <td>{{$centre->name}}</td>
-            <td>{{$centre->number}}</td>
-            <td>{{$centre->country}}</td>
-            <td>{{$centre->city}}</td>
-            <td>{{$centre->address}}</td>
-            <td>{{$centre->created_at}}</td>
-            <td>
-              <button type="button" class="btn btn-info bmd-btn-icon active">
-                <i id="edit" class="fas fa-pen fa-xs"></i>
-              </button>
-              <button type="button" class="btn btn-danger bmd-btn-icon active">
-                <i id="delete" class="fas fa-trash-alt fa-xs"></i>
-              </button>
-            </td>
-          </tr>
-        </a> 
+        
+        <tr class="table-row">
+          <td><a href="{{route('superadmin.centreData', $centre->name)}}">{{$centre->name}}</a></td>
+          <td><a href="{{route('superadmin.centreData', $centre->name)}}">{{$centre->number}}</a></td>
+          <td><a href="{{route('superadmin.centreData', $centre->name)}}">{{$centre->country}}</a></td>
+          <td><a href="{{route('superadmin.centreData', $centre->name)}}">{{$centre->address}}</a></td>
+          <td><a href="{{route('superadmin.centreData', $centre->name)}}">{{$centre->created_at}}</a></td>
+          <td>
+          <button type="button" class="btn btn-info bmd-btn-icon active">
+            <i id="edit" class="fas fa-pen fa-xs"></i>
+          </button>
+          <button type="button" class="btn btn-danger bmd-btn-icon active">
+            <i id="delete" class="fas fa-trash-alt fa-xs"></i>
+          </button>
+        </td>
+        </tr>
+        
         @endforeach
       </tbody>
     </table>
   </div>
-  
+  <script>
+    $(document).ready(function($) {
+    $(".table-row").click(function() {
+      var href = $(this).find("a").attr("href");
+        if(href) {
+            window.location = href;
+        }
+    });
+});
+  </script>
 @endsection
