@@ -25,7 +25,6 @@
           <th>Name</th>
           <th>Email</th>
           <th>Country</th>
-          <th>Centre Name</th>
           <th>Completion Date</th>
         </tr>
       </thead>
@@ -36,14 +35,14 @@
             <td>{{$user->email}}</td>
             <td>{{$user->country}}</td>
             <td>{{$user->created_at}}</td>
-            <td>
+            {{-- <td>
               <button type="button" class="btn btn-info bmd-btn-icon active">
                 <i id="edit" class="fas fa-pen fa-xs"></i>
               </button>
               <button type="button" class="btn btn-danger bmd-btn-icon active">
                 <i id="delete" class="fas fa-trash-alt fa-xs"></i>
               </button>
-            </td>
+            </td> --}}
           </tr> 
         @endforeach
       </tbody>
