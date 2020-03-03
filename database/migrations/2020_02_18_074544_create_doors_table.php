@@ -21,6 +21,7 @@ class CreateDoorsTable extends Migration
             $table->string('front_photo');
             $table->string('exterior_photo');
             $table->string('placement_photo');
+            $table->string('placement_photo_optional')->nullable();
             $table->string('door_name');
             $table->float('exterior_length');
             $table->float('interior_length');

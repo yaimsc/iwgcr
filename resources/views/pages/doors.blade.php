@@ -29,19 +29,48 @@
       </select>
       <div class="card">
         <label class="title">Interior Photo</label>
-        <input class="form-control"  type="file" name="interior_photo"/>
+        <input class="form-control @error('interior_photo') is-invalid @enderror"  type="file" name="interior_photo" value="{{ old('interior_photo') }}" />
+        @error('interior_photo')
+          <span class="invalid-feedback" role="alert">
+            <strong>{{ $message }}</strong>
+          </span>
+        @enderror
       </div>
       <div class="card">
         <label class="title">Front Photo</label>
-        <input class="form-control" type="file" name="front_photo"/>
+        <input class="form-control @error('front_photo') is-invalid @enderror" type="file" name="front_photo" value="{{ old('front_photo') }}"/>
+        @error('front_photo')
+          <span class="invalid-feedback" role="alert">
+            <strong>{{ $message }}</strong>
+          </span>
+        @enderror
       </div>
       <div class="card">
         <label class="title">Exterior Photo</label>
-        <input class="form-control" type="file" name="exterior_photo"/>
+        <input class="form-control @error('exterior_photo') is-invalid @enderror" type="file" name="exterior_photo" value="{{ old('exterior_photo') }}"/>
+        @error('exterior_photo')
+          <span class="invalid-feedback" role="alert">
+            <strong>{{ $message }}</strong>
+          </span>
+        @enderror
       </div>
       <div class="card">
         <label class="title">IQ Placement Photo</label>
-        <input class="form-control" type="file" name="placement_photo"/>
+        <input class="form-control @error('placement_photo') is-invalid @enderror" type="file" name="placement_photo" value="{{ old('placement_photo') }}"/>
+        @error('placement_photo')
+          <span class="invalid-feedback" role="alert">
+            <strong>{{ $message }}</strong>
+          </span>
+        @enderror
+      </div>
+      <div class="card">
+        <label class="title">IQ Placement Photo (optional)</label>
+        <input class="form-control @error('placement_photo_optional') is-invalid @enderror" type="file" name="placement_photo_optional" value="{{ old('placement_photo_optional') }}"/>
+        @error('placement_photo_optional')
+          <span class="invalid-feedback" role="alert">
+            <strong>{{ $message }}</strong>
+          </span>
+        @enderror
       </div>
     </div>
     <div class="card">
@@ -50,16 +79,31 @@
       </div>
       <div class="form-group">
         <label class="bmd-label-floating">Comunication Rooms Door Name</label>
-        <input class="form-control" name="door_name" required/>
+        <input class="form-control @error('door_name') is-invalid @enderror" name="door_name" value="{{ old('door_name') }}"required/>
+        @error('door_name')
+          <span class="invalid-feedback" role="alert">
+            <strong>{{ $message }}</strong>
+          </span>
+        @enderror
       </div>
       <div class="form-row">
         <div class="form-group col-md-5">
           <label class="bmd-label-floating">Exterior Length</label>
-          <input class="form-control" type="number" name="exterior_length" placeholder="Exterior Length" required/>
+          <input class="form-control @error('exterior_length') is-invalid @enderror" type="number" name="exterior_length" value="{{ old('exterior_length') }}" placeholder="Exterior Length" required/>
+          @error('exterior_length')
+          <span class="invalid-feedback" role="alert">
+            <strong>{{ $message }}</strong>
+          </span>
+          @enderror
         </div>
         <div class="form-group col-md-5">
           <label class="bmd-label-floating">Interior Length</label>
-          <input class="form-control" type="number" name="interior_length" placeholder="Interior Length" required/>
+          <input class="form-control @error('interior_length') is-invalid @enderror" type="number" name="interior_length" value="{{ old('interior_length') }}" placeholder="Interior Length" required/>
+          @error('interior_length')
+          <span class="invalid-feedback" role="alert">
+            <strong>{{ $message }}</strong>
+          </span>
+          @enderror
         </div>
         <div class="form-group col-md-2">
           <select class="form-control" name="type_length" id="type_length">

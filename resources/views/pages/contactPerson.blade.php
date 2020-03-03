@@ -8,14 +8,14 @@
   <div class="card-header">
     <h4 class="title">Centre Staff Contact Person<h4>
     @foreach ($centres as $centre)
-    <h4 class="title">- {{$centre->name}}</h4>
+    <h4 class="title">{{$centre->name}}</h4>
     @endforeach
   </div>
   <form method="POST" action="{{route('contactPerson.store')}}" enctype="multipart/form-data">
     @csrf
     <div class="form-group">
       <label class="bmd-label-floating">Name</label>
-        <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" id="name"/> 
+      <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" id="name" value="{{ old('name') }}" required autofocus/> 
         @error('name')
           <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>
@@ -34,7 +34,7 @@
         </select>
       </div>
       <div class="form-group col-md-6">
-        <input type="tel" id="centre_telephone" class="form-control @error('centre_phone') is-invalid @enderror" name="centre_phone" placeholder="Ex. 943 29 05 34"/>
+      <input type="tel" id="centre_telephone" class="form-control @error('centre_phone') is-invalid @enderror" name="centre_phone" value="{{ old('centre_phone') }}" placeholder="Ex. 943 29 05 34"/>
         @error('centre_phone')
           <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>
@@ -52,7 +52,7 @@
         </select>
       </div>
       <div class="form-group col-md-6">
-        <input type="tel" id="mobile_telephone" class="form-control @error('mobile_phone') is-invalid @enderror" name="mobile_phone" placeholder="Ex. 671 29 05 34"/>
+      <input type="tel" id="mobile_telephone" class="form-control @error('mobile_phone') is-invalid @enderror" name="mobile_phone" value="{{ old('mobile_phone') }}" placeholder="Ex. 671 29 05 34"/>
         @error('mobile_phone')
           <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>
@@ -62,7 +62,7 @@
     </div>
     <div class="form-group">
       <label class="bmd-label-floating">Email</label>
-      <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" required/>
+      <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required/>
       @error('email')
         <span class="invalid-feedback" role="alert">
           <strong>{{ $message }}</strong>

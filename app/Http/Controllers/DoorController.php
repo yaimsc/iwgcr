@@ -81,12 +81,17 @@ class DoorController extends Controller
      */
     public function store(Request $request)
     {
-        // $request->validate([
-        //     'name' => 'required|string|min:2', 
-        //     'exterior_length' => 'required|numeric', 
-        //     'interior_length' => 'required|numeric', 
-        //     'check' => 'nullable'
-        // ]);
+        
+        $this->validate($request, [
+            'interior_photo' => 'required|max:10000', 
+            'front_photo' => 'required|max:10000',
+            'exterio_photo' => 'required|max:10000', 
+            'placement_photo' => 'required|max:10000', 
+            'placement_photo_optional' => 'max:10000|nullable',
+            'door_name' => 'required|min:2|max:255|string', 
+            'exterior_length' => 'required|number', 
+            'interior_length' => 'required|number'
+        ]);
 
         $centre=DB::table('centres')->where('name', $request->input('name'))->get(); 
         if($centre->count() != 0){
@@ -121,6 +126,11 @@ class DoorController extends Controller
         $placement_image64=base64_encode(file_get_contents($placememt_photo));
         $data->placement_photo=$this->uploadPhotos($placement_image64)->data->link;
 
+        //IQ PLACEMENT PHOTO OPTIONAL
+
+        $placement_photo_optional=$request->file('placement_photo_optional'); 
+        $placement_optional_image64=base64_encode(file_get_contents($placement_photo_optional)); 
+        $data->placement_photo_optional=$this->uploadPhotos($placement_photo_optional)->data->link;
 
         // $fileMetadata = new Google_Service_Drive_DriveFile(array(
         //     'name' => $interior_photo));
