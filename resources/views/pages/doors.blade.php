@@ -82,6 +82,9 @@
     </div>
   </form>
 </div>
+<div class="back" id="back-pdf">
+  <a href="javascript:history.back()">Back</a>
+</div>
 </section>
     
 @endsection

@@ -26,7 +26,7 @@
     </a>
   </div>
   <div class="back" id="back-pdf">
-    <a href="{{route('centre.create')}}">Back</a>
+    <a href="javascript:history.back()">Back</a>
   </div>
 </div>
     

@@ -26,13 +26,13 @@
     <p class="title2">Centre Staff Contact Information</p>
       <div class="staff">
         <p>{{$people->name}}</p>
-        <p>{{$people->centre_phone == null ? '' : 'T: '. $people->centre_telephonecode .' '}}{{$people->centre_phone == null ? '' : $poeple->centre_phone}}</p>
+        <p>{{$people->centre_phone == null ? '' : 'T: '. $people->centre_telephonecode .' '}}{{$people->centre_phone == null ? '' : $people->centre_phone}}</p>
         <p>{{$people->mobile_phone == null ? '' : 'M: '.$people->mobile_telephonecode .' '}}{{$people->mobile_phone == null ? '' : $people->mobile_phone}}</p>
         <p>E: {{$people->email}}</p>
       </div>  
     @endforeach
     @foreach ($doors as $door)
-    <p class="title2">Communications Room Door Information
+    <p class="title2">Communication Rooms Door Information
         <div class="photos">
           <div class="img"><p>Interior Photo</p><img src={{$door->interior_photo}}/></div>
           <div class="img"><p>Front Photo</p><img src={{$door->front_photo}} /></div>
