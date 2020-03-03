@@ -46,8 +46,8 @@ class ContactPersonController extends Controller
     {
         $this->validate($request, [
             'name' => 'required|string|min:2|max:255',
-            'centre_phone' => 'numeric|nullable',
-            'mobile_phone' => 'numeric|nullable', 
+            'centre_phone' => 'nullable',
+            'mobile_phone' => 'nullable', 
             'email' => 'email', 
         ]);
 

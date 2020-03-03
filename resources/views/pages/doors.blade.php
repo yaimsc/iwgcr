@@ -29,7 +29,7 @@
       </select>
       <div class="card">
         <label class="title">Interior Photo</label>
-        <input class="form-control @error('interior_photo') is-invalid @enderror"  type="file" name="interior_photo" value="{{ old('interior_photo') }}" />
+        <input class="form-control @error('interior_photo') is-invalid @enderror"  type="file" name="interior_photo" value="{{ old('interior_photo') }}" required/>
         @error('interior_photo')
           <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>
@@ -38,7 +38,7 @@
       </div>
       <div class="card">
         <label class="title">Front Photo</label>
-        <input class="form-control @error('front_photo') is-invalid @enderror" type="file" name="front_photo" value="{{ old('front_photo') }}"/>
+        <input class="form-control @error('front_photo') is-invalid @enderror" type="file" name="front_photo" value="{{ old('front_photo') }}" required />
         @error('front_photo')
           <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>
@@ -47,7 +47,7 @@
       </div>
       <div class="card">
         <label class="title">Exterior Photo</label>
-        <input class="form-control @error('exterior_photo') is-invalid @enderror" type="file" name="exterior_photo" value="{{ old('exterior_photo') }}"/>
+        <input class="form-control @error('exterior_photo') is-invalid @enderror" type="file" name="exterior_photo" value="{{ old('exterior_photo') }}" required />
         @error('exterior_photo')
           <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>
@@ -56,7 +56,7 @@
       </div>
       <div class="card">
         <label class="title">IQ Placement Photo</label>
-        <input class="form-control @error('placement_photo') is-invalid @enderror" type="file" name="placement_photo" value="{{ old('placement_photo') }}"/>
+        <input class="form-control @error('placement_photo') is-invalid @enderror" type="file" name="placement_photo" value="{{ old('placement_photo') }}" required/>
         @error('placement_photo')
           <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>

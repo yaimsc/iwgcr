@@ -45,10 +45,30 @@
     @foreach ($doors as $door)
     <p class="title2">Communication Rooms Door Information
         <div class="photos">
-          <div class="img"><p>Interior Photo</p><img src={{$door->interior_photo}}/></div>
-          <div class="img"><p>Front Photo</p><img src={{$door->front_photo}} /></div>
-          <div class="img"><p>Exterior Photo</p><img src={{$door->exterior_photo}} /></div>
-          <div class="img"><p>Placement Photo</p><img src={{$door->placement_photo}} /></div>
+          <div class="img">
+            <p>Interior Photo</p>
+            <a href="{{$door->interior_photo}}"><img src={{$door->interior_photo}}/></a>
+          </div>
+          <div class="img">
+            <p>Front Photo</p>
+            <a href="{{$door->front_photo}}"><img src={{$door->front_photo}} /></a>
+          </div>
+          <div class="img">
+            <p>Exterior Photo</p>
+            <a href="{{$door->exterior_photo}}"><img src={{$door->exterior_photo}} /></a>
+          </div>
+          <div class="img">
+            <p>IQ Placement Photo</p>
+            <a href="{{$door->placement_photo}}"><img src={{$door->placement_photo}} /></a>
+          </div>
+          <div class="img">
+            <p>Optional IQ Placement Photo</p>
+            @if ($door->placement_photo_optional == null)
+                <p>No Photo</p>
+            @else
+              <a href="{{$door->placement_photo_optional}}"><img src={{$door->placement_photo_optional}} /></a>
+            @endif
+          </div>
         </div>
         <div class="cylinder">
           <div><p class="bold">Communication Room Door Name:</p><p> {{$door->door_name}}</p></div>

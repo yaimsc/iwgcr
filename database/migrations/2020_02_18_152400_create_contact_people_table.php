@@ -17,9 +17,9 @@ class CreateContactPeopleTable extends Migration
             $table->bigIncrements('id');
             $table->string('name'); 
             $table->string('centre_telephonecode');
-            $table->integer('centre_phone')->nullable(); 
+            $table->string('centre_phone')->nullable(); 
             $table->string('mobile_telephonecode');
-            $table->integer('mobile_phone')->nullable();
+            $table->string('mobile_phone')->nullable();
             $table->string('email'); 
             $table->string('centre_name'); 
             $table->timestamps();
