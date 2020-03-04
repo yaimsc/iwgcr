@@ -1,4 +1,5 @@
 @extends('layouts.superadmin')
+@section('title', 'Centres Information - IWG Communication Rooms Project')
 <link rel="stylesheet" href="/css/data.css" />
 @section('drawer')
   @include('includes.drawer')

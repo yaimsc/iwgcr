@@ -1,4 +1,5 @@
 @extends('layouts.home')
+@section('title', 'Centres Information - IWG Communication Rooms Project')
 <link rel="stylesheet" href="/css/data.css" />
 @section('drawer')
   @include('includes.drawer')
@@ -68,7 +69,6 @@
             @else
               <a href="{{$door->placement_photo_optional}}"><img src={{$door->placement_photo_optional}} /></a>
             @endif
-            
           </div>
         </div>
         <div class="cylinder">

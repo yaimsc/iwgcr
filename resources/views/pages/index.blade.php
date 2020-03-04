@@ -1,6 +1,6 @@
 @extends('layouts.landing')
 
-@section('title', 'Regus Survey')
+@section('title', 'IWG Communication Rooms Project')
 
 @section('content')
 
