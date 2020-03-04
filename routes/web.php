@@ -58,11 +58,11 @@ Route::resource('door', 'DoorController'); //CRUD
 
 // --- LOCAL HOME BU USER -----
 
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/home/centres', 'HomeController@centres')->name('home.centres');
-Route::get('/home/centreData/{name}', 'HomeController@centreData')->name('home.centreData');
-Route::get('/home/doors', 'HomeController@doors')->name('home.doors');
-Route::get('/home/contacts', 'HomeController@contactPeople')->name('home.contacts'); 
+Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
+Route::get('/home/centres', 'HomeController@centres')->name('home.centres')->middleware('auth');
+Route::get('/home/centreData/{name}', 'HomeController@centreData')->name('home.centreData')->middleware('auth');
+Route::get('/home/doors', 'HomeController@doors')->name('home.doors')->middleware('auth');
+Route::get('/home/contacts', 'HomeController@contactPeople')->name('home.contacts')->middleware('auth'); 
 
 
 // ---- FILTERS -----
@@ -74,10 +74,10 @@ Route::get('/users/search', 'SearchController@users')->name('users.search');
 
 // ----- SUPER ADMIN ------
 
-Route::get('/superadmin', 'SuperadminController@index')->name('superadmin'); 
-Route::get('/superadmin/centres', 'SuperadminController@centres')->name('superadmin.centres');
-Route::get('/superadmin/centreData/{name}', 'SuperadminController@centreData')->name('superadmin.centreData');
-Route::get('/superadmin/contacts', 'SuperadminController@contactPeople')->name('superadmin.contacts');
-Route::get('/superadmin/doors', 'SuperadminController@doors')->name('superadmin.doors');
-Route::get('/superadmin/users', 'SuperadminController@users')->name('superadmin.users');
+Route::get('/superadmin', 'SuperadminController@index')->name('superadmin')->middleware('auth'); 
+Route::get('/superadmin/centres', 'SuperadminController@centres')->name('superadmin.centres')->middleware('auth');
+Route::get('/superadmin/centreData/{name}', 'SuperadminController@centreData')->name('superadmin.centreData')->middleware('auth');
+Route::get('/superadmin/contacts', 'SuperadminController@contactPeople')->name('superadmin.contacts')->middleware('auth');
+Route::get('/superadmin/doors', 'SuperadminController@doors')->name('superadmin.doors')->middleware('auth');
+Route::get('/superadmin/users', 'SuperadminController@users')->name('superadmin.users')->middleware('auth');
 
