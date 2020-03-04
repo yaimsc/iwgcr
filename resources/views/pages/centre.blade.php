@@ -1,5 +1,5 @@
 @extends('layouts.form')
-@section('title', 'Regus Survey - Centre information')
+@section('title', 'IWG Communication Roms Project Survey')
 @section('content')
 <div id="card-contact" class="card">
   <div class="card-header">

@@ -1,5 +1,5 @@
 @extends('layouts.superadmin')
-@section('title', 'Regus Survey Data')
+@section('title', 'Centres - IWG Communication Rooms Project')
 @section('drawer')
   @include('includes.drawerCentre')
 @endsection

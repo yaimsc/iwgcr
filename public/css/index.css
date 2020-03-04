@@ -237,6 +237,16 @@ header.masthead p {
   }
 }
 
+@media (max-width: 768px){
+  .container{
+    /* width: 100%; 
+    height: 100vh;  */
+    background-image: url("../img/regus.png");
+    background-position: center center;
+    background-size: cover;
+  }
+}
+
 @media (min-width: 992px) {
   header.masthead {
     height: 100vh;
@@ -301,6 +311,7 @@ header.masthead p {
 .btn-primary {
   background-color: #1ea4e9;
   border-color: #ff4a4a;
+  margin-bottom: 50px;
 }
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
@@ -336,6 +347,7 @@ header.masthead p {
   font-size: calc(2em + 1vw);
   text-transform: uppercase;
   margin-top: 100px;
+  padding: auto;
 }
 
 .home-post{
@@ -395,3 +407,5 @@ select{
 #telephone{
   margin-top: -1px;
 }
+
+

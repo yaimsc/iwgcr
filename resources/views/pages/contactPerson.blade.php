@@ -1,6 +1,6 @@
 @extends('layouts.form')
 
-@section('title', 'Regus Survey - Centre Staff Contact Person')
+@section('title', 'IWG Communication Rooms Project Survey')
 
 @section('content')
 
