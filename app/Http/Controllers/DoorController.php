@@ -133,7 +133,7 @@ class DoorController extends Controller
             $data->placement_photo_optional=null;
         }else{
             $placement_optional_image64=base64_encode(file_get_contents($placement_photo_optional)); 
-            $data->placement_photo_optional=$this->uploadPhotos($placement_photo_optional)->data->link;
+            $data->placement_photo_optional=$this->uploadPhotos($placement_optional_image64)->data->link;
         }
         
 
