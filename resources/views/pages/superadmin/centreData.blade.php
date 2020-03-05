@@ -1,6 +1,7 @@
 @extends('layouts.superadmin')
 @section('title', 'Centres Information - IWG Communication Rooms Project')
 <link rel="stylesheet" href="/css/data.css" />
+<link rel="stylesheet" href="/css/magnific-popup.css">
 @section('drawer')
   @include('includes.drawer')
 @endsection
@@ -48,26 +49,26 @@
         <div class="photos">
           <div class="img">
             <p>Interior Photo</p>
-            <a href="{{$door->interior_photo}}"><img src={{$door->interior_photo}}/></a>
+            <a class="image-popup-no-margin" href="{{$door->interior_photo}}"><img src={{$door->interior_photo}}/></a>
           </div>
           <div class="img">
             <p>Front Photo</p>
-            <a href="{{$door->front_photo}}"><img src={{$door->front_photo}} /></a>
+            <a class="image-popup-no-margin" href="{{$door->front_photo}}"><img src={{$door->front_photo}} /></a>
           </div>
           <div class="img">
             <p>Exterior Photo</p>
-            <a href="{{$door->exterior_photo}}"><img src={{$door->exterior_photo}} /></a>
+            <a class="image-popup-no-margin" href="{{$door->exterior_photo}}"><img src={{$door->exterior_photo}} /></a>
           </div>
           <div class="img">
             <p>IQ Placement Photo</p>
-            <a href="{{$door->placement_photo}}"><img src={{$door->placement_photo}} /></a>
+            <a class="image-popup-no-margin" href="{{$door->placement_photo}}"><img src={{$door->placement_photo}} /></a>
           </div>
           <div class="img">
             <p>Optional IQ Placement Photo</p>
             @if ($door->placement_photo_optional == null)
                 <p>No Photo</p>
             @else
-              <a href="{{$door->placement_photo_optional}}"><img src={{$door->placement_photo_optional}} /></a>
+              <a class="image-popup-no-margin" href="{{$door->placement_photo_optional}}"><img src={{$door->placement_photo_optional}} /></a>
             @endif
           </div>
         </div>
@@ -79,7 +80,23 @@
         </div>
     @endforeach
     <div>
-
     </div>
   </div>
+  <script src="/js/jquery.magnific-popup.js"></script>
+  <script>
+    $('.image-popup-no-margins').magnificPopup({
+		type: 'image',
+		closeOnContentClick: true,
+		closeBtnInside: false,
+		fixedContentPos: true,
+		mainClass: 'mfp-no-margins mfp-with-zoom', // class to remove default margin from left and right side
+		image: {
+			verticalFit: true
+		},
+		zoom: {
+			enabled: true,
+			duration: 300 // don't foget to change the duration also in CSS
+		}
+	});
+  </script>
 @endsection
