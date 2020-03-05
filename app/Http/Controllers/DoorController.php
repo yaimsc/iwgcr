@@ -94,7 +94,7 @@ class DoorController extends Controller
         ]);
 
         $door=DB::table('doors')->where('centre_name', $request->input('centre_name'))->get(); 
-        if($centre->count() != 0){
+        if($door->count() != 0){
             return view('pages.storeForm');
         }else{
             $data = new Door; 
