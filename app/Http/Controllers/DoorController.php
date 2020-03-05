@@ -93,9 +93,8 @@ class DoorController extends Controller
             'interior_length' => 'required|numeric'
         ]);
 
-        $centre=DB::table('centres')->where('name', $request->input('name'))->get(); 
+        $door=DB::table('doors')->where('centre_name', $request->input('centre_name'))->get(); 
         if($centre->count() != 0){
-            alert('Your centre has been already submitted!'); 
             return view('pages.storeForm');
         }else{
             $data = new Door; 

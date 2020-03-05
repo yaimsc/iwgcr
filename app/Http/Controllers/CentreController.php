@@ -57,6 +57,7 @@ class CentreController extends Controller
 
         $centre=DB::table('centres')->where('number', $request->input('centre_number'))->get(); 
         if($centre->count() != 0){
+            return redirect()->back()->with('alert','This centre has already been submitted');
             return view('pages.contactPerson', [
                 'countries' =>  Country::all(),
                 'centres' => DB::table('centres')->where('name', $request->get('centre_name'))->get()
