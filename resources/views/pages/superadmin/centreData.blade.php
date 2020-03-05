@@ -1,7 +1,6 @@
 @extends('layouts.superadmin')
 @section('title', 'Centres Information - IWG Communication Rooms Project')
 <link rel="stylesheet" href="/css/data.css" />
-<link rel="stylesheet" href="/css/magnific-popup.css">
 @section('drawer')
   @include('includes.drawer')
 @endsection
@@ -49,28 +48,34 @@
         <div class="photos">
           <div class="img">
             <p>Interior Photo</p>
-            <a class="image-popup-no-margin" href="{{$door->interior_photo}}"><img src={{$door->interior_photo}}/></a>
+            <img src={{$door->interior_photo}} alt="Interior Photo" id="img01" />
           </div>
           <div class="img">
             <p>Front Photo</p>
-            <a class="image-popup-no-margin" href="{{$door->front_photo}}"><img src={{$door->front_photo}} /></a>
+            <img src={{$door->front_photo}} alt="Front Photo" id="img02"/>
           </div>
           <div class="img">
             <p>Exterior Photo</p>
-            <a class="image-popup-no-margin" href="{{$door->exterior_photo}}"><img src={{$door->exterior_photo}} /></a>
+            <img src={{$door->exterior_photo}} alt="Exterior Photo" id="img03"/>
           </div>
           <div class="img">
             <p>IQ Placement Photo</p>
-            <a class="image-popup-no-margin" href="{{$door->placement_photo}}"><img src={{$door->placement_photo}} /></a>
+            <img src={{$door->placement_photo}} alt="IQ Placement Photo" id="img04"/>
           </div>
           <div class="img">
             <p>Optional IQ Placement Photo</p>
             @if ($door->placement_photo_optional == null)
                 <p>No Photo</p>
             @else
-              <a class="image-popup-no-margin" href="{{$door->placement_photo_optional}}"><img src={{$door->placement_photo_optional}} /></a>
+              <img src={{$door->placement_photo_optional}} alt="IQ Placement Photo (Optional)" id="img05"/>
             @endif
           </div>
+        </div>
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+          <span class="close">&times;</span>
+          <img class="modal-content" id="imgModal01">
+          <div id="caption"></div>
         </div>
         <div class="cylinder">
           <div><p class="bold">Communication Room Door Name:</p><p> {{$door->door_name}}</p></div>
@@ -82,21 +87,41 @@
     <div>
     </div>
   </div>
-  <script src="/js/jquery.magnific-popup.js"></script>
   <script>
-    $('.image-popup-no-margins').magnificPopup({
-		type: 'image',
-		closeOnContentClick: true,
-		closeBtnInside: false,
-		fixedContentPos: true,
-		mainClass: 'mfp-no-margins mfp-with-zoom', // class to remove default margin from left and right side
-		image: {
-			verticalFit: true
-		},
-		zoom: {
-			enabled: true,
-			duration: 300 // don't foget to change the duration also in CSS
-		}
-	});
+    // Get the modal
+    var modal = document.getElementById("myModal");
+
+    // Get the image and insert it inside the modal - use its "alt" text as a caption
+    var img01 = document.getElementById("img01");
+    onclick(img01)
+    var img02 = document.getElementById("img02");
+    onclick(img02)
+    var img03 = document.getElementById("img03");
+    onclick(img03)
+    var img04 = document.getElementById("img04");
+    onclick(img04)
+    var img05 = document.getElementById("img05");
+    if(img05 !== null){
+      onclick(img05);
+    }
+    var modalImg = document.getElementById("imgModal01");
+    var captionText = document.getElementById("caption");
+    
+
+    function onclick(value){
+      value.onclick = function(){
+      modal.style.display = "block";
+      modalImg.src = this.src;
+      captionText.innerHTML = this.alt;
+      }
+    }
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() { 
+    modal.style.display = "none";
+    }
   </script>
 @endsection

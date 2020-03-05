@@ -3,6 +3,7 @@
   <head>
     @include('includes.head')
     <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="/css/modal.css">
     <title>@yield('title')</title>
   </head>
   <body>
