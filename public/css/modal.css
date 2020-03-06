@@ -28,6 +28,7 @@
   display: block;
   width: auto;
   height: auto;
+  object-fit: cover;
 }
 
 /* Caption of Modal Image */
