@@ -33,12 +33,15 @@ nav{
   margin-bottom: -5px;
 }
 
+.navbar-light .navbar-toggler{
+  border: none;
+}
+
 .navbar-brand{
   text-transform: uppercase;
   font-weight: bold;
+  white-space: pre-wrap;
 }
-
-
 
 @media(max-width: 768px){
   #card-contact{

@@ -5,9 +5,7 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
-  <a href="{{route('index')}}"><h1 class="navbar-brand js-scroll-trigger">{{config('app.name')}}</h1></a>
-  </div>
-  {{-- <div class="collapse navbar-collapse" id="navbarNavDropdown"> --}}
+    <a href="{{route('index')}}"><h1 class="navbar-brand js-scroll-trigger">{{config('app.name')}}</h1></a>
     <form action="{{ route('logout') }}" method="POST">
       @csrf
       <ul class="navbar-nav">
@@ -18,7 +16,10 @@
           </button>
         {{-- </li> --}}
       </ul>
-  </form>
+    </form>
+  </div>
+  {{-- <div class="collapse navbar-collapse" id="navbarNavDropdown"> --}}
+    
     {{-- <li class="nav-item">
         <a class="nav-link" href="#">Features</a>
       </li>

@@ -1,7 +1,7 @@
 @extends('layouts.superadmin')
 @section('title', 'Centres Information - IWG Communication Rooms Project')
-<link rel="stylesheet" href="/css/data.css" />
 @section('drawer')
+  <link rel="stylesheet" href="/css/data.css" />
   @include('includes.drawer')
 @endsection
 @section('content')

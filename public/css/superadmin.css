@@ -5,6 +5,9 @@
   margin-left: 5px;
   margin-right: 20px;
 }
+.collapse .navbar-collapse{
+  width: 100%;
+}
 
 nav{
   margin-top: -5px;
@@ -14,6 +17,29 @@ nav{
 .navbar-brand{
   text-transform: uppercase;
   font-weight: bold;
+  white-space: pre-wrap;
+}
+
+.navbar-dark .navbar-toggler{
+  border: none;
+}
+
+@media(max-width:1000px){
+  form{
+    margin-left: -20px;
+  }
+}
+
+@media(min-width: 1000px){
+  form{
+    margin-left: 50%;
+  }
+}
+
+form{
+  display: inline-flex;
+  align-self: flex-end;
+  margin-top: -20px;
 }
 
 a{

@@ -122,6 +122,10 @@ img::-moz-selection {
   margin-right: 20px;
 }
 
+.navbar-light .navbar-toggler{
+  border-color: white; 
+}
+
 #mainNav {
   border-bottom: 1px solid rgba(33, 37, 41, 0.1);
   background-color: #fff;
@@ -136,6 +140,7 @@ img::-moz-selection {
   color: #3c3c3b;
   font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
   width: 80%;
+  white-space: pre-wrap;
 }
 
 #mainNav .navbar-brand:focus, #mainNav .navbar-brand:hover {

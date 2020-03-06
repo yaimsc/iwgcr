@@ -16,6 +16,7 @@
       @yield('content')
     </section>
   </div>
+  @include('includes.scripts')
   </body>
   <style>
     .row{
