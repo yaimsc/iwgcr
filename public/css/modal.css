@@ -26,8 +26,8 @@
 .modal-content {
   margin: auto;
   display: block;
-  width: auto;
-  height: auto;
+  width: 50vw;
+  height: 50vh;
   object-fit: cover;
 }
 
