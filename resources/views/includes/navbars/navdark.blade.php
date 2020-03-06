@@ -6,7 +6,7 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <a href="{{route('index')}}"><h1 class="navbar-brand js-scroll-trigger">{{config('app.name')}}</h1></a>
-    <form action="{{ route('logout') }}" method="POST">
+    <form action="{{ route('logout') }}" method="POST" class="log">
       @csrf
       <ul class="navbar-nav">
         {{-- <li class="nav-item active"> --}}

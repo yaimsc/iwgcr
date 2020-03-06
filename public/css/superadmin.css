@@ -25,21 +25,23 @@ nav{
 }
 
 @media(max-width:1000px){
-  form{
+  .log {
     margin-left: -20px;
+    margin-top: -20px;
   }
 }
 
 @media(min-width: 1000px){
-  form{
+  .log {
     margin-left: 50%;
+    margin-top: -20px;
   }
 }
 
 form{
   display: inline-flex;
   align-self: flex-end;
-  margin-top: -20px;
+  margin-top: 20px;
 }
 
 a{
