@@ -23,12 +23,11 @@
 }
 
 /* Modal Content (Image) */
-.modal-content {
+img .modal-content {
   margin: auto;
   display: block;
   width: 50%;
   height: 50%;
-  object-fit: cover;
 }
 
 /* Caption of Modal Image */
