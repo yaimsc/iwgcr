@@ -74,7 +74,7 @@
         <!-- The Modal -->
         <div id="myModal" class="modal">
           <span class="close">&times;</span>
-          <img class="modal-content" id="imgModal01">
+          <img class="modal-content" id="imgModal">
           <div id="caption"></div>
         </div>
         <div class="cylinder">
@@ -104,7 +104,7 @@
     if(img05 !== null){
       onclick(img05);
     }
-    var modalImg = document.getElementById("imgModal01");
+    var modalImg = document.getElementById("imgModal");
     var captionText = document.getElementById("caption");
     
 

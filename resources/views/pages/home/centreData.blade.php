@@ -71,6 +71,12 @@
             @endif
           </div>
         </div>
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+          <span class="close">&times;</span>
+          <img class="modal-content" id="imgModal">
+          <div id="caption"></div>
+        </div>
         <div class="cylinder">
           <div><p class="bold">Communication Room Door Name:</p><p> {{$door->door_name}}</p></div>
           <div><p class="bold">Exterior Length:</p><p> {{$door->exterior_length.' '}} {{$door->type_length}}</p></div>
@@ -99,7 +105,7 @@
     if(img05 !== null){
       onclick(img05);
     }
-    var modalImg = document.getElementById("imgModal01");
+    var modalImg = document.getElementById("imgModal");
     var captionText = document.getElementById("caption");
     
 
