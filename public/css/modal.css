@@ -23,8 +23,8 @@
 }
 
 /* Modal Content (Image) */
-img .modal-content {
-  margin: 20%;
+.modal-content {
+  margin: auto;
   display: block;
   width: auto;
   height: auto;
