@@ -22,42 +22,48 @@
           </span>
         @enderror
     </div>
-    <div class="form-row">
-      <div class="form-group col-md-6">
-        <select class="form-control" name="centre_telephonecode" id="centre_telephonecode">
-          @foreach(Session::get('country_key') as $countrySelect)
-            <option value="{{$countrySelect->telephonecode}}" selected class="placeholder">{{$countrySelect->name}} {{$countrySelect->telephonecode}}</option>
-          @endforeach
-          @foreach ($countries as $country)
-            <option  value="{{$country->telephonecode}}">{{$country->name}} {{$country->telephonecode}}</option>
-          @endforeach
-        </select>
-      </div>
-      <div class="form-group col-md-6">
-      <input type="tel" id="centre_telephone" class="form-control @error('centre_phone') is-invalid @enderror" name="centre_phone" value="{{ old('centre_phone') }}" placeholder="Ex. 943 29 05 34"/>
-        @error('centre_phone')
-          <span class="invalid-feedback" role="alert">
-            <strong>{{ $message }}</strong>
-          </span>
-        @enderror
+    <div>
+      <label class="phone">Centre Phone</label>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <select class="form-control" name="centre_telephonecode" id="centre_telephonecode">
+            @foreach(Session::get('country_key') as $countrySelect)
+              <option value="{{$countrySelect->telephonecode}}" selected class="placeholder">{{$countrySelect->name}} {{$countrySelect->telephonecode}}</option>
+            @endforeach
+            @foreach ($countries as $country)
+              <option  value="{{$country->telephonecode}}">{{$country->name}} {{$country->telephonecode}}</option>
+            @endforeach
+          </select>
+        </div>
+        <div class="form-group col-md-6">
+        <input type="number" id="centre_telephone" class="form-control @error('centre_phone') is-invalid @enderror" name="centre_phone" value="{{ old('centre_phone') }}" placeholder="Centre Phone"/>
+          @error('centre_phone')
+            <span class="invalid-feedback" role="alert">
+              <strong>{{ $message }}</strong>
+            </span>
+          @enderror
+        </div>
       </div>
     </div>
-    <div class="form-row">
-      <div class="form-group col-md-6">
-        <select class="form-control" name="mobile_telephonecode" id="mobile_telephonecode">
-        <option value="{{$countrySelect->telephonecode}}" selected class="placeholder">{{$countrySelect->name}} {{$countrySelect->telephonecode}}</option>
-            @foreach ($countries as $country)
-              <option value="{{$country->telephonecode}}">{{$country->name}} {{$country->telephonecode}}</option>
-            @endforeach
-        </select>
-      </div>
-      <div class="form-group col-md-6">
-      <input type="tel" id="mobile_telephone" class="form-control @error('mobile_phone') is-invalid @enderror" name="mobile_phone" value="{{ old('mobile_phone') }}" placeholder="Ex. 671 29 05 34"/>
-        @error('mobile_phone')
-          <span class="invalid-feedback" role="alert">
-            <strong>{{ $message }}</strong>
-          </span>
-        @enderror
+    <div>
+      <label class="phone">Mobile Phone</label>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <select class="form-control" name="mobile_telephonecode" id="mobile_telephonecode">
+          <option value="{{$countrySelect->telephonecode}}" selected class="placeholder">{{$countrySelect->name}} {{$countrySelect->telephonecode}}</option>
+              @foreach ($countries as $country)
+                <option value="{{$country->telephonecode}}">{{$country->name}} {{$country->telephonecode}}</option>
+              @endforeach
+          </select>
+        </div>
+        <div class="form-group col-md-6">
+        <input type="number" id="mobile_telephone" class="form-control @error('mobile_phone') is-invalid @enderror" name="mobile_phone" value="{{ old('mobile_phone') }}" placeholder="Mobile Phone"/>
+          @error('mobile_phone')
+            <span class="invalid-feedback" role="alert">
+              <strong>{{ $message }}</strong>
+            </span>
+          @enderror
+        </div>
       </div>
     </div>
     <div class="form-group">

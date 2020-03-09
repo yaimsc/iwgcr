@@ -47,7 +47,7 @@
       </div>
       <div class="form-group col-md-6">
         <label class="bmd-label-floating">Postal Code</label>
-      <input type="text" class="form-control @error('postal_code') is-invalid @enderror" name="postal_code" value="{{ old('postal_code') }}" />
+      <input type="number" class="form-control @error('postal_code') is-invalid @enderror" name="postal_code" value="{{ old('postal_code') }}" />
         @error('postal_code')
           <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>
