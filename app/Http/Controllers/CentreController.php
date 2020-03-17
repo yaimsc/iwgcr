@@ -44,7 +44,7 @@ class CentreController extends Controller
     {
         $this->validate($request, [
             'centre_name' => 'required|string|min:2|max:255', 
-            'centre_number' => 'numeric|digits:4|required', 
+            'centre_number' => 'digits:4|required', 
             'country' => 'required', 
             'city' => 'required|min:2|max:255|string',
             'postal_code' => 'min:2|max:10',

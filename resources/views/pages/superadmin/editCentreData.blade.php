@@ -8,7 +8,7 @@
   <div class="content">
     @foreach ($centres as $centre)
   <div class="title">
-    <h4>Centre: {{$centre->name}}</h4>
+    <h4>Centre: <input value="{{$centre->name}}" /></h4>
   </div>
     <p class="title2">Centre Information</p>
     <div class="centre_info">
