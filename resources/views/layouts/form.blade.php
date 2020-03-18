@@ -4,7 +4,6 @@
     @include('includes.head')
     <link rel="stylesheet" href="/css/form.css">
     <title>@yield('title')</title>
-    
   </head>
   <body>
     @include('includes.navbars.navlight')

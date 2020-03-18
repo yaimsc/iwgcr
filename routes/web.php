@@ -20,6 +20,7 @@
 // });
 
 Route::get('/', 'IndexController@index')->name('index'); 
+Route::get('/installer', 'IndexController@signOff')->name('signoff.installer');
 Route::get('/pdf', 'IndexController@pdf')->name('pdf');
 
 Route::get('/download/{file}', function($file){

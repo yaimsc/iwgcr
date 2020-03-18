@@ -6,14 +6,21 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Continent;
 use App\Country; 
+use App\Centre;
 
 class IndexController extends Controller
 {
     public function index(){
         return view('pages.index', [
             'continents' => Continent::all(),
-            'countries' => Country::all()
+            'countries' => Country::all(), 
+            'centres' => Centre::all()
         ]);
+    }
+
+    public function signOff(){
+        
+
     }
 
     public function pdf(Request $request){

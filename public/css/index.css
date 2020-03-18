@@ -5,7 +5,7 @@ html {
 }
 
 body {
-  font-family: 'Merriweather', 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Roboto', 'Helvetica Neue', 'Merriweather', Arial, sans-serif;
 }
 
 #icon{
@@ -40,7 +40,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Roboto', 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
 }
 
 .title{
@@ -174,7 +174,7 @@ img::-moz-selection {
 @media (min-width: 992px) {
   #mainNav {
     border-color: transparent;
-    background-color: transparent;
+    background-color: #fff;
   }
   #mainNav .navbar-brand {
     color: #3c3c3b;
@@ -214,25 +214,57 @@ img::-moz-selection {
   }
 }
 
-header.masthead {
+.flex{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+
+.pre{
   width: 100%; 
   height: 100vh; 
   background-image: url("../img/regus.png");
   background-position: center center;
   background-size: cover;
-} 
-
-header.masthead hr {
-  margin-top: 30px;
-  margin-bottom: 30px;
+  display: flex; 
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-header.masthead h1 {
+.post{
+  width: 100%; 
+  height: 100vh; 
+  display: flex; 
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+}
+
+#welcome{
+  font-size: calc(1em + 1vw);
+  text-transform: uppercase;
+  margin-top: 100px;
+  padding: auto;
+  text-align: center;
+}
+
+/* header.masthead {
+  width: 100%; 
+  height: 100vh; 
+  background-image: url("../img/regus.png");
+  background-position: center center;
+  background-size: cover;
+}  */
+
+h1 {
   font-size: 2rem;
   color: #3c3c3b;
 }
 
-header.masthead p {
+p {
   font-weight: 300;
 }
 
@@ -242,42 +274,24 @@ header.masthead p {
   }
 }
 
-@media (max-width: 768px){
-  .container{
-    /* width: 100%; 
-    height: 100vh;  */
-    background-image: url("../img/regus.png");
-    background-position: center center;
-    background-size: cover;
-  }
-}
-
 @media (min-width: 992px) {
-  header.masthead {
+  header{
     height: 100vh;
     min-height: 650px;
     padding-top: 0;
     padding-bottom: 0;
   }
-  header.masthead h1 {
-    font-size: 3rem;
+  header h1 {
+    font-size: 2rem;
     color: #3c3c3b;
   }
 }
 
 @media (min-width: 1200px) {
-  header.masthead h1 {
+  header h1 {
     font-size: 4rem;
     color: #3c3c3b;
   }
-}
-
-#logicon{
-  margin-right: 2px;
-}
-
-#login {
-  margin-right: 10px;
 }
 
 .service-box {
@@ -302,11 +316,6 @@ header.masthead p {
   border: none;
   border-radius: 300px;
   font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
-}
-
-#localizacion{
-  color: #fff !important;
-  margin-left: 2.5%;
 }
 
 .btn-xl {
@@ -348,12 +357,7 @@ header.masthead p {
     z-index: -1;
 }
 
-#welcome{
-  font-size: calc(2em + 1vw);
-  text-transform: uppercase;
-  margin-top: 100px;
-  padding: auto;
-}
+
 
 .home-post{
   margin-bottom: 15px;
@@ -408,6 +412,12 @@ select{
   vertical-align: middle;
   display: table-cell;
 }
+
+#input{
+  margin-bottom: 100px;
+  margin-top: 100px;
+}
+
 
 #telephone{
   margin-top: -1px;

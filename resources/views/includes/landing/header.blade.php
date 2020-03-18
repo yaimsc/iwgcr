@@ -21,32 +21,36 @@
                 </div>
             @endif --}}
         </div>
-        
-        
     </div>
   </nav>
 
-    <header class="masthead text-center text-white d-flex">
-      <div class="container my-auto">
-        <div class="column" id="content">
-
-        <h1 id="welcome"><strong>{{config('app.name')}}</strong></h1>
-
-          {{-- <span class="icon">
-            <a href="#form"><i class="fas fa-chevron-down" ></i></a>
-          </span> --}}
-          <img src="/img/salto.png" id="img-salto"/>
-          <div>
-            <a href={{route('centre.create')}}><button class="btn-primary">Go to the Survey</button></a>
-          </div>
-          <!--
-          <div class="col-lg-5 mx-auto"><hr>
-            <h1 id="welcome"><strong>@lang('landing.title')</strong></h1>
-            <br/>
-            <a class="btn btn-primary btn-xl js-scroll-trigger" href="/register">@lang('landing.register')</a><br/>
-            <a class="badge badge-success" href="/home">@lang('landing.map')</a>
-          </div>  -->
-          
+  <header>
+    <div class="flex">
+      <div class="pre">
+        <h2 id="welcome"><strong>Pre-installation Survey</strong></h1>
+        <img src="/img/salto.png" id="img-salto"/>
+        <div>
+          <a href={{route('centre.create')}}><button class="btn-primary">Go to the Survey</button></a>
         </div>
       </div>
-    </header>
+      <div class="post">
+        <h2 id="welcome"><strong>Post-installation Sign off Form</strong></h1>
+        <form method="GET" enctype="multipart/form-data">
+          <select class="form-control" id="input" name="centre_number">
+            <option>Select<option>
+            @foreach($centres as $centre)
+              <option>{{$centre->number}}</option>
+            @endforeach
+          </select>
+          <div>
+            <button type="submit" class="btn-primary">
+              {{ __('Go to the Form') }}
+            </button>
+          </div>
+          {{-- <div>
+            <a href={{route('centre.create')}}><button class="btn-primary">Go to the Form</button></a>
+          </div> --}}
+        </form>
+        </div>
+    </div>
+  </header>
