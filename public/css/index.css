@@ -220,6 +220,10 @@ img::-moz-selection {
   justify-content: space-around;
 }
 
+@media(max-width: 768px){
+
+}
+
 
 .pre{
   width: 100%; 
@@ -315,7 +319,7 @@ p {
   text-transform: uppercase;
   border: none;
   border-radius: 300px;
-  font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Roboto', 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
 }
 
 .btn-xl {
@@ -330,7 +334,7 @@ p {
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
   color: #fff;
-  background-color: #ff4a4a !important;
+  background-color: #2294cb !important;
 }
 
 .btn-primary:active, .btn-primary:focus {
@@ -356,8 +360,6 @@ p {
     opacity : 0.2;
     z-index: -1;
 }
-
-
 
 .home-post{
   margin-bottom: 15px;
@@ -413,11 +415,25 @@ select{
   display: table-cell;
 }
 
-#input{
-  margin-bottom: 100px;
-  margin-top: 100px;
+.info{
+  width: 50%;
+  margin: 60px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+#trompet{
+  margin-right: 20px;
+  margin-top: -20px;
+}
+
+
+#input{
+  margin-bottom: 150px;
+  margin-top: 40px;
+}
 
 #telephone{
   margin-top: -1px;

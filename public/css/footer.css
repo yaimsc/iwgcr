@@ -1,7 +1,9 @@
 footer{
   background-color: white;
-  height: auto;
-  width: 100%;
+  position: fixed;
+  bottom:0;
+  width:100%;
+  height:auto;
   display: flex;
   justify-content: space-between;
   flex-direction: row;

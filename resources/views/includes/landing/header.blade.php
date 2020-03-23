@@ -28,16 +28,20 @@
     <div class="flex">
       <div class="pre">
         <h2 id="welcome"><strong>Pre-installation Survey</strong></h1>
-        <img src="/img/salto.png" id="img-salto"/>
+        <img src="/img/salto.png" id="img-salto" alt="salto" />
         <div>
           <a href={{route('centre.create')}}><button class="btn-primary">Go to the Survey</button></a>
         </div>
       </div>
       <div class="post">
         <h2 id="welcome"><strong>Post-installation Sign off Form</strong></h1>
+        <div class="info">
+          <img src="/img/bullhorn.png" id="trompet" alt="post-installation"/>
+          <p>Fill the pre-installation survey first</p>
+        </div>
         <form method="GET" enctype="multipart/form-data">
           <select class="form-control" id="input" name="centre_number">
-            <option>Select<option>
+            <option>Select Centre Number/ID<option>
             @foreach($centres as $centre)
               <option>{{$centre->number}}</option>
             @endforeach
