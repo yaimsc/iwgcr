@@ -120,9 +120,9 @@
     </div>
   </div>
     <div class="card">
-      <div>
-        <label>Does the General Manager want to receive from SALTO a quotation for equipping the whole center?</label>
-        <select name="quotation">
+      <div class="form-group">
+        <p>Does the General Manager want to receive from SALTO a quotation for equipping the whole center?</p>
+        <select class="form-control col-md-4 @error('quotation') is-invalid @enderror" name="quotation" value="{{ old('quotation') }}">
           <option value="1">YES</option>
           <option value="0">NO</option>
         </select>

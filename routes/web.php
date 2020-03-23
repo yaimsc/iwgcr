@@ -20,7 +20,6 @@
 // });
 
 Route::get('/', 'IndexController@index')->name('index'); 
-Route::get('/installer', 'IndexController@signOff')->name('signoff.installer');
 Route::get('/pdf', 'IndexController@pdf')->name('pdf');
 
 Route::get('/download/{file}', function($file){
@@ -60,6 +59,10 @@ Route::resource('centre', 'CentreController'); 	//CRUD
 Route::resource('contactPerson', 'ContactPersonController');	//CRUD
 
 Route::resource('door', 'DoorController'); //CRUD
+
+// --- SIGN OFF FORM -------
+
+Route::resource('installer', 'InstallerController'); //CRUD
 
 // --- LOCAL HOME BU USER -----
 

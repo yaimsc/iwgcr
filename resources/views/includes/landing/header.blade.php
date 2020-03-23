@@ -39,13 +39,18 @@
           <img src="/img/bullhorn.png" id="trompet" alt="post-installation"/>
           <p>Fill the pre-installation survey first</p>
         </div>
-        <form method="GET" enctype="multipart/form-data">
-          <select class="form-control" id="input" name="centre_number">
-            <option>Select Centre Number/ID<option>
+      <form method="GET" action="{{route('installer.create')}}" enctype="multipart/form-data" >
+          <select class="form-control @error('centre_number') is-invalid @enderror" id="input" name="centre_number" value="{{ old('centre_number') }}" required>
+            <option value="" hidden disabled selected class="placeholder">Select Centre Number/ID<option>
             @foreach($centres as $centre)
-              <option>{{$centre->number}}</option>
+              <option value="{{$centre->number}}">{{$centre->number}}</option>
             @endforeach
           </select>
+          @error('centre_number')
+          <span class="invalid-feedback" role="alert">
+            <strong>{{ $message }}</strong>
+          </span>
+          @enderror
           <div>
             <button type="submit" class="btn-primary">
               {{ __('Go to the Form') }}

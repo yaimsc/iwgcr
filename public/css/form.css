@@ -164,13 +164,11 @@ section{
   margin-top: 30px;
 }
 
-
-
 .row{
   display: flex;
   justify-content: center;
-  margin-top: 5%;
   margin-bottom: 30px;
+  margin-top: -15%;
 }
 
 .doors-content{
@@ -250,5 +248,9 @@ select{
   margin-top: -10px;
 }
 
+.inline{
+  display: flex;
+  flex-direction: row;
+}
 
 

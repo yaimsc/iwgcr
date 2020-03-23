@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Session;
 use App\Continent;
 use App\Country; 
 use App\Centre;
@@ -16,11 +17,6 @@ class IndexController extends Controller
             'countries' => Country::all(), 
             'centres' => Centre::all()
         ]);
-    }
-
-    public function signOff(){
-        
-
     }
 
     public function pdf(Request $request){
