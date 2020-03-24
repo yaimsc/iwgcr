@@ -18,7 +18,8 @@ class CreateInstallersTable extends Migration
             $table->string('name');
             $table->string('email');
             $table->string('telephonecode'); 
-            $table->string('phone');
+            $table->string('telephone');
+            $table->string('centre_name')->references('name')->on('centres');
             $table->timestamps();
         });
     }

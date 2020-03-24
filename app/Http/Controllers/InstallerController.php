@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Session;
 use App\Country;
+use App\Installer;
 
 
 class InstallerController extends Controller
@@ -27,21 +28,21 @@ class InstallerController extends Controller
      */
     public function create(Request $request)
     {
-        $v = $this->validate($request, [
-            'centre_number' => 'required|not_in:0'
+        $this->validate($request, [
+            'centre_number' => 'required'
         ]);
 
         $centre_number=$request->get('number');
 
-        Session::put('centre_number_key', DB::table('centres')->where('number', $centre_number)->get());
+        $centres = Session::put('centre_number_key', DB::table('centres')->where('number', $centre_number)->get());
 
-        if($v->fails()){
-            return redirect()->back()->withErrors($v->errors());
-        }else{
-            return view('pages.sign-off.installer', [
-                'countries' => Country::all()
-            ]);
-        }
+        // Session::put('centre_country_key', DB::table('centres')->where('number', $centre_number))->value('country');
+        
+        return view('pages.sign-off.installer', [
+            'countries' => Country::all(), 
+            'centres' => $centres
+        ]);
+        
     }
 
     /**
@@ -52,7 +53,31 @@ class InstallerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // $request->validate([
+        //     'installer_name' => 'required', 
+        //     'installer_email' => 'email|required',
+        //     'installer_telephonecode' => 'required', 
+        //     'installer_telephone' => 'required'
+        // ]); 
+
+        $installer= DB::table('installers')->where('email', $request->input('email'))->get();
+        $centres=Session::get('centre_number_key'); //sesion con el centro del number selected
+        $data = new Installer; 
+
+        $data->name=$request->input('installer_name'); 
+        $data->email=$request->input('installer_email'); 
+        $data->telephonecode=$request->get('installer_telephonecode');
+        $data->telephone=$request->input('installer_telephone');
+        foreach($centres as $centre){
+            $data->centre_name=$centre->name;
+        }
+        
+        $data->save();
+
+        return redirect()->route('sig-off.create', [
+            'centres' => $centres
+        ]);
+
     }
 
     /**

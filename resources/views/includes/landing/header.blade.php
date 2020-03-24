@@ -43,7 +43,7 @@
           <select class="form-control @error('centre_number') is-invalid @enderror" id="input" name="centre_number" value="{{ old('centre_number') }}" required>
             <option value="" hidden disabled selected class="placeholder">Select Centre Number/ID<option>
             @foreach($centres as $centre)
-              <option value="{{$centre->number}}">{{$centre->number}}</option>
+              <option value="{{$centre->number}}">{{$centre->number}} - {{$centre->name}}</option>
             @endforeach
           </select>
           @error('centre_number')

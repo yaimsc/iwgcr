@@ -32,6 +32,11 @@ Route::get('/view/{file}', function($file){
 	return response()->file($path);
 });
 
+Route::get('/privacy/{file}', function($file){
+	$path = storage_path('app/public/files/'.$file);
+	return response()->file($path);
+});
+
 Route::get('admin', 'AdminController@index')->name('admin');
 // Authentication Routes...
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
@@ -62,7 +67,13 @@ Route::resource('door', 'DoorController'); //CRUD
 
 // --- SIGN OFF FORM -------
 
+//installer
+// Route::post('/installer', 'InstallerController@create')->name('installer.create');
+// Route::post('/installer/store', 'InstallerController@store')->name('installer.store');
 Route::resource('installer', 'InstallerController'); //CRUD
+
+//Sign-Off
+Route::resource('sign-off', 'SignOffController');
 
 // --- LOCAL HOME BU USER -----
 
