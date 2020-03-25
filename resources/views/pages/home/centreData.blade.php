@@ -102,26 +102,26 @@
       <div class="photos">
         <div class="img">
           <p>Cylinder Interior Photo</p>
-          <img src={{$sign_door->interior_photo}} alt="Interior Photo" id="img01" />
+          <img src={{$sign_door->interior_photo}} alt="Interior Photo" id="img06" />
         </div>
         <div class="img">
           <p>Cylinder Exterior Photo</p>
-          <img src={{$sign_door->exterior_photo}} alt="Exterior Photo" id="img02"/>
+          <img src={{$sign_door->exterior_photo}} alt="Exterior Photo" id="img07"/>
         </div>
         <div class="img">
           <p>IQ Installation Photo</p>
-          <img src={{$sign_door->installation_photo}} alt="IQ Installation Photo" id="img03"/>
+          <img src={{$sign_door->installation_photo}} alt="IQ Installation Photo" id="img08"/>
         </div>
         <div class="img">
           <p>IQ + Cylinder Photo</p>
-          <img src={{$sign_door->iq_cylinder_photo}} alt="IQ Cylinder Photo" id="img04"/>
+          <img src={{$sign_door->iq_cylinder_photo}} alt="IQ Cylinder Photo" id="img09"/>
         </div>
       </div>
       <div class="checkboxes">
-        <div><p class="bold">IQ shows purple light:</p><i class="fas fa-check"></i><p></p></div>
-        <div><p class="bold">IQ Mac adress has been whitelisted:</p><i class="fas fa-check"></i><p></p></div>
-        <div><p class="bold">Centre has activated Titan:</p><i class="fas fa-check"></i><p></p></div>
-        <div><p class="bold">Maintenance kit and tags have been given to centre staff:</p><i class="fas fa-check"></i><p></p></div>
+        <div><p class="bold">IQ shows purple light: </p><i class="fas fa-check"></i></div>
+        <div><p class="bold">IQ Mac adress has been whitelisted: </p><i class="fas fa-check"></i></div>
+        <div><p class="bold">Centre has activated Titan: </p><i class="fas fa-check"></i></div>
+        <div><p class="bold">Maintenance kit and tags have been given to centre staff: </p><i class="fas fa-check"></i></div>
       </div>
       @endforeach
     </div>
@@ -143,6 +143,14 @@
     if(img05 !== null){
       onclick(img05);
     }
+    var img06 = document.getElementById("img06");
+    onclick(img06)
+    var img07 = document.getElementById("img07");
+    onclick(img07)
+    var img08 = document.getElementById("img08");
+    onclick(img08)
+    var img09 = document.getElementById("img09");
+    onclick(img09)
     var modalImg = document.getElementById("imgModal");
     var captionText = document.getElementById("caption");
     
