@@ -29,14 +29,14 @@ class InstallerController extends Controller
     public function create(Request $request)
     {
         $this->validate($request, [
-            'centre_number' => 'required'
+            'centre_name' => 'required'
         ]);
 
-        $centre_number=$request->get('number');
+        $centre_name=$request->get('centre_name');
 
-        $centres = Session::put('centre_number_key', DB::table('centres')->where('number', $centre_number)->get());
+        $centres = DB::table('centres')->where('name', $centre_name)->get();
 
-        // Session::put('centre_country_key', DB::table('centres')->where('number', $centre_number))->value('country');
+        // Session::put('centre', DB::table('centres')->where('name', $centre_name))->get();
         
         return view('pages.sign-off.installer', [
             'countries' => Country::all(), 
@@ -61,21 +61,18 @@ class InstallerController extends Controller
         // ]); 
 
         $installer= DB::table('installers')->where('email', $request->input('email'))->get();
-        $centres=Session::get('centre_number_key'); //sesion con el centro del number selected
         $data = new Installer; 
 
         $data->name=$request->input('installer_name'); 
         $data->email=$request->input('installer_email'); 
         $data->telephonecode=$request->get('installer_telephonecode');
         $data->telephone=$request->input('installer_telephone');
-        foreach($centres as $centre){
-            $data->centre_name=$centre->name;
-        }
+        $data->centre_name=$request->get('centre_name');
         
         $data->save();
 
-        return redirect()->route('sig-off.create', [
-            'centres' => $centres
+        return view('pages.sign-off.doors', [
+            'centres' => DB::table('centres')->where('name', $request->get('centre_name'))->get()
         ]);
 
     }

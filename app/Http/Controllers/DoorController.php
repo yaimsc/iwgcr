@@ -122,8 +122,8 @@ class DoorController extends Controller
 
         //IQ PLACEMENT PHOTO
 
-        $placememt_photo=$request->file('placement_photo');
-        $placement_image64=base64_encode(file_get_contents($placememt_photo));
+        $placement_photo=$request->file('placement_photo');
+        $placement_image64=base64_encode(file_get_contents($placement_photo));
         $data->placement_photo=$this->uploadPhotos($placement_image64)->data->link;
 
         //IQ PLACEMENT PHOTO OPTIONAL
@@ -154,7 +154,7 @@ class DoorController extends Controller
         $data->interior_length=$request->input('interior_length');
         $data->type_length=$request->input('type_length');
         $data->distance_knobs_frame_ok=$request->has('distance_knobs_frame_ok'); //boolean
-        $data->quotation=$request->has('quotation'); //boolean
+        $data->quotation=$request->get('quotation'); //boolean
         
         $data->save();
 

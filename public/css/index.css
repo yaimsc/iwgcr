@@ -328,18 +328,12 @@ p {
 
 .btn-primary {
   background-color: #1ea4e9;
-  border-color: #ff4a4a;
   margin-bottom: 50px;
 }
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
   color: #fff;
   background-color: #2294cb !important;
-}
-
-.btn-primary:active, .btn-primary:focus {
-  -webkit-box-shadow: 0 0 0 0.2rem rgba(240, 95, 64, 0.5) !important;
-  box-shadow: 0 0 0 0.2rem rgba(240, 95, 64, 0.5) !important;
 }
 
 #we{

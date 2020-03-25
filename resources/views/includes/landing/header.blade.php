@@ -40,13 +40,13 @@
           <p>Fill the pre-installation survey first</p>
         </div>
       <form method="GET" action="{{route('installer.create')}}" enctype="multipart/form-data" >
-          <select class="form-control @error('centre_number') is-invalid @enderror" id="input" name="centre_number" value="{{ old('centre_number') }}" required>
+          <select class="form-control @error('centre_name') is-invalid @enderror" id="input" name="centre_name" value="{{ old('centre_name') }}" required>
             <option value="" hidden disabled selected class="placeholder">Select Centre Number/ID<option>
             @foreach($centres as $centre)
-              <option value="{{$centre->number}}">{{$centre->number}} - {{$centre->name}}</option>
+              <option value="{{$centre->name}}">{{$centre->number}} - {{$centre->name}}</option>
             @endforeach
           </select>
-          @error('centre_number')
+          @error('centre_name')
           <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>
           </span>

@@ -10,11 +10,12 @@
   </div>
 <form method="POST" action="{{route('installer.store')}}" enctype="multipart/form-data">
   @csrf
-  {{-- <select class="form-control" name="centre_name" id="centre_name" hidden>
-    @foreach($centres as $centre)
-      <option value="{{$centre->telephonecode}}" selected class="placeholder">{{$countrySelect->name}} {{$countrySelect->telephonecode}}</option>
-    @endforeach 
-  </select> --}}
+  <select class="form-control" name="centre_name" id="centre_name" hidden>
+    {{-- <option value="" hidden disabled selected class="placeholder">Select Centre</option> --}}
+      @foreach ($centres as $centre)
+        <option selected value="{{$centre->name}}">{{$centre->name}}</option>
+      @endforeach
+  </select>
   <div class="form-group">
     <label class="bmd-label-floating">Name</label>
     <input type="text" class="form-control @error('installer_name') is-invalid @enderror" name="installer_name" value="{{ old('installer_name') }}" id="installer_name" required autofocus>
