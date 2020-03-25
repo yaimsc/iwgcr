@@ -8,6 +8,8 @@ use App\Centre;
 use App\ContactPerson;
 use App\Country;
 use App\Door;
+use App\Installer; 
+use App\SignDoor;
 use Auth;
 
 class HomeController extends Controller
@@ -50,7 +52,9 @@ class HomeController extends Controller
         return view('pages.home.centreData', [
             'centres' => DB::table('centres')->where('name', $name)->get(), 
             'contact_people' => DB::table('contact_people')->where('centre_name', $name)->get(), 
-            'doors' => DB::table('doors')->where('centre_name', $name)->get()
+            'doors' => DB::table('doors')->where('centre_name', $name)->get(), 
+            'installers' => DB::table('installers')->where('centre_name', $name)->get(), 
+            'sign_doors' => DB::table('sign_doors')->where('centre_name', $name)->get()
         ]);
     }
 
