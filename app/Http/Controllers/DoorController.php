@@ -148,7 +148,6 @@ class DoorController extends Controller
         // printf("File ID: %s\n", $file->id);
         //     dd($file);
 
-
         $data->door_name=$request->input('door_name'); 
         $data->exterior_length=$request->input('exterior_length');
         $data->interior_length=$request->input('interior_length');
@@ -157,8 +156,13 @@ class DoorController extends Controller
         $data->quotation=$request->get('quotation'); //boolean
         
         $data->save();
-
-        return view('pages.storeForm');
+        
+            if($request->get('quotation') == 1){
+                return view('pages.storeQuotationForm');
+            }else{
+                return view('pages.storeForm');
+            }
+        
         }
     }
 
