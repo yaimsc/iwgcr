@@ -10,6 +10,7 @@
   <div class="title">
     <h4>Centre: {{$centre->name}}</h4>
   </div>
+  <div>
     <h5>Pre-Installation Survey</h5>
     <p class="title2">Centre Information</p>
     <div class="centre_info">
@@ -89,11 +90,17 @@
       <h5>Post-installation Sign-off Survey</h5>
       @foreach($installers as $installer)
       <p class="title2">Installer Information</p>
+      <div class="installer_info">
         <div class="installer">
           <div><p class="bold">Name:</p><p> {{$installer->name}}</p></div>
           <div><p class="bold">Email:</p><p> {{$installer->email}}</p></div>
           <div><p class="bold">Telephone:</p><p> {{$installer->telephonecode}}{{$installer->telephone}}</p></div>
         </div>
+        <div class="date">
+          <p>{{$installer->created_at}}</p>
+        </div>
+      </div>
+        
       @endforeach
       @foreach($sign_doors as $sign_door)
       <p class="title2">Sign-off Information</p>
