@@ -1,11 +1,11 @@
 /* Style the Image Used to Trigger the Modal */
-#img01, #img02, #img03, #img04, #img05 {
+#img01, #img02, #img03, #img04, #img05, #img06,#img07,#img08, #img09 {
   border-radius: 5px;
   cursor: pointer;
   transition: 0.3s;
 }
 
-#img01:hover, #img02:hover, #img03:hover, #img03:hover,#img05:hover {opacity: 0.7;}
+#img01:hover, #img02:hover, #img03:hover, #img04:hover,#img05:hover, #img06:hover, #img07:hover, #img08:hover, #img09:hover {opacity: 0.7;}
 
 /* The Modal (background) */
 .modal {

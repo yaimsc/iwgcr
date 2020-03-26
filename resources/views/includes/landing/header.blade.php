@@ -52,7 +52,7 @@
           </span>
           @enderror
           <div>
-            <button type="submit" class="btn-primary">
+            <button type="submit" class="btn-primary" id="post">
               {{ __('Go to the Form') }}
             </button>
           </div>
