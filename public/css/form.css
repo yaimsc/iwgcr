@@ -31,7 +31,7 @@ nav{
 }
 
 section{
-  padding: 8%;
+  padding: 3%;
   padding-top: -5%;
   font-family: 'Merriweather', 'Helvetica Neue', Arial, sans-serif;
   width: 100%;
@@ -45,13 +45,16 @@ section{
 @media(max-width: 768px){
   #card-contact{
     /* margin: 10%; */
-    margin-top: 5%;
+    margin-top: 3%;
     /* margin-left: 30%;
     margin-right: 30%; */
     padding: 10px;
     padding-left: 25px;
     padding-right: 25px;
     margin-bottom: 20vh;
+    display: flex;
+    justify-content: center;
+    align-self: center;
   }
   
 }
@@ -59,13 +62,15 @@ section{
 @media(min-width: 768px){
   #card-contact{
     /* margin: 10%; */
-    margin-top: 1%;
     margin-left: 30%;
     margin-right: 30%;
     padding: 10px;
     padding-left: 25px;
     padding-right: 25px;
     margin-bottom: 28vh;
+    display: flex;
+    justify-content: center;
+    align-self: center;
   }
 }
 
@@ -173,7 +178,6 @@ section{
   display: flex;
   justify-content: center;
   margin-bottom: 10px;
-  margin-top: -10%;
 }
 
 .doors-content{

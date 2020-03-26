@@ -84,6 +84,7 @@
           <div><p class="bold">Exterior Length:</p><p> {{$door->exterior_length.' '}} {{$door->type_length}}</p></div>
           <div><p class="bold">Interior Length:</p><p> {{$door->interior_length.' '}} {{$door->type_length}}</p></div>
           <div><p class="bold">Confirmation Distance from Knob's centre to Frame is OK:</p><p>{{$door->distance_knobs_frame_ok == 1 ? 'YES' : 'NO'}}</p></div>
+          <div><p class="bold">Does the General Manager want to receive from SALTO a quotation for equipping the whole center?:</p><p>{{$door->quotation == 1 ? 'YES' : 'NO'}}</p></div>
         </div>
     @endforeach
     <div>
@@ -94,7 +95,7 @@
         <div class="installer">
           <div><p class="bold">Name:</p><p> {{$installer->name}}</p></div>
           <div><p class="bold">Email:</p><p> {{$installer->email}}</p></div>
-          <div><p class="bold">Telephone:</p><p> {{$installer->telephonecode}}{{$installer->telephone}}</p></div>
+          <div><p class="bold">Telephone:</p><p> {{$installer->telephonecode.' '}}{{$installer->telephone}}</p></div>
         </div>
         <div class="date">
           <p>{{$installer->created_at}}</p>
