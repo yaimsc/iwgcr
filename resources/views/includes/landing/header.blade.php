@@ -35,27 +35,33 @@
       </div>
       <div class="post">
         <h2 id="welcome"><strong>Post-installation Sign off Form</strong></h1>
-        <div class="info">
+        {{-- <div class="info">
           <img src="/img/bullhorn.png" id="trompet" alt="post-installation"/>
           <p>Fill the pre-installation survey first</p>
-        </div>
+        </div> --}}
       <form method="GET" action="{{route('installer.create')}}" enctype="multipart/form-data" >
-          <select class="form-control @error('centre_name') is-invalid @enderror" id="input" name="centre_name" value="{{ old('centre_name') }}" required>
-            <option value="" hidden disabled selected class="placeholder">Select Centre Number/ID<option>
-            @foreach($centres as $centre)
-              <option value="{{$centre->name}}">{{$centre->number}} - {{$centre->name}}</option>
-            @endforeach
-          </select>
-          @error('centre_name')
-          <span class="invalid-feedback" role="alert">
-            <strong>{{ $message }}</strong>
-          </span>
-          @enderror
+        <div id="input">
+          <label>Centre</label>
           <div>
+            <select class="form-control @error('centre_name') is-invalid @enderror" name="centre_name" value="{{ old('centre_name') }}" required>
+              <option value="" hidden disabled selected class="placeholder">Select Centre Number/ID<option>
+              @foreach($centres as $centre)
+                <option value="{{$centre->name}}">{{$centre->number}} - {{$centre->name}}</option>
+              @endforeach
+            </select>
+            <small class="text-muted">*Only centres with pre-installation survey completed will appear on the list</small>
+            @error('centre_name')
+            <span class="invalid-feedback" role="alert">
+              <strong>{{ $message }}</strong>
+            </span>
+            @enderror
+          </div>
+        </div>
+
             <button type="submit" class="btn-primary" id="post">
               {{ __('Go to the Form') }}
             </button>
-          </div>
+
           {{-- <div>
             <a href={{route('centre.create')}}><button class="btn-primary">Go to the Form</button></a>
           </div> --}}
