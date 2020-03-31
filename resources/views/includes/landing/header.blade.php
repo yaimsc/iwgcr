@@ -57,7 +57,6 @@
             @enderror
           </div>
         </div>
-
             <button type="submit" class="btn-primary" id="post">
               {{ __('Go to the Sign Off Form') }}
             </button>

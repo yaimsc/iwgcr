@@ -319,7 +319,7 @@ p {
   text-transform: uppercase;
   border: none;
   border-radius: 300px;
-  font-family: 'Roboto', 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;
 }
 
 .btn-xl {
@@ -327,18 +327,21 @@ p {
 }
 
 .btn-primary {
-  background-color: rgba(255, 255, 255, 0.6);
+  background-color: rgb('15,126,195');
   margin-bottom: 50px;
-  color: black;
+  color: white;
   text-transform: uppercase;
   padding: 15px;
-  border-radius: 1px;
-  border: black 1px solid;
+  padding-left: 50px;
+  padding-right: 50px;
+  border-radius: 0%;
+  letter-spacing: 1pt;
+  
 }
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
-  color: #fff;
-  background-color: #2294cb !important;
+  color: rgb('15,126,195');
+  background-color: white !important;
 }
 
 #we{

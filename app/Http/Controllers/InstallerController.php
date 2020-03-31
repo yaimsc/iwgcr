@@ -36,6 +36,12 @@ class InstallerController extends Controller
 
         $centres = DB::table('centres')->where('name', $centre_name)->get();
 
+        $installer = DB::table('installers')->where('centre_name', $centre_name)->get();
+
+        if($installer->count() !== 0){
+            Session::flash('msg-post', 'This centre has the post-installation form completed. If you continue the information is going to be override.');
+        }
+
         // Session::put('centre', DB::table('centres')->where('name', $centre_name))->get();
         
         return view('pages.sign-off.installer', [
@@ -60,20 +66,38 @@ class InstallerController extends Controller
         //     'installer_telephone' => 'required'
         // ]); 
 
-        $installer= DB::table('installers')->where('email', $request->input('email'))->get();
-        $data = new Installer; 
+        $installer= DB::table('installers')->where('email', $request->input('centre_name'))->get();
 
-        $data->name=$request->input('installer_name'); 
-        $data->email=$request->input('installer_email'); 
-        $data->telephonecode=$request->get('installer_telephonecode');
-        $data->telephone=$request->input('installer_telephone');
-        $data->centre_name=$request->get('centre_name');
-        
-        $data->save();
+        if($installer->count() !== 0){
+            $installer->delete(); //vaciar 
+            $data = new Installer; //crear de nuevo
 
-        return view('pages.sign-off.doors', [
-            'centres' => DB::table('centres')->where('name', $request->get('centre_name'))->get()
-        ]);
+            $data->name=$request->input('installer_name'); 
+            $data->email=$request->input('installer_email'); 
+            $data->telephonecode=$request->get('installer_telephonecode');
+            $data->telephone=$request->input('installer_telephone');
+            $data->centre_name=$request->get('centre_name');
+            
+            $data->save();
+
+            return view('pages.sign-off.doors', [
+                'centres' => DB::table('centres')->where('name', $request->get('centre_name'))->get()
+            ]);
+        }else{
+            $data = new Installer; 
+
+            $data->name=$request->input('installer_name'); 
+            $data->email=$request->input('installer_email'); 
+            $data->telephonecode=$request->get('installer_telephonecode');
+            $data->telephone=$request->input('installer_telephone');
+            $data->centre_name=$request->get('centre_name');
+            
+            $data->save();
+
+            return view('pages.sign-off.doors', [
+                'centres' => DB::table('centres')->where('name', $request->get('centre_name'))->get()
+            ]);
+        }
 
     }
 
