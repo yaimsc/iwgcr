@@ -59,7 +59,7 @@
         </div>
 
             <button type="submit" class="btn-primary" id="post">
-              {{ __('Go to the Form') }}
+              {{ __('Go to the Sign Off Form') }}
             </button>
 
           {{-- <div>

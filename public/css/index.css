@@ -327,8 +327,13 @@ p {
 }
 
 .btn-primary {
-  background-color: #1ea4e9;
+  background-color: rgba(255, 255, 255, 0.6);
   margin-bottom: 50px;
+  color: black;
+  text-transform: uppercase;
+  padding: 15px;
+  border-radius: 1px;
+  border: black 1px solid;
 }
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
