@@ -29,12 +29,13 @@
                     url: '/ajax/'+country,
                     type: "POST",
                     dataType: "json",
+                    contentType:"application/json; charset=utf-8",
                     success:function(data) {
                         console.log(data)
                         
                         $('select[name="centre_name"]').empty();
                         $.each(data, function(key, value) {
-                            $('select[name="centre_name"]').append('<option value="'+ key +'">' + value.number+' - '+ value.name +'</option>');
+                            $('select[name="centre_name"]').append('<option value="'+ value.name +'">' + value.number+' - '+ value.name +'</option>');
                         });
 
 

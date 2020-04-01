@@ -72,7 +72,7 @@
             <label>Centre</label>
             <div>
               <select class="form-control @error('centre_name') is-invalid @enderror" name="centre_name" value="{{ old('centre_name') }}" required>
-                <option value="" hidden disabled selected class="placeholder">Select Centre Number/ID<option>
+                <option hidden disabled selected class="placeholder">Select Centre Number/ID<option>
                 </select>
               <small class="text-muted">*Only centres with pre-installation survey completed will appear on the list</small>
               @error('centre_name')

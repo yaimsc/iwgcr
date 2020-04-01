@@ -32,6 +32,7 @@ class InstallerController extends Controller
             'centre_name' => 'required'
         ]);
 
+        $country=$request->get('country');
         $centre_name=$request->get('centre_name');
 
         $centres = DB::table('centres')->where('name', $centre_name)->get();
