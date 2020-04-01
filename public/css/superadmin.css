@@ -147,8 +147,17 @@ tr:hover{
   display: inline-flex;
   align-items: center;
   justify-content: space-around;
+  letter-spacing: 1pt;
   margin-top: 25px;
   margin-left: 10px;
+  color: white;
+}
+
+.botones{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 .search{

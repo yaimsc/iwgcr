@@ -24,4 +24,9 @@
       flex-direction: row;
     }
   </style>
+  <script>
+    $(document).ready({
+      
+    })
+  </script>
 </html>
