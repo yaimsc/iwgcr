@@ -28,35 +28,62 @@
     <div class="flex">
       <div class="pre">
         <h2 id="welcome"><strong>Pre-installation Survey</strong></h1>
-        <img src="/img/salto.png" id="img-salto" alt="salto" />
-        <div>
-          <a href={{route('centre.create')}}><button class="btn-primary">Go to the Survey</button></a>
-        </div>
+        {{-- <img src="/img/salto.png" id="img-salto" alt="salto" /> --}}
+        {{-- {{-- <form method="GET" enctype="multipart/form-data"> --}}
+        
+        <form method="GET" action="{{route('centre.create')}}" enctype="multipart/form-data">
+
+          {{-- <div id="input">
+           <input />
+          <div> --}}
+          <div class="inputs" id="one">
+            <div id="input">
+              <label>Centre Number/ID</label>
+              <div>
+              <input name="centre_number" class="form-control" placeholder="Select Centre Number/ID" >
+              <small class="text-muted">*If Centre Number/ID does not have 4 digits, put 0 before. e.g. 0074</small>
+              </div>
+            </div>
+          </div>
+          <button type="submit" class="btn-primary" id="post">
+            {{ __('Go to the Survey') }}
+          </button>
+          {{-- <a href={{route('centre.create')}}><button class="btn-primary">Go to the Survey</button></a> --}}
+
+      </form>
       </div>
       <div class="post">
         <h2 id="welcome"><strong>Post-installation Sign off Form</strong></h1>
-        {{-- <div class="info">
-          <img src="/img/bullhorn.png" id="trompet" alt="post-installation"/>
-          <p>Fill the pre-installation survey first</p>
-        </div> --}}
       <form method="GET" action="{{route('installer.create')}}" enctype="multipart/form-data" >
-        <div id="input">
-          <label>Centre</label>
-          <div>
-            <select class="form-control @error('centre_name') is-invalid @enderror" name="centre_name" value="{{ old('centre_name') }}" required>
-              <option value="" hidden disabled selected class="placeholder">Select Centre Number/ID<option>
-              @foreach($centres as $centre)
-                <option value="{{$centre->name}}">{{$centre->number}} - {{$centre->name}}</option>
-              @endforeach
-            </select>
-            <small class="text-muted">*Only centres with pre-installation survey completed will appear on the list</small>
-            @error('centre_name')
-            <span class="invalid-feedback" role="alert">
-              <strong>{{ $message }}</strong>
-            </span>
-            @enderror
+        <meta name="csrf-token" content="{{ csrf_token() }}" />
+        <div class="inputs">
+          <div id="input">
+            <label>Country</label>
+            <div>
+              <select class="form-control @error('country') is-invalid @enderror" name="country" value="{{ old('country') }}" required>
+                <option hidden disabled selected class="placeholder">Select Country<option>
+                @foreach($countries as $country)
+                  <option value="{{$country->name}}">{{$country->name}}</option>
+                @endforeach
+              </select>
+            </div>
+          </div>
+          <div id="input">
+            <label>Centre</label>
+            <div>
+              <select class="form-control @error('centre_name') is-invalid @enderror" name="centre_name" value="{{ old('centre_name') }}" required>
+                <option value="" hidden disabled selected class="placeholder">Select Centre Number/ID<option>
+                </select>
+              <small class="text-muted">*Only centres with pre-installation survey completed will appear on the list</small>
+              @error('centre_name')
+              <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+              </span>
+              @enderror
+            </div>
           </div>
         </div>
+        
             <button type="submit" class="btn-primary" id="post">
               {{ __('Go to the Sign Off Form') }}
             </button>

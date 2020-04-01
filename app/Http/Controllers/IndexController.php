@@ -19,6 +19,11 @@ class IndexController extends Controller
         ]);
     }
 
+    public function ajax($name){
+        $centres = DB::table('centres')->where('country', $name)->get();
+        return json_encode($centres);
+    }
+
     public function pdf(Request $request){
         return view('pages.pdf');
     }

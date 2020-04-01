@@ -19,7 +19,8 @@
 //     return view('pages.index'); 
 // });
 
-Route::get('/', 'IndexController@index')->name('index'); 
+Route::get('/', 'IndexController@index')->name('index');
+Route::post('/ajax/{name}',array('as'=>'index.ajax','uses'=>'IndexController@ajax')); 
 Route::get('/pdf', 'IndexController@pdf')->name('pdf');
 
 Route::get('/download/{file}', function($file){

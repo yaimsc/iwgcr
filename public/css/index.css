@@ -218,13 +218,14 @@ img::-moz-selection {
   display: flex;
   align-items: center;
   justify-content: space-around;
+  flex-direction: row;
   background-color: white;
 }
 
 .pre{
   width: 100%; 
   height: 100vh; 
-  background-image: url("../img/regus.png");
+  background-image: url("../img/regus1.png");
   background-position: center center;
   background-size: cover;
   display: flex; 
@@ -251,6 +252,7 @@ img::-moz-selection {
   font-size: calc(1em + 1vw);
   text-transform: uppercase;
   margin-top: 100px;
+  margin-bottom: 100px;
   padding: auto;
   text-align: center;
 }
@@ -402,8 +404,8 @@ select{
   color: #ccc;
 }
 
-.input-group-addon {
-  /* padding: 6px 12px; */
+/* .input-group-addon {
+  padding: 6px 12px;
   font-size: 14px;
   font-weight: 400;
   line-height: 1;
@@ -415,7 +417,7 @@ select{
   white-space: nowrap;
   vertical-align: middle;
   display: table-cell;
-}
+} */
 
 .info{
   width: 50%;
@@ -438,15 +440,26 @@ form{
   flex-direction: column;
 }
 
+.inputs{
+  margin-bottom: 80px;
+}
+
+#one{
+  margin-top: 70px;
+  margin-bottom: 100px;
+}
+
 #input{
-  margin-bottom: 170px;
-  margin-top: 165px;
+  /* margin-bottom: 170px; */
+  /* margin-top: 165px; */
+  margin: 30px;
   padding: 20px;
   padding-top: 25px;
   padding-bottom: 25px;
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(255, 255, 255, 0.85);
   display: flex;
   flex-direction: row;
+  width: 550px;
 }
 
 #input label{
