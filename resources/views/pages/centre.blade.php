@@ -5,6 +5,14 @@
   <div class="card-header">
     <h4 class="title">Centre Information<h4>
   </div>
+  @if(Session::has('msg-pre'))
+  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <p>{{Session::get('msg-pre')}}</p>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  @endif
   <form method="POST" action="{{route('centre.store')}}" enctype="multipart/form-data">
     @csrf
     <div class="form-group">

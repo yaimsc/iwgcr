@@ -18,7 +18,25 @@ class InstallerController extends Controller
      */
     public function index()
     {
-        //
+        $this->validate($request, [
+            'centre_name' => 'required'
+        ]);
+
+        $country=$request->get('country');
+        $centre_name=$request->get('centre_name');
+
+        $centres = DB::table('centres')->where('name', $centre_name)->get();
+
+        // $installer = DB::table('installers')->where('centre_name', $centre_name)->get();
+ 
+            // if($installer->count() !== 0){
+            //     Session::flash('msg-post', 'This centre has the post-installation form completed. If you continue the information is going to be override.');
+            // }
+
+            return view('pages.sign-off.installer', [
+                'countries' => Country::all(), 
+                'centres' => $centres
+            ]);
     }
 
     /**
@@ -38,17 +56,17 @@ class InstallerController extends Controller
         $centres = DB::table('centres')->where('name', $centre_name)->get();
 
         $installer = DB::table('installers')->where('centre_name', $centre_name)->get();
+ 
+            if($installer->count() !== 0){
+                Session::flash('msg-post', 'This centre has the post-installation form completed. If you continue the information is going to be override.');
+            }
 
-        if($installer->count() !== 0){
-            Session::flash('msg-post', 'This centre has the post-installation form completed. If you continue the information is going to be override.');
-        }
-
-        // Session::put('centre', DB::table('centres')->where('name', $centre_name))->get();
+            return view('pages.sign-off.installer', [
+                'countries' => Country::all(), 
+                'centres' => $centres
+            ]);
+            
         
-        return view('pages.sign-off.installer', [
-            'countries' => Country::all(), 
-            'centres' => $centres
-        ]);
         
     }
 

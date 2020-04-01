@@ -27,8 +27,16 @@ class CentreController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
+        $this->validate($request, [
+            'centre_number' => 'digits:4|required|'
+        ]); 
+
+        $centre=DB::table('centres')->where('number', $request->input('centre_number'))->get(); 
+        if($centre->count() != 0){
+            Session::flash('msg-pre', 'This centre has the pre-installation survey completed. If you continue the information is going to be override.');  
+        }
         return view('pages.centre', [
             'countries' => Country::all()
         ]);
@@ -52,17 +60,10 @@ class CentreController extends Controller
             'province' => 'required|min:2|max:25|string'
         ]);
 
-        // $country=DB::table('centres')->where('country', $request->get('country'))->get(); 
-        Session::put('country_key', DB::table('countries')->where('name', $request->get('country'))->get());
+            // $country=DB::table('centres')->where('country', $request->get('country'))->get(); 
+            Session::put('country_key', DB::table('countries')->where('name', $request->get('country'))->get());
 
-        $centre=DB::table('centres')->where('number', $request->input('centre_number'))->get(); 
-        if($centre->count() != 0){
-            // return redirect()->back()->with('alert','This centre has already been submitted');
-            return view('pages.contactPerson', [
-                'countries' =>  Country::all(),
-                'centres' => DB::table('centres')->where('name', $request->get('centre_name'))->get()
-            ]); 
-        }else{
+        
             $data = new Centre; 
             
             $data->name=$request->input('centre_name'); 
@@ -81,7 +82,7 @@ class CentreController extends Controller
                 'centres' => DB::table('centres')->where('name', $request->get('centre_name'))->get(), 
                 // 'messages' => $validator->messages()
             ]); 
-        }
+        
     }
 
     /**

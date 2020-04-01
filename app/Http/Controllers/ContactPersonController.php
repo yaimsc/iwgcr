@@ -55,9 +55,9 @@ class ContactPersonController extends Controller
         
         $contact=DB::table('contact_people')->where('email', $request->input('email'))->get(); 
 
-        if($contact->count() !== 0){
-            return  redirect()->action('IndexController@pdf');
-        }else{
+        // if($contact->count() !== 0){
+        //     return  redirect()->action('IndexController@pdf');
+        // }else{
             $data = new ContactPerson;
 
             $data->name=$request->input('name');
@@ -73,7 +73,7 @@ class ContactPersonController extends Controller
             $data->save(); 
 
             return view('pages.pdf');
-        }
+        // }
 
     }
 
