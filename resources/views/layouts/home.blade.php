@@ -18,4 +18,19 @@
   </div>
     @include('includes.scripts')
   </body>
+  <script>
+    $(document).ready(function() {
+
+      $('#btn-pre').on('click', function(){
+        $('#pre').show();
+        $('#post').hide();
+      });
+
+      $('#btn-post').on('click', function(){
+        $('#pre').hide();
+        $('#post').show();
+      });
+
+    });
+  </script>
 </html>
