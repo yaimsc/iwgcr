@@ -344,6 +344,7 @@ p {
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
   color: rgb('15,126,195');
   background-color: white !important;
+  cursor: pointer;
 }
 
 #we{

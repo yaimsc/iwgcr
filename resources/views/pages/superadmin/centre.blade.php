@@ -55,7 +55,7 @@
     </table>
   </div>
   <script>
-    $(document).ready(function($) {
+    $(document).ready(function() {
     $(".table-row").click(function() {
       var href = $(this).find("a").attr("href");
         if(href) {

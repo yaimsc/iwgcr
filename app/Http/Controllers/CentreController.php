@@ -37,8 +37,9 @@ class CentreController extends Controller
         if($centre->count() !== 0){
             Session::flash('msg-pre', 'This centre exists already. If you continue the information is going to be override.');  
         }
+        Session::put('number_key', $request->input('centre_number'));
         return view('pages.centre', [
-            'countries' => Country::all()
+            'countries' => Country::all(), 
         ]);
     }
 
@@ -67,7 +68,7 @@ class CentreController extends Controller
             $data = new Centre; 
             
             $data->name=$request->input('centre_name'); 
-            $data->number=$request->input('centre_number');
+            $data->number=Session::get('number_key'); //num de sesión guardado en create()
             $data->address=$request->input('address');
             $data->city=$request->input('city'); 
             $data->postal_code=$request->input('postal_code'); 

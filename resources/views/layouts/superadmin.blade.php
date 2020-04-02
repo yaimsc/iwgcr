@@ -50,13 +50,21 @@
       onclick(img05);
     }
     var img06 = document.getElementById("img06");
-    onclick(img06)
+    if(img06 !== null){
+      onclick(img06)
+    }
     var img07 = document.getElementById("img07");
-    onclick(img07)
+    if(img07 !== null){
+      onclick(img07)
+    }
     var img08 = document.getElementById("img08");
-    onclick(img08)
+    if(img08 !== null){
+      onclick(img08)
+    }
     var img09 = document.getElementById("img09");
-    onclick(img09)
+    if(img09 !== null){
+      onclick(img09)
+    }
     var modalImg = document.getElementById("imgModal");
     var captionText = document.getElementById("caption");
 
@@ -86,6 +94,7 @@
       });
 
       $('#btn-post').on('click', function(){
+        console.log('entra')
         $('.post').css('visibility', 'visible');
         $('.pre').hide();
         $('.post').show();

@@ -176,3 +176,10 @@ img{
 .post{
   visibility: hidden;
 }
+
+.no-info{
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+}
