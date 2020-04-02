@@ -28,13 +28,13 @@
     $(document).ready(function() {
 
       $('#btn-pre').on('click', function(){
-        $('.pre').show();
-        $('.post').hide();
+        $('#pre').show();
+        $('#post').hide();
       });
 
       $('#btn-post').on('click', function(){
-        $('.pre').hide();
-        $('.post').show();
+        $('#pre').hide();
+        $('#post').show();
       });
 
     });
