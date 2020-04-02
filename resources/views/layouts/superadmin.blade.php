@@ -25,8 +25,18 @@
     }
   </style>
   <script>
-    $(document).ready({
-      
-    })
+    $(document).ready(function() {
+
+      $('#btn-pre').on('click', function(){
+        $('.pre').show();
+        $('.post').hide();
+      });
+
+      $('#btn-post').on('click', function(){
+        $('.pre').hide();
+        $('.post').show();
+      });
+
+    });
   </script>
 </html>
