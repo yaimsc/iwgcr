@@ -85,10 +85,10 @@ class SignOffController extends Controller
             'centre_activated_titan' => 'required',
             'maintenance_tags_given_centre' => 'required',
         ]);
-        
+
         $signOff=DB::table('sign_doors')->where('centre_name', $request->get('centre_name'))->get();
         if($signOff->count() !== 0){
-            $signOff->delete();
+            DB::table('sign_doors')->where('centre_name', $request->get('centre_name'))->delete();
         }
         $data = new SignDoor; 
 

@@ -5,9 +5,7 @@
 @section('content')
 
 <div class="row">
-  @foreach ($centres as $centre)
-    <h2 class="title-white">Centre - {{$centre->number}} {{$centre->name}}</h2>
-  @endforeach
+    <h2 class="title-white">Mandatory Post-Installation Documentation</h2>
 </div>
 <div class="doors-content">
   <form method="POST" action="{{route('sign-off.store')}}" enctype="multipart/form-data">

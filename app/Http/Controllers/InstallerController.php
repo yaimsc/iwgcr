@@ -88,7 +88,7 @@ class InstallerController extends Controller
         $installer= DB::table('installers')->where('centre_name', $request->get('centre_name'))->get();
 
         if($installer->count() !== 0){
-            $installer->delete(); //vaciar 
+            DB::table('installers')->where('centre_name', $request->get('centre_name'))->delete(); //vaciar 
         }
 
         $data = new Installer; 
