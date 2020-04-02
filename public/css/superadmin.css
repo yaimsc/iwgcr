@@ -173,6 +173,6 @@ img{
   height: 50px;
 }
 
-#post{
+.post{
   visibility: hidden;
 }

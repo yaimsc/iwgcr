@@ -15,7 +15,7 @@
       <button class="btn" id="btn-pre">Pre-Installation Survey</button>
       <button class="btn" id="btn-post">Post-Installation Sign Off Form</button>
     </div>
-    <div id="pre">
+    <div class="pre">
       <h5>Pre-Installation Survey</h5>
       <p class="title2">Centre Information</p>
       <div class="centre_info">
@@ -78,12 +78,6 @@
               @endif
             </div>
           </div>
-          <!-- The Modal -->
-          <div id="myModal" class="modal">
-            <span class="close">&times;</span>
-            <img class="modal-content" id="imgModal">
-            <div id="caption"></div>
-          </div>
           <div class="cylinder">
             <div><p class="bold">Communication Room Door Name:</p><p> {{$door->door_name}}</p></div>
             <div><p class="bold">Exterior Length:</p><p> {{$door->exterior_length.' '}} {{$door->type_length}}</p></div>
@@ -93,7 +87,7 @@
           </div>
       @endforeach
     </div>
-    <div id="post">
+    <div class="post">
       <h5>Post-installation Sign-off Survey</h5>
       @foreach($installers as $installer)
       <p class="title2">Installer Information</p>
@@ -137,49 +131,4 @@
       @endforeach
     </div>
   </div>
-  <script>
-    // Get the modal
-    var modal = document.getElementById("myModal");
-
-    // Get the image and insert it inside the modal - use its "alt" text as a caption
-    var img01 = document.getElementById("img01");
-    onclick(img01)
-    var img02 = document.getElementById("img02");
-    onclick(img02)
-    var img03 = document.getElementById("img03");
-    onclick(img03)
-    var img04 = document.getElementById("img04");
-    onclick(img04)
-    var img05 = document.getElementById("img05");
-    if(img05 !== null){
-      onclick(img05);
-    }
-    var img06 = document.getElementById("img06");
-    onclick(img06)
-    var img07 = document.getElementById("img07");
-    onclick(img07)
-    var img08 = document.getElementById("img08");
-    onclick(img08)
-    var img09 = document.getElementById("img09");
-    onclick(img09)
-    var modalImg = document.getElementById("imgModal");
-    var captionText = document.getElementById("caption");
-    
-
-    function onclick(value){
-      value.onclick = function(){
-      modal.style.display = "block";
-      modalImg.src = this.src;
-      captionText.innerHTML = this.alt;
-      }
-    }
-
-    // Get the <span> element that closes the modal
-    var span = document.getElementsByClassName("close")[0];
-
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = function() { 
-    modal.style.display = "none";
-    }
-  </script>
 @endsection
