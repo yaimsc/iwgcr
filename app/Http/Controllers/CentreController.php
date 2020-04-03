@@ -67,8 +67,8 @@ class CentreController extends Controller
             $centre= DB::table('centres')->where('centre_number', Session::get('number_key'))->get();
 
             if($centre->count() !== 0){
-            DB::table('centres')->where('centre_number', Session::get('centre_number'))->delete(); //vaciar 
-        }
+            DB::table('centres')->where('centre_number', Session::get('number_key'))->delete(); //vaciar 
+            }
             $data = new Centre; 
             
             $data->name=$request->input('centre_name'); 

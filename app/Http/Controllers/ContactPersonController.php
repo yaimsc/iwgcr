@@ -53,11 +53,11 @@ class ContactPersonController extends Controller
 
         Session::put('centre_key', DB::table('centres')->where('name', $request->get('centre_name'))->get());
         
-        $contact=DB::table('contact_people')->where('email', $request->input('email'))->get(); 
+        $contact=DB::table('contact_people')->where('centre_number', Session::get('number_key'))->get(); 
 
-        // if($contact->count() !== 0){
-        //     return  redirect()->action('IndexController@pdf');
-        // }else{
+            if($contact->count() !== 0){
+                DB::table('contact_people')->where('centre_number', Session::get('number_key'))->delete(); //vaciar 
+            }
             $data = new ContactPerson;
 
             $data->name=$request->input('name');
@@ -74,7 +74,6 @@ class ContactPersonController extends Controller
             $data->save(); 
 
             return view('pages.pdf');
-        // }
 
     }
 

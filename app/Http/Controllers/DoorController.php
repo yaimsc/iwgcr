@@ -94,9 +94,9 @@ class DoorController extends Controller
             'quotation' => 'required'
         ]);
 
-        $door=DB::table('doors')->where('centre_name', $request->input('centre_name'))->get(); 
+        $door=DB::table('doors')->where('centre_number', Session::get('number_key'))->get(); 
         if($door->count() != 0){
-            return view('pages.storeForm');
+            DB::table('doors')->where('centre_number', Session::get('number_key'))->delete(); //vaciar 
         }else{
             $data = new Door; 
 
