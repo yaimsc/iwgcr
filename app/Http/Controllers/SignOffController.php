@@ -5,10 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Session;
-use App\Door;
-use Config;
+use App\SignDoor; 
 
-class DoorController extends Controller
+class SignOffController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -27,12 +26,7 @@ class DoorController extends Controller
      */
     public function create()
     {
-        $centre=Session::get('centre_key');
-        $country=Session::get('country_key');
-        return view('pages.doors', [
-            'centres' => $centre, 
-            'countries' => $country
-        ]);
+       //
     }
 
     /* Sube la photo a la API y nos devuelve un JSON */
@@ -81,38 +75,29 @@ class DoorController extends Controller
      */
     public function store(Request $request)
     {
-        
         $this->validate($request, [
             'interior_photo' => 'required|max:10000', 
-            'front_photo' => 'required|max:10000',
             'exterior_photo' => 'required|max:10000', 
-            'placement_photo' => 'required|max:10000', 
-            'placement_photo_optional' => 'max:10000|nullable',
-            'door_name' => 'required|min:2|max:255|string', 
-            'exterior_length' => 'required|numeric', 
-            'interior_length' => 'required|numeric',
-            'quotation' => 'required'
+            'installation_photo' => 'required|max:10000', 
+            'iq_cylinder_photo' => 'required|max:10000',
+            'purple_light' => 'required', 
+            'mac_whitelisted' => 'required', 
+            'centre_activated_titan' => 'required',
+            'maintenance_tags_given_centre' => 'required',
         ]);
 
-        $door=DB::table('doors')->where('centre_name', $request->input('centre_name'))->get(); 
-        if($door->count() != 0){
-            return view('pages.storeForm');
-        }else{
-            $data = new Door; 
+        $signOff=DB::table('sign_doors')->where('centre_name', $request->get('centre_name'))->get();
+        if($signOff->count() !== 0){
+            DB::table('sign_doors')->where('centre_name', $request->get('centre_name'))->delete();
+        }
+        $data = new SignDoor; 
 
         $data->centre_name=$request->get('centre_name');
-        $data->country=$request->get('country'); 
 
         //INTERIOR_PHOTO
         $interior_photo=$request->file('interior_photo'); //get file from form
         $interior_image64 = base64_encode(file_get_contents($interior_photo)); //put the photo into base64
         $data->interior_photo = $this->uploadPhotos($interior_image64)->data->link; //get the link in whit it is stored the photo and put it in the form table from db
-
-        //FRONT_PHOTO
-
-        $front_photo=$request->file('front_photo');
-        $front_image64 = base64_encode(file_get_contents($front_photo));
-        $data->front_photo = $this->uploadPhotos($front_image64)->data->link;
 
         //EXTERIOR PHOTO
 
@@ -120,50 +105,29 @@ class DoorController extends Controller
         $exterior_image64=base64_encode(file_get_contents($exterior_photo));
         $data->exterior_photo = $this->uploadPhotos($exterior_image64)->data->link;
 
-        //IQ PLACEMENT PHOTO
+        //IQ INSTALLATION PHOTO
 
-        $placement_photo=$request->file('placement_photo');
-        $placement_image64=base64_encode(file_get_contents($placement_photo));
-        $data->placement_photo=$this->uploadPhotos($placement_image64)->data->link;
+        $installation_photo=$request->file('installation_photo');
+        $placement_image64=base64_encode(file_get_contents($installation_photo));
+        $data->installation_photo=$this->uploadPhotos($placement_image64)->data->link;
 
-        //IQ PLACEMENT PHOTO OPTIONAL
+        //IQ CYLINDER PHOTO 
 
-        $placement_photo_optional=$request->file('placement_photo_optional'); 
-        if(empty($placement_photo_optional)){
-            $data->placement_photo_optional=null;
-        }else{
-            $placement_optional_image64=base64_encode(file_get_contents($placement_photo_optional)); 
-            $data->placement_photo_optional=$this->uploadPhotos($placement_optional_image64)->data->link;
-        }
+        $iq_cylinder_photo=$request->file('iq_cylinder_photo'); 
+        $iq_cylinder_photo_image64=base64_encode(file_get_contents($iq_cylinder_photo)); 
+        $data->iq_cylinder_photo=$this->uploadPhotos($iq_cylinder_photo_image64)->data->link;
+
+        //CHECKBOX
         
-
-        // $fileMetadata = new Google_Service_Drive_DriveFile(array(
-        //     'name' => $interior_photo));
-        // $content = file_get_contents($interior_photo);
-        // $file = $driveService->files->create($fileMetadata, array(
-        //     'data' => $content,
-        //     'mimeType' => 'image/jpeg',
-        //     'uploadType' => 'multipart',
-        //     'fields' => 'id'));
-        // printf("File ID: %s\n", $file->id);
-        //     dd($file);
-
-        $data->door_name=$request->input('door_name'); 
-        $data->exterior_length=$request->input('exterior_length');
-        $data->interior_length=$request->input('interior_length');
-        $data->type_length=$request->input('type_length');
-        $data->distance_knobs_frame_ok=$request->has('distance_knobs_frame_ok'); //boolean
-        $data->quotation=$request->get('quotation'); //boolean
+        $data->purple_light=$request->has('purple_light'); //boolean
+        $data->mac_whitelisted=$request->has('mac_whitelisted'); //boolean
+        $data->centre_activated_titan=$request->has('centre_activated_titan'); //boolean
+        $data->maintenance_tags_given_centre=$request->has('maintenance_tags_given_centre'); //boolean
         
         $data->save();
-        
-            if($request->get('quotation') == 1){
-                return view('pages.storeQuotationForm');
-            }else{
-                return view('pages.storeForm');
-            }
-        
-        }
+
+        return view('pages.sign-off.storeForm');
+        // }
     }
 
     /**

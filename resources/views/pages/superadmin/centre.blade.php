@@ -13,7 +13,7 @@
               <option value="{{$country->name}}">{{$country->name}}</option>
             @endforeach
         </select>
-        <button class="btn btn-raised btn-info" type="submit">
+        <button class="btn btn-raised" type="submit">
           <i class="fas fa-search"></i>
           <div class="search">Search</div>
         </button>
@@ -55,7 +55,7 @@
     </table>
   </div>
   <script>
-    $(document).ready(function($) {
+    $(document).ready(function() {
     $(".table-row").click(function() {
       var href = $(this).find("a").attr("href");
         if(href) {

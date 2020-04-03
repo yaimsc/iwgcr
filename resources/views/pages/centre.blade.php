@@ -5,6 +5,14 @@
   <div class="card-header">
     <h4 class="title">Centre Information<h4>
   </div>
+  @if(Session::has('msg-pre'))
+  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <p>{{Session::get('msg-pre')}}</p>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  @endif
   <form method="POST" action="{{route('centre.store')}}" enctype="multipart/form-data">
     @csrf
     <div class="form-group">
@@ -16,7 +24,9 @@
           </span>
       @enderror
     </div>
-    <div class="form-group">
+ 
+    <input type="text" class="form-control @error('centre_name') is-invalid @enderror" name="centre_number" value="{{ Session::get('number_key')}}" hidden/> 
+    {{-- <div class="form-group">
       <label class="bmd-label-floating">Centre Number/ID</label>
       <input type="number" class="form-control @error('centre_number') is-invalid @enderror" name="centre_number" value="{{ old('centre_number') }}" required/>
       <small class="text-muted">If Centre Number/ID does not have 4 digits, put 0 before. e.g. 0074</small>
@@ -25,7 +35,7 @@
             <strong>{{ $message }}</strong>
         </span>
       @enderror
-    </div>
+    </div> --}}
     <div class="form-group">
       <label class="bmd-label-floating">Address</label>
       <input type="text" class="form-control @error('address') is-invalid @enderror" name="address" value="{{ old('address') }}"/>

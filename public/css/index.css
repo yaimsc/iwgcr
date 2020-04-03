@@ -5,7 +5,7 @@ html {
 }
 
 body {
-  font-family: 'Merriweather', 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Roboto', 'Helvetica Neue', 'Merriweather', Arial, sans-serif;
 }
 
 #icon{
@@ -40,7 +40,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Roboto', 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
 }
 
 .title{
@@ -174,7 +174,7 @@ img::-moz-selection {
 @media (min-width: 992px) {
   #mainNav {
     border-color: transparent;
-    background-color: transparent;
+    background-color: #fff;
   }
   #mainNav .navbar-brand {
     color: #3c3c3b;
@@ -214,25 +214,63 @@ img::-moz-selection {
   }
 }
 
-header.masthead {
+.flex{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: row;
+  background-color: white;
+}
+
+.pre{
+  width: 100%; 
+  height: 100vh; 
+  background-image: url("../img/regus1.png");
+  background-position: center center;
+  background-size: cover;
+  display: flex; 
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+}
+
+.post{
+  width: 100%; 
+  height: 100vh; 
+  background-image: url("../img/cylinder.jpg");
+  background-position: center center;
+  background-size: cover;
+  display: flex; 
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+}
+
+#welcome{
+  font-size: calc(1em + 1vw);
+  text-transform: uppercase;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  padding: auto;
+  text-align: center;
+}
+
+/* header.masthead {
   width: 100%; 
   height: 100vh; 
   background-image: url("../img/regus.png");
   background-position: center center;
   background-size: cover;
-} 
+}  */
 
-header.masthead hr {
-  margin-top: 30px;
-  margin-bottom: 30px;
-}
-
-header.masthead h1 {
+h1 {
   font-size: 2rem;
   color: #3c3c3b;
 }
 
-header.masthead p {
+p {
   font-weight: 300;
 }
 
@@ -242,42 +280,24 @@ header.masthead p {
   }
 }
 
-@media (max-width: 768px){
-  .container{
-    /* width: 100%; 
-    height: 100vh;  */
-    background-image: url("../img/regus.png");
-    background-position: center center;
-    background-size: cover;
-  }
-}
-
 @media (min-width: 992px) {
-  header.masthead {
+  header{
     height: 100vh;
     min-height: 650px;
     padding-top: 0;
     padding-bottom: 0;
   }
-  header.masthead h1 {
-    font-size: 3rem;
+  header h1 {
+    font-size: 2rem;
     color: #3c3c3b;
   }
 }
 
 @media (min-width: 1200px) {
-  header.masthead h1 {
+  header h1 {
     font-size: 4rem;
     color: #3c3c3b;
   }
-}
-
-#logicon{
-  margin-right: 2px;
-}
-
-#login {
-  margin-right: 10px;
 }
 
 .service-box {
@@ -301,12 +321,7 @@ header.masthead p {
   text-transform: uppercase;
   border: none;
   border-radius: 300px;
-  font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
-}
-
-#localizacion{
-  color: #fff !important;
-  margin-left: 2.5%;
+  font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;
 }
 
 .btn-xl {
@@ -314,19 +329,22 @@ header.masthead p {
 }
 
 .btn-primary {
-  background-color: #1ea4e9;
-  border-color: #ff4a4a;
+  background-color: rgb('15,126,195');
   margin-bottom: 50px;
+  color: white;
+  text-transform: uppercase;
+  padding: 15px;
+  padding-left: 50px;
+  padding-right: 50px;
+  border-radius: 0%;
+  letter-spacing: 1pt;
+  
 }
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
-  color: #fff;
-  background-color: #ff4a4a !important;
-}
-
-.btn-primary:active, .btn-primary:focus {
-  -webkit-box-shadow: 0 0 0 0.2rem rgba(240, 95, 64, 0.5) !important;
-  box-shadow: 0 0 0 0.2rem rgba(240, 95, 64, 0.5) !important;
+  color: rgb('15,126,195');
+  background-color: white !important;
+  cursor: pointer;
 }
 
 #we{
@@ -346,13 +364,6 @@ header.masthead p {
     height: 100%;
     opacity : 0.2;
     z-index: -1;
-}
-
-#welcome{
-  font-size: calc(2em + 1vw);
-  text-transform: uppercase;
-  margin-top: 100px;
-  padding: auto;
 }
 
 .home-post{
@@ -394,8 +405,8 @@ select{
   color: #ccc;
 }
 
-.input-group-addon {
-  /* padding: 6px 12px; */
+/* .input-group-addon {
+  padding: 6px 12px;
   font-size: 14px;
   font-weight: 400;
   line-height: 1;
@@ -407,6 +418,53 @@ select{
   white-space: nowrap;
   vertical-align: middle;
   display: table-cell;
+} */
+
+.info{
+  width: 50%;
+  padding: 20px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#trompet{
+  margin-right: 20px;
+  margin-top: -20px;
+}
+
+form{
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.inputs{
+  margin-bottom: 80px;
+}
+
+#one{
+  margin-top: 70px;
+  margin-bottom: 100px;
+}
+
+#input{
+  /* margin-bottom: 170px; */
+  /* margin-top: 165px; */
+  margin: 30px;
+  padding: 20px;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  background-color: rgba(255, 255, 255, 0.85);
+  display: flex;
+  flex-direction: row;
+  width: 550px;
+}
+
+#input label{
+  margin-right: 10px;
 }
 
 #telephone{

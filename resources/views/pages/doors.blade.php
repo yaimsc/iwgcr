@@ -88,7 +88,7 @@
       </div>
       <div class="form-row">
         <div class="form-group col-md-5">
-          <label class="bmd-label-floating">Exterior Length</label>
+          {{-- <label class="bmd-label-floating">Exterior Length</label> --}}
           <input class="form-control @error('exterior_length') is-invalid @enderror" type="number" name="exterior_length" value="{{ old('exterior_length') }}" placeholder="Exterior Length" required/>
           @error('exterior_length')
           <span class="invalid-feedback" role="alert">
@@ -97,7 +97,7 @@
           @enderror
         </div>
         <div class="form-group col-md-5">
-          <label class="bmd-label-floating">Interior Length</label>
+          {{-- <label class="bmd-label-floating">Interior Length</label> --}}
           <input class="form-control @error('interior_length') is-invalid @enderror" type="number" name="interior_length" value="{{ old('interior_length') }}" placeholder="Interior Length" required/>
           @error('interior_length')
           <span class="invalid-feedback" role="alert">
@@ -119,6 +119,15 @@
       </div>
     </div>
   </div>
+    <div class="card">
+      <div class="form-group">
+        <p>Does the General Manager want to receive from SALTO a quotation for equipping the whole center?</p>
+        <select class="form-control col-md-4 @error('quotation') is-invalid @enderror" name="quotation" value="{{ old('quotation') }}">
+          <option value="1">YES</option>
+          <option value="0">NO</option>
+        </select>
+      </div>
+    </div>
     <div class="submit">
       <button type="submit" class="btn-light">
         {{ __('SUBMIT') }}

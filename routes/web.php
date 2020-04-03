@@ -19,7 +19,8 @@
 //     return view('pages.index'); 
 // });
 
-Route::get('/', 'IndexController@index')->name('index'); 
+Route::get('/', 'IndexController@index')->name('index');
+Route::post('/ajax/{name}',array('as'=>'index.ajax','uses'=>'IndexController@ajax')); 
 Route::get('/pdf', 'IndexController@pdf')->name('pdf');
 
 Route::get('/download/{file}', function($file){
@@ -28,6 +29,11 @@ Route::get('/download/{file}', function($file){
 });
 
 Route::get('/view/{file}', function($file){
+	$path = storage_path('app/public/files/'.$file);
+	return response()->file($path);
+});
+
+Route::get('/privacy/{file}', function($file){
 	$path = storage_path('app/public/files/'.$file);
 	return response()->file($path);
 });
@@ -47,6 +53,10 @@ Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm'
 Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
 Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
 Route::post('password/reset', 'Auth\ResetPasswordController@reset');
+// Verification Routes
+Route::get('email/verify', 'Auth\VerificationController@show')->name('verification.notice');
+Route::get('email/verify/{id}', 'Auth\VerificationController@verify')->name('verification.verify');
+Route::get('email/resend', 'Auth\VerificationController@resend')->name('verification.resend');
 
 // ---- FORM ------
 
@@ -55,6 +65,16 @@ Route::resource('centre', 'CentreController'); 	//CRUD
 Route::resource('contactPerson', 'ContactPersonController');	//CRUD
 
 Route::resource('door', 'DoorController'); //CRUD
+
+// --- SIGN OFF FORM -------
+
+//installer
+// Route::post('/installer', 'InstallerController@create')->name('installer.create');
+// Route::post('/installer/store', 'InstallerController@store')->name('installer.store');
+Route::resource('installer', 'InstallerController'); //CRUD
+
+//Sign-Off
+Route::resource('sign-off', 'SignOffController');
 
 // --- LOCAL HOME BU USER -----
 
@@ -80,4 +100,5 @@ Route::get('/superadmin/centreData/{name}', 'SuperadminController@centreData')->
 Route::get('/superadmin/contacts', 'SuperadminController@contactPeople')->name('superadmin.contacts')->middleware('auth');
 Route::get('/superadmin/doors', 'SuperadminController@doors')->name('superadmin.doors')->middleware('auth');
 Route::get('/superadmin/users', 'SuperadminController@users')->name('superadmin.users')->middleware('auth');
+Route::get('/superadmin/editCentreData/{name}', 'SuperadminController@edit')->name('superadmin.edit')->middleware('auth');
 

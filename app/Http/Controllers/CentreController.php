@@ -27,10 +27,19 @@ class CentreController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
+        $this->validate($request, [
+            'centre_number' => 'digits:4|required|'
+        ]); 
+
+        $centre=DB::table('centres')->where('number', $request->input('centre_number'))->get(); 
+        if($centre->count() !== 0){
+            Session::flash('msg-pre', 'This centre exists already. If you continue the information is going to be override.');  
+        }
+        Session::put('number_key', $request->input('centre_number'));
         return view('pages.centre', [
-            'countries' => Country::all()
+            'countries' => Country::all(), 
         ]);
     }
 
@@ -44,7 +53,7 @@ class CentreController extends Controller
     {
         $this->validate($request, [
             'centre_name' => 'required|string|min:2|max:255', 
-            'centre_number' => 'numeric|digits:4|required', 
+            'centre_number' => 'digits:4|required', 
             'country' => 'required', 
             'city' => 'required|min:2|max:255|string',
             'postal_code' => 'min:2|max:10',
@@ -52,21 +61,14 @@ class CentreController extends Controller
             'province' => 'required|min:2|max:25|string'
         ]);
 
-        // $country=DB::table('centres')->where('country', $request->get('country'))->get(); 
-        Session::put('country_key', DB::table('countries')->where('name', $request->get('country'))->get());
+            // $country=DB::table('centres')->where('country', $request->get('country'))->get(); 
+            Session::put('country_key', DB::table('countries')->where('name', $request->get('country'))->get());
 
-        $centre=DB::table('centres')->where('number', $request->input('centre_number'))->get(); 
-        if($centre->count() != 0){
-            // return redirect()->back()->with('alert','This centre has already been submitted');
-            return view('pages.contactPerson', [
-                'countries' =>  Country::all(),
-                'centres' => DB::table('centres')->where('name', $request->get('centre_name'))->get()
-            ]); 
-        }else{
+        
             $data = new Centre; 
             
             $data->name=$request->input('centre_name'); 
-            $data->number=$request->input('centre_number');
+            $data->number=Session::get('number_key'); //num de sesión guardado en create()
             $data->address=$request->input('address');
             $data->city=$request->input('city'); 
             $data->postal_code=$request->input('postal_code'); 
@@ -81,7 +83,7 @@ class CentreController extends Controller
                 'centres' => DB::table('centres')->where('name', $request->get('centre_name'))->get(), 
                 // 'messages' => $validator->messages()
             ]); 
-        }
+        
     }
 
     /**
