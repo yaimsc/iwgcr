@@ -69,6 +69,7 @@ class ContactPersonController extends Controller
             $data->mobile_phone= empty($movil) ? null : $movil; 
             $data->email=$request->input('email');
             $data->centre_name=$request->get('centre_name');
+            $data->centre_number=Session::get('number_key');
 
             $data->save(); 
 

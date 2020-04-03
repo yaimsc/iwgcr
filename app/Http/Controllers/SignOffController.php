@@ -92,7 +92,8 @@ class SignOffController extends Controller
         }
         $data = new SignDoor; 
 
-        $data->centre_name=$request->get('centre_name');
+        $data->centre_name=Session::get('name_key');
+        $data->centre_number=$request->get('centre_number');
 
         //INTERIOR_PHOTO
         $interior_photo=$request->file('interior_photo'); //get file from form

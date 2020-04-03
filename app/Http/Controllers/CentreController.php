@@ -64,7 +64,11 @@ class CentreController extends Controller
             // $country=DB::table('centres')->where('country', $request->get('country'))->get(); 
             Session::put('country_key', DB::table('countries')->where('name', $request->get('country'))->get());
 
-        
+            $centre= DB::table('centres')->where('centre_number', Session::get('number_key'))->get();
+
+            if($centre->count() !== 0){
+            DB::table('centres')->where('centre_number', Session::get('centre_number'))->delete(); //vaciar 
+        }
             $data = new Centre; 
             
             $data->name=$request->input('centre_name'); 
@@ -80,7 +84,7 @@ class CentreController extends Controller
             return view('pages.contactPerson', [
                 // 'countries' =>  DB::table('countries')->where('name', $request->get('country'))->get(),
                 'countries' => Country::all(),
-                'centres' => DB::table('centres')->where('name', $request->get('centre_name'))->get(), 
+                'centres' => DB::table('centres')->where('number', Session::get('centre_number'))->get(), 
                 // 'messages' => $validator->messages()
             ]); 
         

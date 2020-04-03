@@ -21,7 +21,7 @@
   <select class="form-control" name="centre_name" id="centre_name" hidden>
     {{-- <option value="" hidden disabled selected class="placeholder">Select Centre</option> --}}
       @foreach ($centres as $centre)
-        <option selected value="{{$centre->name}}">{{$centre->name}}</option>
+        <option selected value="{{$centre->number}}">{{$centre->number}}</option>
       @endforeach
   </select>
   <div class="form-group">

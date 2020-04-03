@@ -16,6 +16,7 @@ class CreateSignDoorsTable extends Migration
         Schema::create('sign_doors', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('centre_name')->references('name')->on('centres');
+            $table->integer('centre_number')->refrences('number')->on('number');
             $table->string('interior_photo'); 
             $table->string('exterior_photo');
             $table->string('installation_photo'); 

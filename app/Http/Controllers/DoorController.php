@@ -101,7 +101,7 @@ class DoorController extends Controller
             $data = new Door; 
 
         $data->centre_name=$request->get('centre_name');
-        $data->country=$request->get('country'); 
+        $data->centre_number=Session::get('number_key');
 
         //INTERIOR_PHOTO
         $interior_photo=$request->file('interior_photo'); //get file from form

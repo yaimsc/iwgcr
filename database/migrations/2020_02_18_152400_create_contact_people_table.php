@@ -22,6 +22,7 @@ class CreateContactPeopleTable extends Migration
             $table->string('mobile_phone')->nullable();
             $table->string('email'); 
             $table->string('centre_name'); 
+            $table->integer('centre_number');
             $table->timestamps();
         });
     }

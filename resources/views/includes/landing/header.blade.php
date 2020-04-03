@@ -76,11 +76,11 @@
           <div id="input">
             <label>Centre</label>
             <div>
-              <select class="form-control @error('centre_name') is-invalid @enderror" name="centre_name" value="{{ old('centre_name') }}" required>
+              <select class="form-control @error('centre_number') is-invalid @enderror" name="centre_number" value="{{ old('centre_number') }}" required>
                 <option hidden disabled selected class="placeholder">Select Centre Number/ID<option>
               </select>
               <small class="text-muted">*Only centres with the pre-installation survey completed will appear on the list</small>
-              @error('centre_name')
+              @error('centre_number')
               <span class="invalid-feedback" role="alert">
                 <strong>{{ $message }}</strong>
               </span>

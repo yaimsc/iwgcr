@@ -85,10 +85,12 @@ class InstallerController extends Controller
         //     'installer_telephone' => 'required'
         // ]); 
 
-        $installer= DB::table('installers')->where('centre_name', $request->get('centre_name'))->get();
+        $installer= DB::table('installers')->where('centre_number', $request->get('centre_number'))->get();
+
+        Session::put('name_key', $installer->name);
 
         if($installer->count() !== 0){
-            DB::table('installers')->where('centre_name', $request->get('centre_name'))->delete(); //vaciar 
+            DB::table('installers')->where('centre_number', $request->get('centre_number'))->delete(); //vaciar 
         }
 
         $data = new Installer; 
@@ -97,7 +99,8 @@ class InstallerController extends Controller
         $data->email=$request->input('installer_email'); 
         $data->telephonecode=$request->get('installer_telephonecode');
         $data->telephone=$request->input('installer_telephone');
-        $data->centre_name=$request->get('centre_name');
+        $data->centre_name=Session::get('name_key');
+        $data->centre_number=$request->get('centre_number');
         
         $data->save();
 
