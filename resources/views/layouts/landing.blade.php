@@ -33,7 +33,7 @@
                     success:function(data) {
                         console.log(data)
                         
-                        $('select[name="centre_umber"]').empty();
+                        $('select[name="centre_number"]').empty();
                         $.each(data, function(key, value) {
                             $('select[name="centre_number"]').append('<option value="'+ value.number +'">' + value.number+' - '+ value.name +'</option>');
                         });

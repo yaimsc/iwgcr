@@ -32,4 +32,8 @@ class IndexController extends Controller
         $path ="/download/IWG_Communication_Rooms_Project_Survey.pdf";
         return response()->file($path);
     }
+
+    public function storeForm(){
+        return view('pages.sign-off.storeForm');
+    }
 }

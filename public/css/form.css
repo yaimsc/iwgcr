@@ -262,4 +262,8 @@ select{
   flex-direction: row;
 }
 
+.checkbox label{
+  color: #3c3c3b;
+}
+
 

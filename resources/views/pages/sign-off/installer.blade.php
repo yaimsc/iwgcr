@@ -18,7 +18,7 @@
   @endif
 <form method="POST" action="{{route('installer.store')}}" enctype="multipart/form-data">
   @csrf
-  <select class="form-control" name="centre_name" id="centre_name" hidden>
+  <select class="form-control" name="centre_number" id="centre_number" hidden>
     {{-- <option value="" hidden disabled selected class="placeholder">Select Centre</option> --}}
       @foreach ($centres as $centre)
         <option selected value="{{$centre->number}}">{{$centre->number}}</option>
