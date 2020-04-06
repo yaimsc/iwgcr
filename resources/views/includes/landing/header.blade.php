@@ -2,9 +2,9 @@
  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
       <div class="container-fluid">
       <a href={{route('index')}} ><img src="img/SALTO_inspired_access_LOGO.png" alt="SALTO" id="icon" class="rounded float-left"></a>
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      {{-- <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
-      </button>
+      </button> --}}
         <div class="collapse navbar-collapse" id="navbarResponsive">
         <h1 class="navbar-brand js-scroll-trigger">{{config('app.name')}}</h1>
           {{-- @if (Route::has('login'))
@@ -29,7 +29,6 @@
       <div class="pre">
         <h2 id="welcome"><strong>Pre-installation Survey</strong></h1>
         {{-- <img src="/img/salto.png" id="img-salto" alt="salto" /> --}}
-        {{-- {{-- <form method="GET" enctype="multipart/form-data"> --}}
         
         <form method="GET" action="{{route('centre.create')}}" enctype="multipart/form-data">
 
@@ -53,7 +52,6 @@
           <button type="submit" class="btn-primary" id="post">
             {{ __('Go to the Survey') }}
           </button>
-          {{-- <a href={{route('centre.create')}}><button class="btn-primary">Go to the Survey</button></a> --}}
 
       </form>
       </div>
@@ -91,9 +89,6 @@
           <button type="submit" class="btn-primary" id="post">
             {{ __('Go to the Sign Off Form') }}
           </button>
-          {{-- <div>
-            <a href={{route('centre.create')}}><button class="btn-primary">Go to the Form</button></a>
-          </div> --}}
         </form>
         </div>
     </div>

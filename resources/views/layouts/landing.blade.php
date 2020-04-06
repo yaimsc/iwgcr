@@ -37,7 +37,9 @@
                         $.each(data, function(key, value) {
                             $('select[name="centre_number"]').append('<option value="'+ value.number +'">' + value.number+' - '+ value.name +'</option>');
                         });
-
+                        if(data == ''){
+                          $('select[name="centre_number"]').append('<option value="">No centres</option>');
+                        }
 
                     }
                 });
