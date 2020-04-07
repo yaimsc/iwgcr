@@ -8,7 +8,7 @@
     <h2 class="title-white">Mandatory Post-Installation Documentation</h2>
 </div>
 <div class="doors-content">
-  <form method="POST" action="{{route('sign-off.store')}}" enctype="multipart/form-data">
+  <form method="POST" id="form-signoff" action="{{route('sign-off.store')}}" enctype="multipart/form-data">
     @csrf
     <div class="doors">
     <div id="photo">

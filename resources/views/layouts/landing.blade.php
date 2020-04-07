@@ -48,7 +48,11 @@
             }
         });
     });
+
+    $('#form1').parsley();
+    $('#form2').parsley();
     </script> 
+    
     <script src="js/header.js"></script> 
   </body>
 </html>

@@ -11,7 +11,7 @@
   @endforeach
 </div>
 <div class="doors-content">
-  <form method="POST" action="{{route('door.store')}}" enctype="multipart/form-data">
+  <form method="POST" id="form-doors" action="{{route('door.store')}}" enctype="multipart/form-data">
     @csrf
     <div class="doors">
     <div id="photo">

@@ -13,11 +13,11 @@
     </button>
   </div>
   @endif
-  <form method="POST" action="{{route('centre.store')}}" enctype="multipart/form-data">
+  <form method="POST" id="form-centre" action="{{route('centre.store')}}" enctype="multipart/form-data">
     @csrf
     <div class="form-group">
       <label class="bmd-label-floating">Centre Name</label>
-    <input type="text" class="form-control @error('centre_name') is-invalid @enderror" name="centre_name" value="{{ old('centre_name') }}" id="centre_name" required autofocus/> 
+      <input type="text" class="form-control @error('centre_name') is-invalid @enderror" name="centre_name" value="{{ old('centre_name') }}" id="centre_name" required autofocus/> 
        @error('centre_name')
           <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>
@@ -38,7 +38,7 @@
     </div> --}}
     <div class="form-group">
       <label class="bmd-label-floating">Address</label>
-      <input type="text" class="form-control @error('address') is-invalid @enderror" name="address" value="{{ old('address') }}"/>
+      <input type="text" class="form-control @error('address') is-invalid @enderror" name="address" value="{{ old('address') }}" required/>
       @error('address')
         <span class="invalid-feedback" role="alert">
           <strong>{{ $message }}</strong>
@@ -48,7 +48,7 @@
     <div class="form-row">
       <div class="form-group col-md-6">
         <label class="bmd-label-floating">City</label>
-        <input type="text" class="form-control @error('city') is-invalid @enderror" name="city" value="{{ old('city') }}"/>
+        <input type="text" class="form-control @error('city') is-invalid @enderror" name="city" value="{{ old('city') }}" required/>
         @error('city')
           <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>
@@ -57,7 +57,7 @@
       </div>
       <div class="form-group col-md-6">
         <label class="bmd-label-floating">Postal Code</label>
-      <input type="text" class="form-control @error('postal_code') is-invalid @enderror" name="postal_code" value="{{ old('postal_code') }}" />
+        <input type="text" class="form-control @error('postal_code') is-invalid @enderror" name="postal_code" value="{{ old('postal_code') }}" minlength="4" required/>
         @error('postal_code')
           <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>
@@ -68,7 +68,7 @@
     <div class="form-row">
       <div class="form-group col-md-6">
         <label class="bmd-label-floating">Province/State</label>
-      <input type="text" class="form-control @error('province') is-invalid @enderror" name="province" value="{{ old('province') }}"/>
+        <input type="text" class="form-control @error('province') is-invalid @enderror" name="province" value="{{ old('province') }}" required/>
         @error('province')
           <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>
@@ -76,7 +76,7 @@
         @enderror
       </div>
       <div class="form-group col-md-6" id="country">
-        <select class="form-control @error('country') is-invalid @enderror" name="country" id="country" value="{{ old('country') }}">
+        <select class="form-control @error('country') is-invalid @enderror" name="country" id="country" value="{{ old('country') }}" required>
           <option value="" hidden disabled selected class="placeholder">Select Country</option>
             @foreach ($countries as $country)
               <option value="{{$country->name}}">{{$country->name}}</option>
@@ -96,12 +96,5 @@
     </div>
   </form>
 </div>
-<script>
-  var msg = '{{Session::get('alert')}}';
-  var exist = '{{Session::has('alert')}}';
-  if(exist){
-    alert(msg);
-  }
-</script>
 
 @endsection

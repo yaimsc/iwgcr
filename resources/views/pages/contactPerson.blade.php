@@ -11,11 +11,18 @@
     <h4 class="title">{{$centre->name}}</h4>
     @endforeach
   </div>
-  <form method="POST" action="{{route('contactPerson.store')}}" enctype="multipart/form-data">
+  <form method="POST" id="form-contact" action="{{route('contactPerson.store')}}" enctype="multipart/form-data">
     @csrf
     <div class="form-group">
       <label class="bmd-label-floating">Name</label>
-      <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" id="name" value="{{ old('name') }}" required autofocus/> 
+      <input 
+        type="text" 
+        class="form-control @error('name') is-invalid @enderror" 
+        name="name" id="name" value="{{ old('name') }}" 
+        data-parsley-pattern="^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$" 
+        required 
+        autofocus
+      /> 
         @error('name')
           <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>
@@ -24,7 +31,7 @@
     </div>
     <div class="form-row">
       <div class="form-group col-md-6">
-        <select class="form-control" name="centre_telephonecode" id="centre_telephonecode">
+        <select class="form-control" name="centre_telephonecode" id="centre_telephonecode" required>
           @foreach(Session::get('country_key') as $countrySelect)
             <option value="{{$countrySelect->telephonecode}}" selected class="placeholder">{{$countrySelect->name}} {{$countrySelect->telephonecode}}</option>
           @endforeach
@@ -34,7 +41,7 @@
         </select>
       </div>
       <div class="form-group col-md-6">
-      <input type="tel" id="centre_telephone" class="form-control @error('centre_phone') is-invalid @enderror" name="centre_phone" value="{{ old('centre_phone') }}" placeholder="Ex. 943 29 05 34"/>
+      <input type="tel" id="centre_telephone" class="form-control @error('centre_phone') is-invalid @enderror" name="centre_phone" value="{{ old('centre_phone') }}" placeholder="Ex. 943 29 05 34" />
         @error('centre_phone')
           <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>

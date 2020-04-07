@@ -30,7 +30,7 @@
         <h2 id="welcome"><strong>Pre-installation Survey</strong></h1>
         {{-- <img src="/img/salto.png" id="img-salto" alt="salto" /> --}}
         
-        <form method="GET" action="{{route('centre.create')}}" enctype="multipart/form-data">
+        <form method="GET" id="form1" action="{{route('centre.create')}}" enctype="multipart/form-data">
 
           {{-- <div id="input">
            <input />
@@ -39,7 +39,7 @@
             <div id="input">
               <label>Centre Number/ID</label>
               <div>
-              <input name="centre_number" class="form-control @error('centre_number') is-invalid @enderror" placeholder="Select Centre Number/ID" >
+              <input name="centre_number" class="form-control @error('centre_number') is-invalid @enderror" placeholder="Select Centre Number/ID" minlength="4" maxlength="4" required >
               <small class="text-muted">*If Centre Number/ID does not have 4 digits, put 0 before. e.g. 0074</small>
               @error('centre_number')
                 <span class="invalid-feedback" role="alert">
@@ -57,7 +57,7 @@
       </div>
       <div class="post">
         <h2 id="welcome"><strong>Post-installation Sign off Form</strong></h1>
-      <form method="GET" action="{{route('installer.create')}}" enctype="multipart/form-data" >
+      <form method="GET" id="form2" action="{{route('installer.create')}}" enctype="multipart/form-data" >
         <meta name="csrf-token" content="{{ csrf_token() }}" />
         <div class="inputs">
           <div id="input">

@@ -13,6 +13,13 @@
     </section>
     @include('includes.footer.footer')
     @include('includes.scripts')
+    <script>
+      $('#form-centre').parsley();
+      $('#form-contact').parsley();
+      $('#form-doors').parsley();
+      $('#form-installer').parsley();
+      $('#form-signoff').parsley();
+    </script>
   </body>
   
 </html>

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
+use Validator;
 use Illuminate\Support\Facades\DB;
 use Session;
 use App\Country; 
@@ -29,9 +29,14 @@ class CentreController extends Controller
      */
     public function create(Request $request)
     {
-        $this->validate($request, [
+        $validatedData = Validator::make($request->all(),[
             'centre_number' => 'digits:4|required|'
         ]); 
+
+        if($validatedData->fails()){
+            Session::flash('error', 'This input requires 4 digits');
+            return redirect()->back();
+        }
 
         $centre=DB::table('centres')->where('number', $request->input('centre_number'))->get(); 
         if($centre->count() !== 0){

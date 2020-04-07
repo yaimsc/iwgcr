@@ -141,13 +141,24 @@ section{
   #pdf{
     /* max-width: 70%;
     max-height: 90%; */
-    max-width: 180px; 
-    max-height: 180px;
-    min-width:130px;
-    min-height: 130px;
+    max-width: 150px; 
+    max-height: 150px;
+    min-width:100px;
+    min-height: 100px;
     width: 80px; 
     height: 100px;
     margin-bottom: 30px;
+  }
+  #pdf-title{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+  #pdf-button{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 50px;
   }
 }
 
