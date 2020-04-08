@@ -89,8 +89,8 @@ class DoorController extends Controller
             'placement_photo' => 'required|max:10000', 
             'placement_photo_optional' => 'max:10000|nullable',
             'door_name' => 'required|min:2|max:255|string', 
-            'exterior_length' => 'required|numeric', 
-            'interior_length' => 'required|numeric',
+            'exterior_length' => 'required', 
+            'interior_length' => 'required',
             'quotation' => 'required'
         ]);
 
@@ -152,7 +152,7 @@ class DoorController extends Controller
         $data->exterior_length=$request->input('exterior_length');
         $data->interior_length=$request->input('interior_length');
         $data->type_length=$request->input('type_length');
-        $data->distance_knobs_frame_ok=$request->has('distance_knobs_frame_ok'); //boolean
+        $data->distance_knobs_frame_ok=$request->get('distance_knobs_frame_ok'); //boolean
         $data->quotation=$request->get('quotation'); //boolean
         
         $data->save();

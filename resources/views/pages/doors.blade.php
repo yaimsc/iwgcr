@@ -104,7 +104,7 @@
           @enderror
         </div>
         <div class="form-group col-md-2">
-          <select class="form-control" name="type_length" id="type_length">
+          <select class="form-control" name="type_length" id="type_length" required>
             <option value="mm" selected class="placeholder">mm</option>
             <option value="inches">inches</option>
           </select>
@@ -112,7 +112,7 @@
       </div>
       <div class="form-group">
         <p>Confirmation Distance from Knob's centre to Frame is OK</p>
-        <select class="form-control col-md-4 @error('distance_knobs_frame_ok') is-invalid @enderror" name="distance_knobs_frame_ok" value="{{ old('distance_knobs_frame_ok') }}">
+        <select class="form-control col-md-4 @error('distance_knobs_frame_ok') is-invalid @enderror" name="distance_knobs_frame_ok" value="{{ old('distance_knobs_frame_ok') }}" required>
           <option value="1">YES</option>
           <option value="0">NO</option>
         </select>
@@ -127,7 +127,7 @@
     <div class="card">
       <div class="form-group">
         <p>Does the General Manager want to receive from SALTO a quotation for equipping the whole center?</p>
-        <select class="form-control col-md-4 @error('quotation') is-invalid @enderror" name="quotation" value="{{ old('quotation') }}">
+        <select class="form-control col-md-4 @error('quotation') is-invalid @enderror" name="quotation" value="{{ old('quotation') }}" required>
           <option value="1">YES</option>
           <option value="0">NO</option>
         </select>
