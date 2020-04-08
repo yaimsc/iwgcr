@@ -58,7 +58,7 @@
     <div class="card">
       <div class="checkbox">
         <label>
-          <input type="checkbox" name="purple_light" class="@error('purple_light') is-invalid @enderror" >IQ shows purple light
+          <input type="checkbox" name="purple_light" class="@error('purple_light') is-invalid @enderror" required>IQ shows purple light
         </label>
         @error('purple_light')
           <span class="invalid-feedback" role="alert">
@@ -68,7 +68,7 @@
       </div>
       <div class="checkbox">
         <label>
-          <input type="checkbox" name="mac_whitelisted" class="@error('mac_whitelisted') is-invalid @enderror" >IQ Mac address has been whitelisted
+          <input type="checkbox" name="mac_whitelisted" class="@error('mac_whitelisted') is-invalid @enderror" required>IQ Mac address has been whitelisted
         </label>
         @error('purple_light')
           <span class="invalid-feedback" role="alert">
@@ -78,7 +78,7 @@
       </div>
       <div class="checkbox">
         <label>
-          <input type="checkbox" name="centre_activated_titan" class="@error('centre_activated_titan') is-invalid @enderror" >Centre has been activated in Titan
+          <input type="checkbox" name="centre_activated_titan" class="@error('centre_activated_titan') is-invalid @enderror" required>Centre has been activated in Titan
         </label>
         @error('purple_light')
           <span class="invalid-feedback" role="alert">
@@ -88,7 +88,7 @@
       </div>
       <div class="checkbox">
         <label>
-          <input type="checkbox" name="maintenance_tags_given_centre" class="@error('maintenance_tags_given_centre') is-invalid @enderror" >Maintenance kit and tags have been given to centre staff
+          <input type="checkbox" name="maintenance_tags_given_centre" class="@error('maintenance_tags_given_centre') is-invalid @enderror" required>Maintenance kit and tags have been given to centre staff
         </label>
         @error('purple_light')
           <span class="invalid-feedback" role="alert">

@@ -26,7 +26,15 @@
   </select>
   <div class="form-group">
     <label class="bmd-label-floating">Name</label>
-    <input type="text" class="form-control @error('installer_name') is-invalid @enderror" name="installer_name" value="{{ old('installer_name') }}" id="installer_name" required autofocus>
+    <input 
+      type="text" 
+      class="form-control @error('installer_name') is-invalid @enderror" 
+      name="installer_name" value="{{ old('installer_name') }}" 
+      id="installer_name"
+      data-parsley-pattern="^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$"  
+      required 
+      autofocus
+    >
     @error('installer_name')
       <span class="invalid-feedback" role="alert">
         <strong>{{ $message }}</strong>
@@ -35,7 +43,7 @@
   </div>
   <div class="form-group">
     <label class="bmd-label-floating">Email</label>
-    <input type="email" class="form-control @error('installer_email') is-invalid @enderror" name="installer_email" value="{{ old('installer_email') }}" id="installer_email">
+    <input type="email" class="form-control @error('installer_email') is-invalid @enderror" name="installer_email" value="{{ old('installer_email') }}" id="installer_email" required>
     @error('installer_email')
       <span class="invalid-feedback" role="alert">
         <strong>{{ $message }}</strong>
@@ -44,7 +52,7 @@
   </div>
   <div class="form-row">
     <div class="form-group col-md-6">
-      <select class="form-control" name="installer_telephonecode" id="installer_telephonecode">
+      <select class="form-control" name="installer_telephonecode" id="installer_telephonecode" required>
         {{-- @foreach(Session::get('centre_country_key') as $countrySelect)
           <option value="{{$countrySelect->telephonecode}}" selected class="placeholder">{{$countrySelect->name}} {{$countrySelect->telephonecode}}</option>
         @endforeach  --}}
@@ -55,7 +63,7 @@
       </select>
     </div>
     <div class="form-group col-md-6">
-    <input type="tel" name="installer_telephone" id="installer_telephone" class="form-control @error('instaler_telephone') is-invalid @enderror" value="{{ old('installer_telephone') }}" placeholder="Ex. 943 29 05 34"/>
+    <input type="tel" name="installer_telephone" id="installer_telephone" class="form-control @error('instaler_telephone') is-invalid @enderror" value="{{ old('installer_telephone') }}" placeholder="Ex. 943 29 05 34" required/>
       @error('installer_telephone')
         <span class="invalid-feedback" role="alert">
           <strong>{{ $message }}</strong>
