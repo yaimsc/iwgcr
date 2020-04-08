@@ -40,7 +40,6 @@
                         if(data == ''){
                           $('select[name="centre_number"]').append('<option value="">No centres</option>');
                         }
-
                     }
                 });
             }else{
