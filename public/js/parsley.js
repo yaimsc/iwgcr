@@ -2399,7 +2399,7 @@
     range: "This value should be between %s and %s",
     minlength: "This value is too short. It should have %s characters or more",
     maxlength: "This value is too long. It should have %s characters or fewer",
-    length: "This value length is invalid. It should be between %s and %s characters long",
+    length: "This value length is invalid. It should be %s characters long",
     mincheck: "You must select at least %s choices",
     maxcheck: "You must select %s choices or fewer",
     check: "You must select between %s and %s choices",

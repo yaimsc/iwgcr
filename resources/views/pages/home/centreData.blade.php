@@ -12,8 +12,8 @@
   </div>
   <div>
     <div class="botones">
-      <button class="btn" id="btn-pre">Pre-Installation Survey</button>
-      <button class="btn" id="btn-post">Post-Installation Sign Off Form</button>
+      <button class="btn-active" id="btn-pre">Pre-Installation Survey</button>
+      <button class="btn-disabled" id="btn-post">Post-Installation Sign Off Form</button>
     </div>
     <div id="pre">
       <h5>Pre-Installation Survey</h5>

@@ -40,7 +40,7 @@ class InstallerController extends Controller
         $installer = DB::table('installers')->where('centre_number', $centre_number)->get();
  
             if($installer->count() !== 0){
-                Session::flash('msg-post', 'This centre has the post-installation form completed. If you continue the information is going to be override.');
+                Session::flash('msg-post', 'This centre has the post-installation form completed. If you continue, the information will be overwritten.');
             }
 
             return view('pages.sign-off.installer', [

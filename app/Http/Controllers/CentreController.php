@@ -40,7 +40,7 @@ class CentreController extends Controller
 
         $centre=DB::table('centres')->where('number', $request->input('centre_number'))->get(); 
         if($centre->count() !== 0){
-            Session::flash('msg-pre', 'This centre exists already. If you continue the information is going to be override.');  
+            Session::flash('msg-pre', 'This centre already exists. If you continue, the information will be overwritten.');  
         }
         Session::put('number_key', $request->input('centre_number'));
         return view('pages.centre', [
