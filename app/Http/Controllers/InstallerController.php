@@ -16,27 +16,9 @@ class InstallerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $this->validate($request, [
-            'centre_name' => 'required'
-        ]);
-
-        $country=$request->get('country');
-        $centre_name=$request->get('centre_name');
-
-        $centres = DB::table('centres')->where('name', $centre_name)->get();
-
-        // $installer = DB::table('installers')->where('centre_name', $centre_name)->get();
- 
-            // if($installer->count() !== 0){
-            //     Session::flash('msg-post', 'This centre has the post-installation form completed. If you continue the information is going to be override.');
-            // }
-
-            return view('pages.sign-off.installer', [
-                'countries' => Country::all(), 
-                'centres' => $centres
-            ]);
+        //
     }
 
     /**
@@ -47,18 +29,18 @@ class InstallerController extends Controller
     public function create(Request $request)
     {
         $this->validate($request, [
-            'centre_name' => 'required'
+            'centre_number' => 'required'
         ]);
 
         $country=$request->get('country');
-        $centre_name=$request->get('centre_name');
+        $centre_number=$request->get('centre_number');
 
-        $centres = DB::table('centres')->where('name', $centre_name)->get();
+        $centres = DB::table('centres')->where('number', $centre_number)->get();
 
-        $installer = DB::table('installers')->where('centre_name', $centre_name)->get();
+        $installer = DB::table('installers')->where('centre_number', $centre_number)->get();
  
             if($installer->count() !== 0){
-                Session::flash('msg-post', 'This centre has the post-installation form completed. If you continue the information is going to be override.');
+                Session::flash('msg-post', 'This centre has the post-installation form completed. If you continue, the information will be overwritten.');
             }
 
             return view('pages.sign-off.installer', [
@@ -78,17 +60,20 @@ class InstallerController extends Controller
      */
     public function store(Request $request)
     {
-        // $request->validate([
-        //     'installer_name' => 'required', 
-        //     'installer_email' => 'email|required',
-        //     'installer_telephonecode' => 'required', 
-        //     'installer_telephone' => 'required'
-        // ]); 
+        $request->validate([
+            'installer_name' => 'required', 
+            'installer_email' => 'email|required',
+            'installer_telephonecode' => 'required', 
+            'installer_telephone' => 'required'
+        ]); 
 
-        $installer= DB::table('installers')->where('centre_name', $request->get('centre_name'))->get();
+        $installer= DB::table('installers')->where('centre_number', $request->get('centre_number'))->get();
+
+        Session::put('name_key', DB::table('centres')->where('number', $request->get('centre_number'))->value('name')); //guardar solo nombre seleccionado
+        Session::put('number_key', $request->get('centre_number'));
 
         if($installer->count() !== 0){
-            DB::table('installers')->where('centre_name', $request->get('centre_name'))->delete(); //vaciar 
+            DB::table('installers')->where('centre_number', $request->get('centre_number'))->delete(); //vaciar 
         }
 
         $data = new Installer; 
@@ -97,13 +82,16 @@ class InstallerController extends Controller
         $data->email=$request->input('installer_email'); 
         $data->telephonecode=$request->get('installer_telephonecode');
         $data->telephone=$request->input('installer_telephone');
-        $data->centre_name=$request->get('centre_name');
+        $data->centre_name=Session::get('name_key');
+        $data->centre_number=$request->get('centre_number');
         
         $data->save();
 
-        return view('pages.sign-off.doors', [
-            'centres' => DB::table('centres')->where('name', $request->get('centre_name'))->get()
-        ]);
+        return redirect()->route('sign-off.create');
+
+        // return view('pages.sign-off.doors', [
+        //     'centres' => DB::table('centres')->where('number', $request->get('centre_number'))->get()
+        // ]);
 
     }
 

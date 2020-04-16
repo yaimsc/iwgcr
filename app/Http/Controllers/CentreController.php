@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
+use Validator;
 use Illuminate\Support\Facades\DB;
 use Session;
 use App\Country; 
@@ -29,13 +29,18 @@ class CentreController extends Controller
      */
     public function create(Request $request)
     {
-        $this->validate($request, [
+        $validatedData = Validator::make($request->all(),[
             'centre_number' => 'digits:4|required|'
         ]); 
 
+        if($validatedData->fails()){
+            Session::flash('error', 'This input requires 4 digits');
+            return redirect()->back();
+        }
+
         $centre=DB::table('centres')->where('number', $request->input('centre_number'))->get(); 
         if($centre->count() !== 0){
-            Session::flash('msg-pre', 'This centre exists already. If you continue the information is going to be override.');  
+            Session::flash('msg-pre', 'This centre already exists. If you continue, the information will be overwritten.');  
         }
         Session::put('number_key', $request->input('centre_number'));
         return view('pages.centre', [
@@ -64,7 +69,11 @@ class CentreController extends Controller
             // $country=DB::table('centres')->where('country', $request->get('country'))->get(); 
             Session::put('country_key', DB::table('countries')->where('name', $request->get('country'))->get());
 
-        
+            $centre= DB::table('centres')->where('number', Session::get('number_key'))->get();
+
+            if($centre->count() !== 0){
+            DB::table('centres')->where('number', Session::get('number_key'))->delete(); //vaciar 
+            }
             $data = new Centre; 
             
             $data->name=$request->input('centre_name'); 
@@ -80,7 +89,7 @@ class CentreController extends Controller
             return view('pages.contactPerson', [
                 // 'countries' =>  DB::table('countries')->where('name', $request->get('country'))->get(),
                 'countries' => Country::all(),
-                'centres' => DB::table('centres')->where('name', $request->get('centre_name'))->get(), 
+                'centres' => DB::table('centres')->where('number', Session::get('number_key'))->get(), 
                 // 'messages' => $validator->messages()
             ]); 
         

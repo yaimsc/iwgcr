@@ -8,16 +8,16 @@
     <h2 class="title-white">Mandatory Post-Installation Documentation</h2>
 </div>
 <div class="doors-content">
-  <form method="POST" action="{{route('sign-off.store')}}" enctype="multipart/form-data">
+  <form method="POST" id="form-signoff" action="{{route('sign-off.store')}}" enctype="multipart/form-data">
     @csrf
     <div class="doors">
     <div id="photo">
-      <select class="form-control" name="centre_name" id="centre_name" hidden>
+      {{-- <select class="form-control" name="centre_number" id="centre_number" hidden> --}}
         {{-- <option value="" hidden disabled selected class="placeholder">Select Centre</option> --}}
-          @foreach ($centres as $centre)
-            <option selected value="{{$centre->name}}">{{$centre->name}}</option>
+          {{-- @foreach ($centres as $centre)
+            <option selected value="{{$centre->number}}">{{$centre->number}}</option>
           @endforeach
-      </select>
+      </select> --}}
       <div class="card">
         <label class="title">Cylinder Interior Photo</label>
         <input class="form-control @error('interior_photo') is-invalid @enderror"  type="file" name="interior_photo" value="{{ old('interior_photo') }}" required/>
@@ -47,7 +47,7 @@
       </div>
       <div class="card">
         <label class="title">IQ + Cylinder Photo (to evaluate distance)</label>
-        <input class="form-control @error('iq_cylinder_photo') is-invalid @enderror" type="file" name="iq_cylinder_photo" value="{{ old('iq_cylinder_photo') }}"/>
+        <input class="form-control @error('iq_cylinder_photo') is-invalid @enderror" type="file" name="iq_cylinder_photo" value="{{ old('iq_cylinder_photo') }}" required/>
         @error('iq_cylinder_photo')
           <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>

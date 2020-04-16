@@ -22,6 +22,8 @@
 Route::get('/', 'IndexController@index')->name('index');
 Route::post('/ajax/{name}',array('as'=>'index.ajax','uses'=>'IndexController@ajax')); 
 Route::get('/pdf', 'IndexController@pdf')->name('pdf');
+Route::get('/storeForm', 'IndexController@storeForm')->name('storeForm');
+Route::get('/privacy', 'IndexController@privacy')->name('privacy');
 
 Route::get('/download/{file}', function($file){
 	$path = storage_path('app/public/files/'.$file);
@@ -33,7 +35,7 @@ Route::get('/view/{file}', function($file){
 	return response()->file($path);
 });
 
-Route::get('/privacy/{file}', function($file){
+Route::get('/view/{file}', function($file){
 	$path = storage_path('app/public/files/'.$file);
 	return response()->file($path);
 });
@@ -69,8 +71,6 @@ Route::resource('door', 'DoorController'); //CRUD
 // --- SIGN OFF FORM -------
 
 //installer
-// Route::post('/installer', 'InstallerController@create')->name('installer.create');
-// Route::post('/installer/store', 'InstallerController@store')->name('installer.store');
 Route::resource('installer', 'InstallerController'); //CRUD
 
 //Sign-Off

@@ -1,6 +1,6 @@
 
 h3{
-  margin-top: 10%;
+  margin-top: 5%;
   color: #fff;
   text-transform: uppercase;
   font-weight: bold;
@@ -127,32 +127,40 @@ section{
   font-weight: bold;
 }
 
-#pdf-content{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin-left: 10%;
-  margin-right: 10%;
-  margin-top: 5%;
-}
 
-#pdf-title{
-  display: flex;
-  justify-content: center;
-  margin-bottom: 50px;
-}
+
+
 
 @media(max-width: 768px){
   #pdf{
     /* max-width: 70%;
     max-height: 90%; */
-    max-width: 180px; 
-    max-height: 180px;
-    min-width:130px;
-    min-height: 130px;
+    max-width: 150px; 
+    max-height: 150px;
+    min-width:100px;
+    min-height: 100px;
     width: 80px; 
     height: 100px;
     margin-bottom: 30px;
+  }
+  #pdf-title{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+  #pdf-button{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 50px;
+  }
+  #pdf-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 3%;
   }
 }
 
@@ -164,6 +172,18 @@ section{
     max-height: 180px;
     min-width:130px;
     min-height: 130px;
+    margin-bottom: 30px;
+  }
+  #pdf-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+  #pdf-title{
+    display: flex;
+    justify-content: center;
     margin-bottom: 30px;
   }
 }
@@ -265,6 +285,10 @@ select{
 .inline{
   display: flex;
   flex-direction: row;
+}
+
+.checkbox label{
+  color: #3c3c3b;
 }
 
 

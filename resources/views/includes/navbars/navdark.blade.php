@@ -1,9 +1,9 @@
 <!-- NAV dark -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 <a class="navbar-brand" href="{{route('index')}}"><img src="{{ asset('img/SALTO_inspired_access_LOGO_blanco.png')}}" alt="SALTO" id="icon" class="rounded float-left"></a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+  {{-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
-  </button>
+  </button> --}}
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <a href="{{route('index')}}"><h1 class="navbar-brand js-scroll-trigger">{{config('app.name')}}</h1></a>
     <form action="{{ route('logout') }}" method="POST" class="log">

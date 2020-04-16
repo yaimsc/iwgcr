@@ -40,7 +40,7 @@ h3{
   text-transform: uppercase;
   font-weight: bold;
   text-align: center;
-  font-size: 36pt;
+  font-size: calc(2em);
   color: #3c3c3b;
 }
 
@@ -49,12 +49,28 @@ img{
   height:180px;
 }
 
-.content{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
+@media(min-width: 768px){
+  .content{
+    margin-top: 3%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
 }
+
+@media(max-width: 768px){
+  .content{
+    margin-top: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+}
+
 
 #right{
   margin-top: -20px;
@@ -63,6 +79,7 @@ img{
   align-content: center;
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
 }
 
 .btn-primary {
@@ -71,4 +88,14 @@ img{
   padding-left: 15px; 
   padding-right: 15px;
   border-radius: 30px;
+}
+
+#buttons{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button{
+  margin: 5px;
 }

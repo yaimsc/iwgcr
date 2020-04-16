@@ -20,6 +20,7 @@ class CreateInstallersTable extends Migration
             $table->string('telephonecode'); 
             $table->string('telephone');
             $table->string('centre_name')->references('name')->on('centres');
+            $table->integer('centre_number')->refrences('number')->on('centres');
             $table->timestamps();
         });
     }

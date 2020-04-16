@@ -7,23 +7,28 @@
         <h3>Welcome to SALTO BU Administration Site</h3>
         <img src="{{asset('img/SALTO_inspired_access_LOGO.png')}}"/>
     </div>
-    <div>
+    <div id="buttons">
     @auth
+    <a href="{{ url('/home') }}">
         <button type="button" class="btn btn-raised btn-info">
-            <a href="{{ url('/home') }}">Home</a>
+            Home
         </button>
+      </a>
     @else
-        <button type="button" class="btn btn-raised btn-info">
-            <a href="{{ route('login') }}">Login</a>
-        </button>
+        <a href="{{ route('login') }}">
+          <button type="button" class="btn btn-raised btn-info">
+              Login
+          </button>
+        </a>
       @if (Route::has('register'))
-        {{-- <div class="card"> --}}
-        <button type="button" class="btn btn-raised btn-info">
-            <a href="{{ route('register') }}">Register</a>
-        </button>
+        <a href="{{ route('register') }}">
+          <button type="button" class="btn btn-raised btn-info">
+            Register
+          </button>
+        </a>
       @endif
     @endauth
-    <div>
+    </div>
   </div>
 </div>
 @endsection

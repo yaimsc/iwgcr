@@ -8,6 +8,8 @@ use App\Door;
 
 class Centre extends Model
 {
+    protected $primaryKey='number';
+    
     public function contactPerson(){
         return $this->hasOne('App\ContactPerson'); 
     }

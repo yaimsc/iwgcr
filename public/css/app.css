@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);
+/* @import url(https://fonts.googleapis.com/css?family=Nunito);
 @charset "UTF-8";
 
 /*!
@@ -7,7 +7,7 @@
  * Copyright 2011-2019 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
-
+/*
 :root {
   --blue: #3490dc;
   --indigo: #6574cd;
@@ -2352,7 +2352,8 @@ textarea.form-control {
   margin-right: 0.3125rem;
   margin-left: 0;
 }
-
+*/
+/* 
 .valid-feedback {
   display: none;
   width: 100%;
@@ -2579,9 +2580,9 @@ textarea.form-control.is-invalid {
 .custom-file-input.is-invalid:focus ~ .custom-file-label {
   border-color: #e3342f;
   box-shadow: 0 0 0 0.2rem rgba(227, 52, 47, 0.25);
-}
+} */
 
-.form-inline {
+/* .form-inline {
   display: flex;
   flex-flow: row wrap;
   align-items: center;
@@ -3237,7 +3238,9 @@ fieldset:disabled a.btn {
 .btn-outline-danger:not(:disabled):not(.disabled).active:focus,
 .show > .btn-outline-danger.dropdown-toggle:focus {
   box-shadow: 0 0 0 0.2rem rgba(227, 52, 47, 0.5);
-}
+} */
+
+/*
 
 .btn-outline-light {
   color: #f8f9fa;
@@ -10884,4 +10887,4 @@ a.text-dark:focus {
     border-color: #dee2e6;
   }
 }
-
+  */

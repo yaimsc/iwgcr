@@ -1,0 +1,54 @@
+#icon{
+  height: 80px; 
+  width: 110px; 
+  margin: -10px;
+  margin-left: 5px;
+  margin-right: 20px;
+}
+
+nav{
+  margin-top: -5px;
+  margin-bottom: -5px;
+}
+
+.navbar-light .navbar-toggler{
+  border: none;
+}
+
+.navbar-brand{
+  text-transform: uppercase;
+  font-weight: bold;
+  white-space: pre-wrap;
+}
+
+section{
+  margin: 30px;
+  margin-bottom: 100px;
+}
+
+p{
+  font-family: 'Roboto',Arial, Helvetica, sans-serif;
+  font-weight: 300;
+}
+
+ul ol{
+  font-weight: 300;
+}
+
+h1{
+  text-transform: uppercase;
+  font-weight: 300;
+  color: #2294cb;
+}
+
+h3{
+  font-weight: 300;
+  font-size: 30px;
+  color: black;
+}
+
+h4{
+  font-weight: 300;
+  font-size: 20px;
+  color: #2294cb;
+}

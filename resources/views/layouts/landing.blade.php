@@ -33,20 +33,25 @@
                     success:function(data) {
                         console.log(data)
                         
-                        $('select[name="centre_name"]').empty();
+                        $('select[name="centre_number"]').empty();
                         $.each(data, function(key, value) {
-                            $('select[name="centre_name"]').append('<option value="'+ value.name +'">' + value.number+' - '+ value.name +'</option>');
+                            $('select[name="centre_number"]').append('<option value="'+ value.number +'">' + value.number+' - '+ value.name +'</option>');
                         });
-
-
+                        if(data == ''){
+                          $('select[name="centre_number"]').append('<option value="">No centres</option>');
+                        }
                     }
                 });
             }else{
-                $('select[name="centre_name"]').empty();
+                $('select[name="centre_number"]').empty();
             }
         });
     });
+
+    $('#form1').parsley();
+    $('#form2').parsley();
     </script> 
+    
     <script src="js/header.js"></script> 
   </body>
 </html>

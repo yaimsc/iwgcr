@@ -88,18 +88,21 @@
     //* botones de centreData */
     $(document).ready(function() {
 
-      $('#btn-pre').on('click', function(){
-        $('.pre').show();
-        $('.post').hide();
-      });
-
-      $('#btn-post').on('click', function(){
-        console.log('entra')
-        $('.post').css('visibility', 'visible');
-        $('.pre').hide();
-        $('.post').show();
-      });
-
+    $('#btn-pre').on('click', function(){
+      $('#pre').show();
+      $('#post').hide();
+      $(this).removeClass('btn-disabled').addClass('btn-active');
+      $('#btn-post').removeClass('btn-active').addClass('btn-disabled');
     });
+
+    $('#btn-post').on('click', function(){
+      $('#pre').hide();
+      $('#post').show();
+      $('#btn-pre').addClass('btn-disabled'); 
+      $(this).removeClass('btn-disabled').addClass('btn-active');
+      $('#btn-pre').removeClass('btn-active').addClass('btn-disabled');
+    });
+
+});
   </script>
 </html>

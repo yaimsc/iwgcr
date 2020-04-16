@@ -51,29 +51,29 @@ class ContactPersonController extends Controller
             'email' => 'email', 
         ]);
 
-        Session::put('centre_key', DB::table('centres')->where('name', $request->get('centre_name'))->get());
+        Session::put('centre_key', DB::table('centres')->where('number', Session::get('number_key'))->get());
         
-        $contact=DB::table('contact_people')->where('email', $request->input('email'))->get(); 
+        $contact=DB::table('contact_people')->where('centre_number', Session::get('number_key'))->get(); 
 
-        // if($contact->count() !== 0){
-        //     return  redirect()->action('IndexController@pdf');
-        // }else{
-            $data = new ContactPerson;
+        if($contact->count() !== 0){
+            DB::table('contact_people')->where('centre_number', Session::get('number_key'))->delete(); //vaciar 
+        }
+        $data = new ContactPerson;
 
-            $data->name=$request->input('name');
-            $data->centre_telephonecode=$request->get('centre_telephonecode');
-            $fijo=$request->input('centre_phone'); 
-            $data->centre_phone= empty($fijo) ? null : $fijo; 
-            $data->mobile_telephonecode=$request->get('mobile_telephonecode');
-            $movil=$request->input('mobile_phone');
-            $data->mobile_phone= empty($movil) ? null : $movil; 
-            $data->email=$request->input('email');
-            $data->centre_name=$request->get('centre_name');
+        $data->name=$request->input('name');
+        $data->centre_telephonecode=$request->get('centre_telephonecode');
+        $fijo=$request->input('centre_phone'); 
+        $data->centre_phone= empty($fijo) ? null : $fijo; 
+        $data->mobile_telephonecode=$request->get('mobile_telephonecode');
+        $movil=$request->input('mobile_phone');
+        $data->mobile_phone= empty($movil) ? null : $movil; 
+        $data->email=$request->input('email');
+        $data->centre_name=$request->get('centre_name');
+        $data->centre_number=Session::get('number_key');
 
-            $data->save(); 
+        $data->save(); 
 
-            return view('pages.pdf');
-        // }
+        return view('pages.pdf');
 
     }
 

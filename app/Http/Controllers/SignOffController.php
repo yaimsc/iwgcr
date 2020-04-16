@@ -24,9 +24,11 @@ class SignOffController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-       //
+        return view('pages.sign-off.doors', [
+            'centres' => Session::get('number_key')
+        ]);
     }
 
     /* Sube la photo a la API y nos devuelve un JSON */
@@ -86,13 +88,19 @@ class SignOffController extends Controller
             'maintenance_tags_given_centre' => 'required',
         ]);
 
-        $signOff=DB::table('sign_doors')->where('centre_name', $request->get('centre_name'))->get();
+        // if($validatedData->fails()){
+        //     // Validation Fails Here...
+        //     return redirect()->back()->withErrors($validatedData)->;
+        // }
+
+        $signOff=DB::table('sign_doors')->where('centre_name', Session::get('number_key'))->get();
         if($signOff->count() !== 0){
-            DB::table('sign_doors')->where('centre_name', $request->get('centre_name'))->delete();
+            DB::table('sign_doors')->where('centre_name', Session::get('number_key'))->delete();
         }
         $data = new SignDoor; 
 
-        $data->centre_name=$request->get('centre_name');
+        $data->centre_name=Session::get('name_key');
+        $data->centre_number=Session::get('number_key');
 
         //INTERIOR_PHOTO
         $interior_photo=$request->file('interior_photo'); //get file from form
@@ -123,10 +131,16 @@ class SignOffController extends Controller
         $data->mac_whitelisted=$request->has('mac_whitelisted'); //boolean
         $data->centre_activated_titan=$request->has('centre_activated_titan'); //boolean
         $data->maintenance_tags_given_centre=$request->has('maintenance_tags_given_centre'); //boolean
+
+        
         
         $data->save();
 
-        return view('pages.sign-off.storeForm');
+        
+
+        return redirect()->route('storeForm');
+
+        // return view('pages.sign-off.storeForm');
         // }
     }
 
