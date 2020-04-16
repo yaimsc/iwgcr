@@ -36,4 +36,8 @@ class IndexController extends Controller
     public function storeForm(){
         return view('pages.sign-off.storeForm');
     }
+
+    public function privacy(){
+        return view('pages.privacy');
+    }
 }
