@@ -13,23 +13,23 @@
       <p>Your personal data will be processed with the purposes described below, based on the following legal basis:</p>
       <h4>i.	Based on the contractual or pre-contractual relationship</h4>
         <ul>
-          <ol>a.	Communicate with the coworking centre you work in or provide your services to (the “Centre”) in relation to the products and/or services commercialized by Salto. </ol>
-          <ol>b.	Provide the services and products contracted by or for the Centre; including: performing the site survey to determine the appropriate hardware for the Centre, managing installation of the ordered hardware and managing the set-up of the Access Control App. </ol>
-          <ol>c.	Process and meet your budget request for the Centre. </ol>
-          <ol>d.	Management, maintenance and development of the contractual relationship with Salto or any of Salto’s subsidiaries that can be found in https://www.saltosystems.com/en/contact-us/ (“Salto’s Subsidiaries”).</ol>
-          <ol>e.	Communicate your data to other Salto’s Subsidiaries (which can be consulted in the following link https://www.saltosystems.com/en/contact-us/) and/or to Salto’s Partners, in those cases in which it is necessary to provide the ordered product andor services, as well as to offer you the requested budget.</ol>
+          <ol><strong>a.</strong>	Communicate with the coworking centre you work in or provide your services to (the “Centre”) in relation to the products and/or services commercialized by Salto. </ol>
+          <ol><strong>b.</strong>	Provide the services and products contracted by or for the Centre; including: performing the site survey to determine the appropriate hardware for the Centre, managing installation of the ordered hardware and managing the set-up of the Access Control App. </ol>
+          <ol><strong>c.</strong>	Process and meet your budget request for the Centre. </ol>
+          <ol><strong>d.</strong>	Management, maintenance and development of the contractual relationship with Salto or any of Salto’s subsidiaries that can be found in https://www.saltosystems.com/en/contact-us/ (“Salto’s Subsidiaries”).</ol>
+          <ol><strong>e.</strong>	Communicate your data to other Salto’s Subsidiaries (which can be consulted in the following link https://www.saltosystems.com/en/contact-us/) and/or to Salto’s Partners, in those cases in which it is necessary to provide the ordered product andor services, as well as to offer you the requested budget.</ol>
         </ul>
       <h4>ii.	Based on a legal obligation:</h4>
         <ul>
-          <ol>a.	Communicate information to public authorities, regulators or governmental bodies in those cases in which it is necessary to do so by law, local regulations or compliance with regulatory obligations.</ol>
+          <ol><strong>a.</strong>	Communicate information to public authorities, regulators or governmental bodies in those cases in which it is necessary to do so by law, local regulations or compliance with regulatory obligations.</ol>
         </ul>
       <h4>iii.	Based on the legitimate interest of Salto:</h4>
         <ul>
-          <ol>a.	Manage your data as a user of the Website.</ol>
-          <ol>b.	Maintenance and support of the use of the Website.</ol>
-          <ol>c.	Improve your browsing experience.</ol>
-          <ol>d.	Record keeping and general administration.</ol>
-          <ol>e.	Maintain the security of our network and information.</ol>
+          <ol><strong>a.</strong>	Manage your data as a user of the Website.</ol>
+          <ol><strong>b.</strong>	Maintenance and support of the use of the Website.</ol>
+          <ol><strong>c.</strong>	Improve your browsing experience.</ol>
+          <ol><strong>d.</strong>	Record keeping and general administration.</ol>
+          <ol><strong>e.</strong>	Maintain the security of our network and information.</ol>
         </ul>
     <h3>C.	Who could receive your personal data?</h3>
       <p>In the terms described in section <strong>B. “Why and for what will we process your personal data?”</strong>, Salto may communicate your personal data to public authorities, regulators or governmental or jurisdictional bodies in those cases in which it is necessary to do so by law, local regulations or compliance with regulatory obligations. Likewise, in accordance with the above referred section B., Salto may transfer its personal data to Salto’s Subsidiaries (which can be consulted in the following link <a href="https://www.saltosystems.com/en/contact-us/">https://www.saltosystems.com/en/contact-us/</a>), or to Salto’s Partners, in the terms set forth in said section.<p>
