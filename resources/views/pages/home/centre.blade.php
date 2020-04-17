@@ -13,7 +13,7 @@
               <option value="{{$country->name}}">{{$country->name}}</option>
             @endforeach
         </select>
-        <button class="btn btn-raised" type="submit">
+        <button class="btn-active" type="submit">
           <i class="fas fa-search"></i>
           <div class="search">Search</div>
         </button>
