@@ -56,7 +56,7 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'webistes@saltosystems.com'),
+        'address' => env('MAIL_FROM_ADDRESS', 'websites@saltosystems.com'),
         'name' => env('MAIL_FROM_NAME', 'Salto Systems'),
     ],
 
