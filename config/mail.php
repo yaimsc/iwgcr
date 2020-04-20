@@ -29,7 +29,7 @@ return [
     |
     */
 
-    'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
+    'host' => env('MAIL_HOST', 'smtp.gmail.org'),
 
     /*
     |--------------------------------------------------------------------------
@@ -56,8 +56,8 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'y.munoz@saltosystems.com'),
-        'name' => env('MAIL_FROM_NAME', 'SaltoSystems'),
+        'address' => env('MAIL_FROM_ADDRESS', 'webistes@saltosystems.com'),
+        'name' => env('MAIL_FROM_NAME', 'Salto Systems'),
     ],
 
     /*
