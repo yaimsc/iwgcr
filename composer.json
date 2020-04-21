@@ -9,6 +9,7 @@
     "license": "MIT",
     "require": {
         "php": "^7.2",
+        "eduardokum/laravel-mail-auto-embed": "^1.0",
         "fideloper/proxy": "^4.0",
         "google/apiclient": "^2.4",
         "laravel/framework": "^6.2",

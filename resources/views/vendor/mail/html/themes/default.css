@@ -121,11 +121,13 @@ img {
 
 .logo{
     display: flex;
-    margin: 10px;
-    width: 150px;
-    height: 70px;
+    margin-left: 50px;
+    padding-left: 50px;
+    width: 300px;
+    height: auto;
     align-items: center;
     justify-content: center;
+    margin-left: 10%;
 }
 
 /* Body */

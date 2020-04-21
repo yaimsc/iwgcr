@@ -1,6 +1,6 @@
 @component('mail::message')
 {{-- LOGO --}}
-<img src="{{ $message->embed(public_path() .'/img/SALTO_inspired_access_LOGO.png')}}" alt="SALTO" />
+<img src="{{asset('img/SALTO_inspired_access_LOGO.png')}}" class="logo" alt="SALTO">
 
 {{-- Greeting --}}
 @if (! empty($greeting))
