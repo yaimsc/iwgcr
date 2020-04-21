@@ -99,3 +99,9 @@ img{
 button{
   margin: 5px;
 }
+
+.btn-text{
+  text-transform: none;
+  color: #2294cb;
+  border: 0px;
+}

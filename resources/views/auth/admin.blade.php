@@ -5,7 +5,7 @@
     <div class="content">
     <div id="right" class="col-md-6">
         <h3>Welcome to SALTO BU Administration Site</h3>
-        <img src="{{asset('img/SALTO_inspired_access_LOGO.png')}}"/>
+        <img src="{{asset('img/SALTO_inspired_access_LOGO.png')}}" alt="SALTO" />
     </div>
     <div id="buttons">
     @auth

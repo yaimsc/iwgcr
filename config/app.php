@@ -14,6 +14,7 @@ return [
     */
 
     'name' => env('APP_NAME', 'IWG Communication Rooms Project'),
+    'company' => 'Salto Systems',
 
     /*
     |--------------------------------------------------------------------------
