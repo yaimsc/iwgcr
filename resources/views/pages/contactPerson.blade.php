@@ -67,39 +67,39 @@
           @enderror
         </div>
       </div>
-    </div>
-    <div>
-      <label class="phone">Mobile Phone</label>
-      <div class="form-row">
-        <div class="form-group col-md-6">
-          <select class="form-control" name="mobile_telephonecode" id="mobile_telephonecode">
-          <option value="{{$countrySelect->telephonecode}}" selected class="placeholder">{{$countrySelect->name}} {{$countrySelect->telephonecode}}</option>
-              @foreach ($countries as $country)
-                <option value="{{$country->telephonecode}}">{{$country->name}} {{$country->telephonecode}}</option>
-              @endforeach
-          </select>
-        </div>
-        <div class="form-group col-md-6">
-        <input type="number" id="mobile_telephone" class="form-control @error('mobile_phone') is-invalid @enderror" name="mobile_phone" value="{{ old('mobile_phone') }}" placeholder="Mobile Phone"/>
-          @error('mobile_phone')
-            <span class="invalid-feedback" role="alert">
-              <strong>{{ $message }}</strong>
-            </span>
-          @enderror
+      <div>
+        <label class="phone">Mobile Phone</label>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <select class="form-control" name="mobile_telephonecode" id="mobile_telephonecode">
+            <option value="{{$countrySelect->telephonecode}}" selected class="placeholder">{{$countrySelect->name}} {{$countrySelect->telephonecode}}</option>
+                @foreach ($countries as $country)
+                  <option value="{{$country->telephonecode}}">{{$country->name}} {{$country->telephonecode}}</option>
+                @endforeach
+            </select>
+          </div>
+          <div class="form-group col-md-6">
+          <input type="number" id="mobile_telephone" class="form-control @error('mobile_phone') is-invalid @enderror" name="mobile_phone" value="{{ old('mobile_phone') }}" placeholder="Mobile Phone"/>
+            @error('mobile_phone')
+              <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+              </span>
+            @enderror
+          </div>
         </div>
       </div>
-    </div>
-    <div class="form-group">
-      <label class="bmd-label-floating">Email</label>
-      <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required/>
-      @error('email')
-        <span class="invalid-feedback" role="alert">
-          <strong>{{ $message }}</strong>
-        </span>
-      @enderror
-    </div>
-    <div class="letra">
-    <p>The controller of the personal data provided in this form is Salto Systems, S.L. (“Salto”), who will process it in order to communicate with your Centre for providing the products and/or services requested as well as process and meet your request of receiving a quote for the products and services commercialized by Salto. You can exercise through the email privacy@saltosystems.com your rights of access, rectification, erasure, restriction, objection, data portability and not to be subject to a decision based solely on automated processing. Your data will not be used for profiling. <a href="{{route('privacy')}}"> Please click here to find additional Information on Data Protection.  </a></p>
+      <div class="form-group">
+        <label class="bmd-label-floating">Email</label>
+        <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required/>
+        @error('email')
+          <span class="invalid-feedback" role="alert">
+            <strong>{{ $message }}</strong>
+          </span>
+        @enderror
+      </div>
+      <div class="letra">
+      <p>The controller of the personal data provided in this form is Salto Systems, S.L. (“Salto”), who will process it in order to communicate with your Centre for providing the products and/or services requested as well as process and meet your request of receiving a quote for the products and services commercialized by Salto. You can exercise through the email privacy@saltosystems.com your rights of access, rectification, erasure, restriction, objection, data portability and not to be subject to a decision based solely on automated processing. Your data will not be used for profiling. <a href="{{route('privacy')}}"> Please click here to find additional Information on Data Protection.  </a></p>
+      </div>
     </div>
       <select class="form-control" name="centre_name" id="centre" hidden>
         @foreach ($centres as $centre)
