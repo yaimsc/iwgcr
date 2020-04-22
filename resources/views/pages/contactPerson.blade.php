@@ -81,7 +81,7 @@
       <div class="letra">
         <p>The controller of the personal data provided in this form is Salto Systems, S.L. (“Salto”), who will process it in order to communicate with your Centre for providing the products and/or services requested as well as process and meet your request of receiving a quote for the products and services commercialized by Salto. You can exercise through the email privacy@saltosystems.com your rights of access, rectification, erasure, restriction, objection, data portability and not to be subject to a decision based solely on automated processing. Your data will not be used for profiling. <a href="{{route('privacy')}}"> Please click here to find additional Information on Data Protection.  </a></p>
       </div>
-    </div>
+    
       <select class="form-control" name="centre_name" id="centre" hidden>
         @foreach ($centres as $centre)
           <option selected value="{{$centre->name}}">{{$centre->name}}</option>
@@ -97,7 +97,7 @@
       <button type="submit" class="btn">
         {{ __('NEXT') }}
     </button>
-    </div>
+  </div>
   </form>
 </div>
 <div class="back">
