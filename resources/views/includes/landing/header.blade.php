@@ -37,10 +37,10 @@
           <div> --}}
           <div class="inputs" id="one">
             <div id="input">
-              <label>Centre Number/ID</label>
+              <label>Centre Number</label>
               <div>
-              <input name="centre_number" class="form-control @error('centre_number') is-invalid @enderror" placeholder="Select Centre Number/ID" minlength="4" maxlength="4" required >
-              <small class="text-muted">*If Centre Number/ID does not have 4 digits, put 0 before. e.g. 0074</small>
+              <input name="centre_number" class="form-control @error('centre_number') is-invalid @enderror" placeholder="Select Centre Number" minlength="4" maxlength="4" required >
+              <small class="text-muted">*If Centre Number does not have 4 digits, put 0 before. e.g. 0074</small>
               @error('centre_number')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
@@ -75,7 +75,7 @@
             <label>Centre</label>
             <div>
               <select class="form-control @error('centre_number') is-invalid @enderror" name="centre_number" value="{{ old('centre_number') }}" required>
-                <option hidden disabled selected class="placeholder">Select Centre Number/ID<option>
+                <option hidden disabled selected class="placeholder">Select Centre Number<option>
               </select>
               <small class="text-muted">*Only centres with the pre-installation survey completed will appear on the list</small>
               @error('centre_number')

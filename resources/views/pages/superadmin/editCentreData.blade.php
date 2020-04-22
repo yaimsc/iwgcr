@@ -13,7 +13,7 @@
     <p class="title2">Centre Information</p>
     <div class="centre_info">
       <div class="centre">
-        <div><p class="bold">Number/ID:</p><p>{{$centre->number}}<p></div>
+        <div><p class="bold">Centre Number:</p><p>{{$centre->number}}<p></div>
         <div><p class="bold">Address:</p><p>{{$centre->address}}</p></div>
         <div><p class="bold">City: </p><p>{{$centre->city}}</p></div>
         <div><p class="bold">Postal Code: </p><p>{{$centre->postal_code}}</p></div>

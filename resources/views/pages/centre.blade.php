@@ -27,9 +27,9 @@
  
     <input type="text" class="form-control @error('centre_name') is-invalid @enderror" name="centre_number" value="{{ Session::get('number_key')}}" hidden/> 
     {{-- <div class="form-group">
-      <label class="bmd-label-floating">Centre Number/ID</label>
+      <label class="bmd-label-floating">Centre Number</label>
       <input type="number" class="form-control @error('centre_number') is-invalid @enderror" name="centre_number" value="{{ old('centre_number') }}" required/>
-      <small class="text-muted">If Centre Number/ID does not have 4 digits, put 0 before. e.g. 0074</small>
+      <small class="text-muted">If Centre Number does not have 4 digits, put 0 before. e.g. 0074</small>
       @error('centre_number')
         <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>

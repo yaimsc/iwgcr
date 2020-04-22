@@ -23,7 +23,7 @@
       <thead>
         <tr>
           <th>Name</th>
-          <th>Number/ID</th>
+          <th>Number</th>
           <th>Country</th>
           <th>City</th>
           <th>Address</th>
