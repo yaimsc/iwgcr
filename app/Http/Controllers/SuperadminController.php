@@ -36,7 +36,7 @@ class SuperadminController extends Controller
         return view('pages.superadmin.centreData', [
             'centres' => DB::table('centres')->where('number', $number)->get(), 
             'contact_people' => DB::table('contact_people')->where('centre_number', $number)->get(), 
-            'doors' => DB::table('doors')->where('centre_number', $name)->get(),
+            'doors' => DB::table('doors')->where('centre_number', $number)->get(),
             'installers' => DB::table('installers')->where('centre_number', $number)->get(), 
             'sign_doors' => DB::table('sign_doors')->where('centre_number', $number)->get()
         ]);
