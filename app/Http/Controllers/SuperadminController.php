@@ -32,13 +32,13 @@ class SuperadminController extends Controller
         ]);
     }
 
-    public function centreData($name){
+    public function centreData($number){
         return view('pages.superadmin.centreData', [
-            'centres' => DB::table('centres')->where('name', $name)->get(), 
-            'contact_people' => DB::table('contact_people')->where('centre_name', $name)->get(), 
-            'doors' => DB::table('doors')->where('centre_name', $name)->get(),
-            'installers' => DB::table('installers')->where('centre_name', $name)->get(), 
-            'sign_doors' => DB::table('sign_doors')->where('centre_name', $name)->get()
+            'centres' => DB::table('centres')->where('number', $number)->get(), 
+            'contact_people' => DB::table('contact_people')->where('centre_number', $number)->get(), 
+            'doors' => DB::table('doors')->where('centre_number', $number)->get(),
+            'installers' => DB::table('installers')->where('centre_number', $number)->get(), 
+            'sign_doors' => DB::table('sign_doors')->where('centre_number', $number)->get()
         ]);
     }
 

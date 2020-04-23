@@ -144,22 +144,44 @@ tr:hover{
   margin-left: 20px;
 }
 
-.btn{
+.btn-active{
   background-color: #2294cb;
   display: inline-flex;
   align-items: center;
   justify-content: space-around;
-  letter-spacing: 1pt;
   margin-top: 25px;
   margin-left: 10px;
+  padding: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: bold;
   color: white;
+  border: 0px;
+  font-size: 10pt;
 }
 
-.botones{
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
+.btn-disabled{
+  background-color: rgba(153,153,153,0.2);
+  display: inline-flex;
   align-items: center;
+  justify-content: space-around;
+  margin-top: 25px;
+  margin-left: 10px;
+  padding: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: bold;
+  color:rgba(0,0,0,0.87);
+  border: 0px;
+  font-size: 10pt;
+}
+
+.btn-active:hover, .btn-disabled:hover{
+  cursor: pointer;
 }
 
 .search{
@@ -175,7 +197,7 @@ img{
   height: 50px;
 }
 
-.post{
+#post{
   visibility: hidden;
 }
 

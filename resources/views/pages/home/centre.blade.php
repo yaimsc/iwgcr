@@ -33,16 +33,26 @@
       <tbody>
         @foreach ($centres as $centre)
           <tr>
-            <td><a href="{{route('home.centreData', $centre->name)}}">{{$centre->name}}</a></td>
-            <td><a href="{{route('home.centreData', $centre->name)}}">{{$centre->number}}</a></td>
-            <td><a href="{{route('home.centreData', $centre->name)}}">{{$centre->country}}</a></td>
-            <td><a href="{{route('home.centreData', $centre->name)}}">{{$centre->city}}</a></td>
-            <td><a href="{{route('home.centreData', $centre->name)}}">{{$centre->address}}</a></td>
-            <td><a href="{{route('home.centreData', $centre->name)}}">{{$centre->created_at}}</a></td>
+            <td><a href="{{route('home.centreData', $centre->number)}}">{{$centre->name}}</a></td>
+            <td><a href="{{route('home.centreData', $centre->number)}}">{{$centre->number}}</a></td>
+            <td><a href="{{route('home.centreData', $centre->number)}}">{{$centre->country}}</a></td>
+            <td><a href="{{route('home.centreData', $centre->number)}}">{{$centre->city}}</a></td>
+            <td><a href="{{route('home.centreData', $centre->number)}}">{{$centre->address}}</a></td>
+            <td><a href="{{route('home.centreData', $centre->number)}}">{{$centre->created_at}}</a></td>
           </tr> 
         @endforeach
       </tbody>
     </table>
   </div>
+  <script>
+    $(document).ready(function() {
+    $(".table-row").click(function() {
+      var href = $(this).find("a").attr("href");
+        if(href) {
+            window.location = href;
+        }
+    });
+});
+  </script>
   
 @endsection
