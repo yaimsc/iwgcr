@@ -198,7 +198,7 @@ img{
 }
 
 #post{
-  visibility: hidden;
+  display:none;
 }
 
 .no-info{

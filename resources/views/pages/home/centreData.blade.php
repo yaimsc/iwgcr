@@ -89,7 +89,7 @@
     </div>
     <div id="post">
       <h5>Post-installation Sign-off Form</h5>
-      @if($installers->count() === 0 || $sign_doors->count() === 0)
+      @if($installers->count() == 0 || $sign_doors->count() == 0)
         <p class="no-info">There is no data. Post-Installation has not been done.</p>
       @else
         @foreach($installers as $installer)
