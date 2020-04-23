@@ -56,10 +56,14 @@
 
 
     function onclick(value){
-      value.onclick = function(){
-      modal.style.display = "block";
-      modalImg.src = this.src;
-      captionText.innerHTML = this.alt;
+      if(value == null){
+        return null;
+      }else{
+        value.onclick = function(){
+        modal.style.display = "block";
+        modalImg.src = this.src;
+        captionText.innerHTML = this.alt;
+        }
       }
     }
 

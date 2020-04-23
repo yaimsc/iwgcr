@@ -32,8 +32,11 @@
         </div> 
       </div>
       @endforeach
-      @foreach ($contact_people as $people)
       <p class="title2">Centre Staff Contact Information</p>
+      @if($contact_people->count() == 0)
+        <p class="no-info">There is no data</p>
+      @else
+      @foreach ($contact_people as $people)
         <div class="staff">
           <div><p class="bold">Name: </p><p>{{$people->name}}</p></div>
           <div>
@@ -48,44 +51,50 @@
               @endif
             </div>
             <div><p class="bold">Email: </p><p>{{$people->email}}</p></div>
-        </div>  
+        </div> 
       @endforeach
+      @endif 
+      <p class="title2">Communication Rooms Door Information</p>
+     
+      @if ($doors->count() == 0)
+      <p class="no-info">Thre is no data</p>
+      @else  
       @foreach ($doors as $door)
-      <p class="title2">Communication Rooms Door Information
-          <div class="photos">
-            <div class="img">
-              <p>Interior Photo</p>
-              <img src={{$door->interior_photo}} alt="Interior Photo" id="img01" />
-            </div>
-            <div class="img">
-              <p>Front Photo</p>
-              <img src={{$door->front_photo}} alt="Front Photo" id="img02"/>
-            </div>
-            <div class="img">
-              <p>Exterior Photo</p>
-              <img src={{$door->exterior_photo}} alt="Exterior Photo" id="img03"/>
-            </div>
-            <div class="img">
-              <p>IQ Placement Photo</p>
-              <img src={{$door->placement_photo}} alt="IQ Placement Photo" id="img04"/>
-            </div>
-            <div class="img">
-              <p>Optional IQ Placement Photo</p>
-              @if ($door->placement_photo_optional == null)
-                  <p>No Photo</p>
-              @else
-                <img src={{$door->placement_photo_optional}} alt="IQ Placement Photo (Optional)" id="img05"/>
-              @endif
-            </div>
+        <div class="photos">
+          <div class="img">
+            <p>Interior Photo</p>
+            <img src={{$door->interior_photo}} alt="Interior Photo" id="img01" />
           </div>
-          <div class="cylinder">
-            <div><p class="bold">Communication Room Door Name:</p><p> {{$door->door_name}}</p></div>
-            <div><p class="bold">Exterior Length:</p><p> {{$door->exterior_length.' '}} {{$door->type_length}}</p></div>
-            <div><p class="bold">Interior Length:</p><p> {{$door->interior_length.' '}} {{$door->type_length}}</p></div>
-            <div><p class="bold">Confirmation Distance from Knob's centre to Frame is OK:</p><p>{{$door->distance_knobs_frame_ok == 1 ? 'YES' : 'NO'}}</p></div>
-            <div><p class="bold">Does the General Manager want to receive from SALTO a quotation for equipping the whole center?:</p><p>{{$door->quotation == 1 ? 'YES' : 'NO'}}</p></div>
+          <div class="img">
+            <p>Front Photo</p>
+            <img src={{$door->front_photo}} alt="Front Photo" id="img02"/>
           </div>
+          <div class="img">
+            <p>Exterior Photo</p>
+            <img src={{$door->exterior_photo}} alt="Exterior Photo" id="img03"/>
+          </div>
+          <div class="img">
+            <p>IQ Placement Photo</p>
+            <img src={{$door->placement_photo}} alt="IQ Placement Photo" id="img04"/>
+          </div>
+          <div class="img">
+            <p>Optional IQ Placement Photo</p>
+            @if ($door->placement_photo_optional == null)
+                <p>No Photo</p>
+            @else
+              <img src={{$door->placement_photo_optional}} alt="IQ Placement Photo (Optional)" id="img05"/>
+            @endif
+          </div>
+        </div>
+        <div class="cylinder">
+          <div><p class="bold">Communication Room Door Name:</p><p> {{$door->door_name}}</p></div>
+          <div><p class="bold">Exterior Length:</p><p> {{$door->exterior_length.' '}} {{$door->type_length}}</p></div>
+          <div><p class="bold">Interior Length:</p><p> {{$door->interior_length.' '}} {{$door->type_length}}</p></div>
+          <div><p class="bold">Confirmation Distance from Knob's centre to Frame is OK:</p><p>{{$door->distance_knobs_frame_ok == 1 ? 'YES' : 'NO'}}</p></div>
+          <div><p class="bold">Does the General Manager want to receive from SALTO a quotation for equipping the whole center?:</p><p>{{$door->quotation == 1 ? 'YES' : 'NO'}}</p></div>
+        </div>
       @endforeach
+      @endif
     </div>
     <div id="post">
       <h5>Post-installation Sign-off Form</h5>
