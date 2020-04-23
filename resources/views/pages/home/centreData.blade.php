@@ -15,7 +15,7 @@
       <button class="btn-active" id="btn-pre">Pre-Installation Survey</button>
       <button class="btn-disabled" id="btn-post">Post-Installation Sign Off Form</button>
     </div>
-    <div id="pre">
+    <div class="pre">
       <h5>Pre-Installation Survey</h5>
       <p class="title2">Centre Information</p>
       <div class="centre_info">
@@ -78,7 +78,6 @@
               @endif
             </div>
           </div>
-          
           <div class="cylinder">
             <div><p class="bold">Communication Room Door Name:</p><p> {{$door->door_name}}</p></div>
             <div><p class="bold">Exterior Length:</p><p> {{$door->exterior_length.' '}} {{$door->type_length}}</p></div>
@@ -88,48 +87,52 @@
           </div>
       @endforeach
     </div>
-    <div id="post">
+    <div class="post">
       <h5>Post-installation Sign-off Form</h5>
-      @foreach($installers as $installer)
-      <p class="title2">Installer Information</p>
-      <div class="installer_info">
-        <div class="installer">
-          <div><p class="bold">Name:</p><p> {{$installer->name}}</p></div>
-          <div><p class="bold">Email:</p><p> {{$installer->email}}</p></div>
-          <div><p class="bold">Telephone:</p><p> {{$installer->telephonecode.' '}}{{$installer->telephone}}</p></div>
+      @if($installers->count() == 0 || $sign_doors->count() == 0)
+        <p class="no-info">There is no data. Post-Installation has not been done.</p>
+      @else
+        @foreach($installers as $installer)
+        <p class="title2">Installer Information</p>
+        <div class="installer_info">
+          <div class="installer">
+            <div><p class="bold">Name:</p><p> {{$installer->name}}</p></div>
+            <div><p class="bold">Email:</p><p> {{$installer->email}}</p></div>
+            <div><p class="bold">Telephone:</p><p> {{$installer->telephonecode.' '}}{{$installer->telephone}}</p></div>
+          </div>
+          <div class="date">
+            <p>{{$installer->created_at}}</p>
+          </div>
         </div>
-        <div class="date">
-          <p>{{$installer->created_at}}</p>
+        @endforeach
+        @foreach($sign_doors as $sign_door)
+        <p class="title2">Sign-off Information</p>
+        <div class="photos">
+          <div class="img">
+            <p>Cylinder Interior Photo</p>
+            <img src={{$sign_door->interior_photo}} alt="Interior Photo" id="img06" />
+          </div>
+          <div class="img">
+            <p>Cylinder Exterior Photo</p>
+            <img src={{$sign_door->exterior_photo}} alt="Exterior Photo" id="img07"/>
+          </div>
+          <div class="img">
+            <p>IQ Installation Photo</p>
+            <img src={{$sign_door->installation_photo}} alt="IQ Installation Photo" id="img08"/>
+          </div>
+          <div class="img">
+            <p>IQ + Cylinder Photo</p>
+            <img src={{$sign_door->iq_cylinder_photo}} alt="IQ Cylinder Photo" id="img09"/>
+          </div>
         </div>
-      </div>
-      @endforeach
-      @foreach($sign_doors as $sign_door)
-      <p class="title2">Sign-off Information</p>
-      <div class="photos">
-        <div class="img">
-          <p>Cylinder Interior Photo</p>
-          <img src={{$sign_door->interior_photo}} alt="Interior Photo" id="img06" />
+        <div class="checkboxes">
+          <div><p class="bold">IQ shows purple light: </p><i class="fas fa-check"></i><p></p></div>
+          <div><p class="bold">IQ Mac adress has been whitelisted: </p><i class="fas fa-check"></i><p></p></div>
+          <div><p class="bold">Centre has activated Titan: </p><i class="fas fa-check"></i><p></p></div>
+          <div><p class="bold">Maintenance kit and tags have been given to centre staff: </p><i class="fas fa-check"></i><p></p></div>
         </div>
-        <div class="img">
-          <p>Cylinder Exterior Photo</p>
-          <img src={{$sign_door->exterior_photo}} alt="Exterior Photo" id="img07"/>
-        </div>
-        <div class="img">
-          <p>IQ Installation Photo</p>
-          <img src={{$sign_door->installation_photo}} alt="IQ Installation Photo" id="img08"/>
-        </div>
-        <div class="img">
-          <p>IQ + Cylinder Photo</p>
-          <img src={{$sign_door->iq_cylinder_photo}} alt="IQ Cylinder Photo" id="img09"/>
-        </div>
-      </div>
-      <div class="checkboxes">
-        <div><p class="bold">IQ shows purple light: </p><i class="fas fa-check"></i><p></p></div>
-        <div><p class="bold">IQ Mac adress has been whitelisted: </p><i class="fas fa-check"></i><p></p></div>
-        <div><p class="bold">Centre has activated Titan: </p><i class="fas fa-check"></i><p></p></div>
-        <div><p class="bold">Maintenance kit and tags have been given to centre staff: </p><i class="fas fa-check"></i><p></p></div>
-      </div>
-      @endforeach
+        @endforeach
+      @endif
     </div>
   </div>
 @endsection
