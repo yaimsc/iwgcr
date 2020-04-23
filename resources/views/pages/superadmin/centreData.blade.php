@@ -15,7 +15,7 @@
       <button class="btn-active" id="btn-pre">Pre-Installation Survey</button>
       <button class="btn-disabled" id="btn-post">Post-Installation Sign Off Form</button>
     </div>
-    <div class="pre">
+    <div id="pre">
       <h5>Pre-Installation Survey</h5>
       <p class="title2">Centre Information</p>
       <div class="centre_info">
@@ -87,7 +87,7 @@
           </div>
       @endforeach
     </div>
-    <div class="post">
+    <div id="post">
       <h5>Post-installation Sign-off Form</h5>
       @if($installers->count() == 0 || $sign_doors->count() == 0)
         <p class="no-info">There is no data. Post-Installation has not been done.</p>
