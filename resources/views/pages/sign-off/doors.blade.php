@@ -20,7 +20,7 @@
       </select> --}}
       <div class="card">
         <label class="title">Cylinder Interior Photo</label>
-        <input class="form-control @error('interior_photo') is-invalid @enderror"  type="file" name="interior_photo" value="{{ old('interior_photo') }}" required/>
+        <input class="form-control @error('interior_photo') is-invalid @enderror" type="file" name="interior_photo" value="{{ old('interior_photo') }}" required/>
         @error('interior_photo')
           <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>

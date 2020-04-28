@@ -83,11 +83,11 @@ class DoorController extends Controller
     {
         
         $this->validate($request, [
-            'interior_photo' => 'required|max:10000', 
-            'front_photo' => 'required|max:10000',
-            'exterior_photo' => 'required|max:10000', 
-            'placement_photo' => 'required|max:10000', 
-            'placement_photo_optional' => 'max:10000|nullable',
+            'interior_photo' => 'required|mimes:jpeg,png,jpg,gif,heic,hevc,tiff,heif|max:10000', 
+            'front_photo' => 'required|mimes:jpeg,png,jpg,gif,heic,hevc,tiff,heif|max:10000',
+            'exterior_photo' => 'required|mimes:jpeg,png,jpg,gif,heic,hevc,tiff,heif|max:10000', 
+            'placement_photo' => 'required|mimes:jpeg,png,jpg,gif,heic,hevc,tiff,heif|max:10000', 
+            'placement_photo_optional' => 'mimes:jpeg,png,jpg,gif,heic,hevc,tiff,heif|max:10000|nullable',
             'door_name' => 'required|min:2|max:255|string', 
             'exterior_length' => 'required', 
             'interior_length' => 'required',

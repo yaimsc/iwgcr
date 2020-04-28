@@ -78,10 +78,10 @@ class SignOffController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'interior_photo' => 'required|max:10000', 
-            'exterior_photo' => 'required|max:10000', 
-            'installation_photo' => 'required|max:10000', 
-            'iq_cylinder_photo' => 'required|max:10000',
+            'interior_photo' => 'required|mimes:jpeg,png,jpg,gif,heic,hevc,heif|max:10000', 
+            'exterior_photo' => 'required|mimes:jpeg,png,jpg,gif,heic,hevc,hief|max:10000', 
+            'installation_photo' => 'required|mimes:jpeg,png,jpg,gif,heic,hief|max:10000', 
+            'iq_cylinder_photo' => 'required|mimes:jpeg,png,jpg,gif,heic,hief|max:10000',
             'purple_light' => 'required', 
             'mac_whitelisted' => 'required', 
             'centre_activated_titan' => 'required',
