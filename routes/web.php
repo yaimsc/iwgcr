@@ -40,27 +40,9 @@ Route::get('/view/{file}', function($file){
 	return response()->file($path);
 });
 
-Route::get('admin', 'AdminController@index')->name('admin');
-// Authentication Routes...
-Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
-Route::post('login', 'Auth\LoginController@login');
-Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 
-// Registration Routes...
-Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
-Route::post('register', 'Auth\RegisterController@register');
 
-// Password Reset Routes...
-Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
-Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
-Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
-Route::post('password/reset', 'Auth\ResetPasswordController@reset');
-// Verification Routes
-Route::get('email/verify', 'Auth\VerificationController@show')->name('verification.notice');
-Route::get('email/verify/{id}/{hash}', 'Auth\VerificationController@verify')->name('verification.verify');
-Route::post('email/resend', 'Auth\VerificationController@resend')->name('verification.resend');
-
-// ---- FORM ------
+// ---- FORM ------ //
 
 Route::resource('centre', 'CentreController'); 	//CRUD
 
@@ -68,7 +50,7 @@ Route::resource('contactPerson', 'ContactPersonController');	//CRUD
 
 Route::resource('door', 'DoorController'); //CRUD
 
-// --- SIGN OFF FORM -------
+// --- SIGN OFF FORM ------- //
 
 //installer
 Route::resource('installer', 'InstallerController'); //CRUD
@@ -76,20 +58,44 @@ Route::resource('installer', 'InstallerController'); //CRUD
 //Sign-Off
 Route::resource('sign-off', 'SignOffController');
 
-// --- LOCAL HOME BU USER -----
 
-Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
-Route::get('/home/centres', 'HomeController@centres')->name('home.centres')->middleware('auth');
-Route::get('/home/centreData/{number}', 'HomeController@centreData')->name('home.centreData')->middleware('auth');
-Route::get('/home/doors', 'HomeController@doors')->name('home.doors')->middleware('auth');
-Route::get('/home/contacts', 'HomeController@contactPeople')->name('home.contacts')->middleware('auth'); 
+// ---- FILTERS ----- //
 
-
-// ---- FILTERS -----
 Route::get('/centres/search', 'SearchController@centres')->name('centres.search');
 Route::get('/contacts/search', 'SearchController@contactPeople')->name('contacts.search');
 Route::get('/doors/search', 'SearchController@doors')->name('doors.search'); 
 Route::get('/users/search', 'SearchController@users')->name('users.search');
+
+
+// -------- ADMIN PART --------- //
+
+Route::get('admin', 'AdminController@index')->name('admin')->middleware('ipcheck');
+// Authentication Routes...
+Route::get('login', 'Auth\LoginController@showLoginForm')->name('login')->middleware('ipcheck');
+Route::post('login', 'Auth\LoginController@login')->middleware('ipcheck');
+Route::post('logout', 'Auth\LoginController@logout')->name('logout')->middleware('ipcheck');
+
+// Registration Routes...
+Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register')->middleware('ipcheck');
+Route::post('register', 'Auth\RegisterController@register')->middleware('ipcheck');
+
+// Password Reset Routes...
+Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request')->middleware('ipcheck');
+Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email')->middleware('ipcheck');
+Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset')->middleware('ipcheck');
+Route::post('password/reset', 'Auth\ResetPasswordController@reset')->middleware('ipcheck');
+// Verification Routes
+Route::get('email/verify', 'Auth\VerificationController@show')->name('verification.notice')->middleware('ipcheck');
+Route::get('email/verify/{id}/{hash}', 'Auth\VerificationController@verify')->name('verification.verify')->middleware('ipcheck');
+Route::post('email/resend', 'Auth\VerificationController@resend')->name('verification.resend')->middleware('ipcheck');
+
+// --- LOCAL HOME BU USER -----
+
+Route::get('/home', 'HomeController@index')->name('home')->middleware('auth', 'ipcheck');
+Route::get('/home/centres', 'HomeController@centres')->name('home.centres')->middleware('auth', 'ipcheck');
+Route::get('/home/centreData/{number}', 'HomeController@centreData')->name('home.centreData')->middleware('auth', 'ipcheck');
+Route::get('/home/doors', 'HomeController@doors')->name('home.doors')->middleware('auth', 'ipcheck');
+Route::get('/home/contacts', 'HomeController@contactPeople')->name('home.contacts')->middleware('auth', 'ipcheck'); 
 
 
 // ----- SUPER ADMIN ------
