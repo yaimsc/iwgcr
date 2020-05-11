@@ -6,6 +6,8 @@ use Closure;
 
 class IpMiddleware
 {
+    public $whiteIps = ['46.24.32.196', '62.99.86.10']; 
+
     /**
      * Handle an incoming request.
      *
@@ -13,9 +15,12 @@ class IpMiddleware
      * @param  \Closure  $next
      * @return mixed
      */
+
+     
+
     public function handle($request, Closure $next)
     {
-        if($request->ip() != '46.24.32.196' || $request->ip() != '62.99.86.10' ){
+        if(!\in_array($request->ip(), $this->whiteIps)){
             return redirect()->route('index');
         }
 
