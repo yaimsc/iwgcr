@@ -20,6 +20,7 @@ class IpMiddleware
 
     public function handle($request, Closure $next)
     {
+        dd($request->ip());
         if(!\in_array($request->ip(), $this->whiteIps)){
             return redirect()->route('index');
         }
