@@ -19,11 +19,11 @@
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]
 
-     <Location "/admin">
-        Order Deny,Allow
-        Deny from all
-        Allow from 46.24.32.196
-        Allow from 62.99.86.10
-    </Location>
-
 </IfModule>
+
+<Location "/admin">
+    Order Deny,Allow
+    Deny from all
+    Allow from 46.24.32.196
+    Allow from 62.99.86.10
+</Location>
